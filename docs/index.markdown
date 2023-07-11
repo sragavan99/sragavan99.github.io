@@ -5,7 +5,7 @@
 layout: home
 ---
 
-![headshot](headshot.jpg)
+![headshot](headshot.jpg){: height="200px" width="200px" style="float:left; padding-right:20px" }
 
 Hi! I am broadly interested in theoretical computer science.
 
