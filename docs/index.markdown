@@ -12,3 +12,18 @@ Hi! I am broadly interested in theoretical computer science.
 I completed my undergraduate degree in mathematics at Princeton University in 2021. See my [CV](CV.markdown) for more information.
 
 Email: seyoon dot ragavan at gmail dot com
+
+<br/><br/><br/>
+# Publications
+
+**On the cut-query complexity of approximating max-cut** [[arXiv]](https://arxiv.org/abs/2211.04506)<br/>
+with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
+Preprint, 2022<br/>
+
+**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[arXiv]](https://arxiv.org/abs/2009.00927) [[JST]](https://ems.press/journals/jst/articles/7525210)<br/>
+with Ryan Arbon, Mohammed Mannan, and [Michael Psenka](https://www.michaelpsenka.io/)<br/>
+Journal of Spectral Theory, 2022<br/>
+
+**Morphology-Aware Meta-Embeddings for Tamil** [[NAACL]](https://aclanthology.org/2021.naacl-srw.13/)<br/>
+with Arjun Sai Krishnan<br/>
+NAACL Student Research Workshop, 2021<br/>
