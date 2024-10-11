@@ -7,11 +7,11 @@ layout: home
 
 ![headshot](assets/headshot.jpg){: height="200px" width="200px" style="float:left; padding-right:20px" }
 
-Hi! I am broadly interested in theoretical computer science.
+Hi! I am a second-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
 
-I completed my undergraduate degree in mathematics at Princeton University in 2021. See my [CV](CV.markdown) for more information.
+Previously, I worked as a quantitative research analyst at Citadel Securities, and before that I completed my undergraduate degree in mathematics at Princeton University in 2021. See my [CV](CV.markdown) for more information.
 
-Email: seyoon dot ragavan at gmail dot com
+Email: first initial last name at mit dot edu
 
 <br/><br/><br/>
 # Publications
