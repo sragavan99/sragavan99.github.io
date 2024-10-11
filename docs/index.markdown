@@ -9,7 +9,7 @@ layout: home
 
 Hi! I am a second-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
 
-Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/).
+Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/). See my [CV](CV.markdown) for more information.
 
 Email: first initial last name at mit dot edu
 
@@ -42,3 +42,17 @@ NAACL Student Research Workshop, 2021<br/>
 # Manuscripts
 
 **Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
+
+<br/>
+# Talks
+
+**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants**
+- MIT CIS Seminar (September 2024)
+
+**Space-Efficient and Noise-Robust Quantum Factoring**
+- CRYPTO 2024 (August 2024)
+- IBM Quantum Seminar (November 2023)
+- Yale Quantum Institute (November 2023)
+
+**The Cut-Query Complexity of Approximating Max-Cut**
+- ICALP 2024 (July 2024)
