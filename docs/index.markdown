@@ -5,25 +5,40 @@
 layout: home
 ---
 
-![headshot](assets/headshot.jpg){: height="200px" width="200px" style="float:left; padding-right:20px" }
+![headshot](assets/headshot.jpg){: height="200px" width="230px" style="float:left; padding-right:20px" }
 
 Hi! I am a second-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
 
-Previously, I worked as a quantitative research analyst at Citadel Securities, and before that I completed my undergraduate degree in mathematics at Princeton University in 2021. See my [CV](CV.markdown) for more information.
+Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/).
 
 Email: first initial last name at mit dot edu
 
-<br/><br/><br/>
+<br/><br/>
 # Publications
 
-**On the cut-query complexity of approximating max-cut** [[arXiv]](https://arxiv.org/abs/2211.04506)<br/>
-with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
-Preprint, 2022<br/>
+**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
+with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+TCC 2024<br/>
 
-**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[arXiv]](https://arxiv.org/abs/2009.00927) [[JST]](https://ems.press/journals/jst/articles/7525210)<br/>
+**Space-Efficient and Noise-Robust Quantum Factoring** [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4) [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501)<br/>
+with [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+CRYPTO 2024<br/>
+**Best Paper Award,** invited to the Journal of Cryptology<br/>
+Mentioned in [Quanta Magazine](https://www.quantamagazine.org/thirty-years-later-a-speed-boost-for-quantum-factoring-20231017/) and [MIT News](https://news.mit.edu/2024/toward-code-breaking-quantum-computer-0823)<br/>
+
+**On the cut-query complexity of approximating max-cut** [[ICALP]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.115) [[arXiv]](https://arxiv.org/abs/2211.04506)<br/>
+with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
+ICALP 2024<br/>
+
+**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[JST]](https://ems.press/journals/jst/articles/7525210) [[arXiv]](https://arxiv.org/abs/2009.00927) <br/>
 with Ryan Arbon, Mohammed Mannan, and [Michael Psenka](https://www.michaelpsenka.io/)<br/>
 Journal of Spectral Theory, 2022<br/>
 
 **Morphology-Aware Meta-Embeddings for Tamil** [[NAACL]](https://aclanthology.org/2021.naacl-srw.13/)<br/>
 with Arjun Sai Krishnan<br/>
 NAACL Student Research Workshop, 2021<br/>
+
+<br/>
+# Manuscripts
+
+**Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
