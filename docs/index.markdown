@@ -41,6 +41,9 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
+**Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
+with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+
 **Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
 
 <br/>
