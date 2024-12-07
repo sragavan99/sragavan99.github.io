@@ -16,7 +16,7 @@ Email: first initial last name at mit dot edu
 <br/><br/>
 # Publications
 
-**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
+**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1) [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
 with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 TCC 2024<br/>
 
