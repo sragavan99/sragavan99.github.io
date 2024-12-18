@@ -41,7 +41,7 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space**<br/>
+**The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
 
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
