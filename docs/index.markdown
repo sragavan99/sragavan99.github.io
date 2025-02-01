@@ -54,7 +54,7 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 # Talks
 
 **Factoring with a Quantum Computer: The State of the Art**
-- MIT Schwarzman College of Computing Cryptography and Security Day (February 2025)
+- MIT Schwarzman College of Computing Cryptography and Security Day (January 2025)
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants**
 - MIT CIS Seminar (September 2024)
