@@ -16,6 +16,10 @@ Email: first initial last name at mit dot edu
 <br/><br/>
 # Publications
 
+**The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
+with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
+STOC 2025<br/>
+
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1) [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
 with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 TCC 2024<br/>
@@ -41,9 +45,6 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
-with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
-
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
 with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 
@@ -51,6 +52,9 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 
 <br/>
 # Talks
+
+**Factoring with a Quantum Computer: The State of the Art**
+- MIT Schwarzman College of Computing Cryptography and Security Day (February 2025)
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants**
 - MIT CIS Seminar (September 2024)
