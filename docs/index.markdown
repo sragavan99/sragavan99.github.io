@@ -54,11 +54,12 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 # Talks
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
+- Simons Institute Quantum Colloquium (March 2025, [video](https://www.youtube.com/watch?v=TA32tEow2Ug&list=PLgKuh-lKre11rEOFaO62MJCzBXfjZSDqA&index=1&ab_channel=SimonsInstitute))
 - MIT Quantum Information Seminar (March 2025)
 - CMU Theory Seminar (March 2025, [video](https://mit.zoom.us/rec/share/mg0bE-AGMc6v7SRbSh1nKHFOIAcQn_sAZ4rFrOOXCAtn2Era11hzJYTaMViQyO3x.MdFfzGVc1jD5S9aj?startTime=1741962985000))
 
 **Cloning Games, Black Holes and Cryptography**
-- CMU CyLab Crypto Seminar (March 2025)
+- CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
 **Factoring with a Quantum Computer: The State of the Art**
 - MIT Schwarzman College of Computing Cryptography and Security Day (January 2025, [video](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing))
