@@ -54,6 +54,7 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 # Talks
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
+- Ruhr University Bochum Quantum Information Workshop (April 2025)
 - Simons Institute Quantum Colloquium (March 2025, [video](https://www.youtube.com/watch?v=TA32tEow2Ug&list=PLgKuh-lKre11rEOFaO62MJCzBXfjZSDqA&index=1&ab_channel=SimonsInstitute))
 - MIT Quantum Information Seminar (March 2025)
 - CMU Theory Seminar (March 2025)
