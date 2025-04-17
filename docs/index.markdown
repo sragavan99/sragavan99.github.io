@@ -63,6 +63,7 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 - CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
 **Factoring with a Quantum Computer: The State of the Art**
+- QuEra Computing (April 2025, with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk)
 - MIT Schwarzman College of Computing Cryptography and Security Day (January 2025, [video](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing))
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants**
