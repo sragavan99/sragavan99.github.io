@@ -19,6 +19,7 @@ Email: first initial last name at mit dot edu
 **The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
 STOC 2025<br/>
+Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2025/06/07/beyond-cryptography-the-use-of-factorization-to-evaluate-the-power-of-a-quantum-computer/)<br/>
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1) [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
 with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
