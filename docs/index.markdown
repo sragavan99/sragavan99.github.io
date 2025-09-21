@@ -7,7 +7,7 @@ layout: home
 
 ![headshot](assets/headshot.jpg){: height="200px" width="230px" style="float:left; padding-right:20px" }
 
-Hi! I am a second-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
+Hi! I am a third-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
 
 Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/). See my [CV](CV.markdown) for more information.
 
@@ -55,6 +55,8 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 # Talks
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
+- Tufts Quantum Computing Seminar (September 2025)
+- UNSW Number Theory Days (August 2025)
 - Ruhr University Bochum Quantum Information Workshop (April 2025)
 - Simons Institute Quantum Colloquium (March 2025, [video](https://www.youtube.com/watch?v=TA32tEow2Ug&list=PLgKuh-lKre11rEOFaO62MJCzBXfjZSDqA&index=1&ab_channel=SimonsInstitute))
 - MIT Quantum Information Seminar (March 2025)
@@ -64,6 +66,8 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 - CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
 **Factoring with a Quantum Computer: The State of the Art**
+- University of Technology Sydney (August 2025)
+- University of Sydney (August 2025)
 - QuEra Computing (April 2025, with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk)
 - MIT Schwarzman College of Computing Cryptography and Security Day (January 2025, [video](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing))
 
@@ -77,3 +81,10 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 
 **The Cut-Query Complexity of Approximating Max-Cut**
 - ICALP 2024 (July 2024)
+
+<br/>
+# Teaching and Service
+
+- Program Committee Member, [QIP 2026](https://qip2026.lu.lv/)
+- Teaching Assistant, 6.1200 Mathematics for Computer Science (MIT, Fall 2025)
+- Teaching Assistant, COS 445 Economics and Computing (Princeton, Spring 2019)
