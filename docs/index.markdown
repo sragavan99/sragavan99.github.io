@@ -46,6 +46,9 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 ## Manuscripts
 
+**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887)<br/>
+with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
+
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
 with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 
