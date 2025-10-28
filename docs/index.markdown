@@ -67,6 +67,7 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 
 **Cloning Games, Black Holes and Cryptography**
 - CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
+- Kyoto University Quantum Cryptography Workshop (October 2025, [video](https://www2.yukawa.kyoto-u.ac.jp/~tomoyuki.morimae/KyotoQcrypt2/Ragavan.mp4))
 
 **Factoring with a Quantum Computer: The State of the Art**
 - University of Technology Sydney (August 2025)
