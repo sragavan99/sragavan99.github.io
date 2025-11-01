@@ -46,6 +46,9 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 ## Manuscripts
 
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008)<br/>
+with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
+
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
 
@@ -56,6 +59,9 @@ with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](ht
 
 <br/>
 # Talks
+
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space**
+- MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
 - Tufts Quantum Computing Seminar (September 2025)
