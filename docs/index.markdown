@@ -16,9 +16,17 @@ Email: first initial last name at mit dot edu
 <br/><br/>
 # Publications
 
+**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
+with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
+QIP 2026<br/>
+
+**Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
+with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+QIP 2026<br/>
+
 **The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[STOC]](https://dl.acm.org/doi/10.1145/3717823.3718273) [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
-STOC 2025<br/>
+STOC 2025, QIP 2026<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2025/06/07/beyond-cryptography-the-use-of-factorization-to-evaluate-the-power-of-a-quantum-computer/)<br/>
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1) [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
@@ -48,12 +56,6 @@ NAACL Student Research Workshop, 2021<br/>
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
 with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
-
-**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
-with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
-
-**Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
-with [Alex Poremba](https://www.mit.edu/~poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 
 **Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
 
