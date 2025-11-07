@@ -35,7 +35,7 @@ Mentioned in [Quanta Magazine](https://www.quantamagazine.org/thirty-years-later
 with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
 ICALP 2024<br/>
 
-**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[JST]](https://ems.press/journals/jst/articles/7525210) [[arXiv]](https://arxiv.org/abs/2009.00927) <br/>
+**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[JST]](https://ems.press/journals/jst/articles/7525210) [[arXiv]](https://arxiv.org/abs/2009.00927) [[code]](https://github.com/sragavan99/triangle-ppw-inequality) <br/>
 with Ryan Arbon, Mohammed Mannan, and [Michael Psenka](https://www.michaelpsenka.io/)<br/>
 Journal of Spectral Theory, 2022<br/>
 
@@ -46,10 +46,10 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 ## Manuscripts
 
-**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008)<br/>
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
 with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
 
-**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887)<br/>
+**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
 
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
