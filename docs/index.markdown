@@ -22,7 +22,7 @@ QIP 2026<br/>
 
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
 with [Alex Poremba](https://scc1.bu.edu/poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
-QIP 2026<br/>
+ITCS 2026, QIP 2026<br/>
 
 **The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[STOC]](https://dl.acm.org/doi/10.1145/3717823.3718273) [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
