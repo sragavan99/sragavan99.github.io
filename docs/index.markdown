@@ -13,6 +13,10 @@ Previously, I worked as a quantitative research analyst at Citadel Securities. B
 
 Email: first initial last name at mit dot edu
 
+<br/>
+## Recent News
+- I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
+
 <br/><br/>
 # Publications
 
@@ -63,6 +67,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
 # Talks
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space**
+- MIT CIS Seminar (November 2025, with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/))
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
