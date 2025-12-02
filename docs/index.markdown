@@ -15,9 +15,10 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I are organising a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home)!
 - I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
-<br/><br/>
+<br/>
 # Publications
 
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
@@ -79,8 +80,8 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
 - CMU Theory Seminar (March 2025)
 
 **Cloning Games, Black Holes and Cryptography**
-- CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 - Kyoto University Quantum Cryptography Workshop (October 2025, [video](https://www2.yukawa.kyoto-u.ac.jp/~tomoyuki.morimae/KyotoQcrypt2/Ragavan.mp4))
+- CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
 **Factoring with a Quantum Computer: The State of the Art**
 - University of Technology Sydney (August 2025)
