@@ -11,7 +11,7 @@ Hi! I am a third-year PhD student at MIT, where I am very fortunate to be advise
 
 Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/). See my [CV](CV.markdown) for more information.
 
-If you are interested in learning about quantum algorithms, [Sid Jain](https://sidjain.me/) and I gave an introductory tutorial for a [workshop](https://sites.google.com/view/quantumfocs2025/home) at FOCS 2025. We start from classic ideas underlying Shor's factoring algorithm and Grover's search algorithm, and outline how principles from these have been extended to yield new quantum algorithms in recent years. Slides are available [here](focs25-workshop-tutorial.markdown)!
+If you are interested in learning about quantum algorithms, [Sid Jain](https://sidjain.me/) and I gave an introductory tutorial for a [workshop](https://sites.google.com/view/quantumfocs2025/home) at FOCS 2025. We start from classic ideas underlying Shor's factoring algorithm and Grover's search algorithm, and outline how principles from these have been extended to yield new quantum algorithms in recent years. Slides are available [here](focs25-workshop-tutorial.pdf)!
 
 Email: first initial last name at mit dot edu
 
@@ -69,7 +69,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
 <br/>
 # Talks
 
-**Quantum Algorithms, Old and New** [[slides]](focs25-workshop-tutorial.markdown)
+**Quantum Algorithms, Old and New** [[slides]](focs25-workshop-tutorial.pdf)
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space**
