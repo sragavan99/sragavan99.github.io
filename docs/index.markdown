@@ -39,6 +39,7 @@ Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2025/06
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1) [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
 with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 TCC 2024<br/>
+Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2026/01/15/constructing-indistinguishability-obfuscation-schemes-in-a-hardness-rich-world/)<br/>
 
 **Space-Efficient and Noise-Robust Quantum Factoring** [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4) [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501)<br/>
 with [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
