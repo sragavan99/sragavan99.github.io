@@ -17,7 +17,7 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I are organising a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home)!
+- [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home)!
 - I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
 <br/>
@@ -27,31 +27,31 @@ Email: first initial last name at mit dot edu
 with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
 QIP 2026<br/>
 
-**Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826)<br/>
+**Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826) [[ITCS]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.109) <br/>
 with [Alex Poremba](https://scc1.bu.edu/poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 ITCS 2026, QIP 2026<br/>
 
-**The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[STOC]](https://dl.acm.org/doi/10.1145/3717823.3718273) [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034)<br/>
+**The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034) [[STOC]](https://dl.acm.org/doi/10.1145/3717823.3718273)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
 STOC 2025, QIP 2026<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2025/06/07/beyond-cryptography-the-use-of-factorization-to-evaluate-the-power-of-a-quantum-computer/)<br/>
 
-**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1) [[ePrint]](https://eprint.iacr.org/2024/856)<br/>
+**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[ePrint]](https://eprint.iacr.org/2024/856) [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1)<br/>
 with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 TCC 2024<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2026/01/15/constructing-indistinguishability-obfuscation-schemes-in-a-hardness-rich-world/)<br/>
 
-**Space-Efficient and Noise-Robust Quantum Factoring** [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4) [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501)<br/>
+**Space-Efficient and Noise-Robust Quantum Factoring** [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501) [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4)<br/>
 with [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 CRYPTO 2024<br/>
 **Best Paper Award,** invited to the Journal of Cryptology<br/>
 Mentioned in [Quanta Magazine](https://www.quantamagazine.org/thirty-years-later-a-speed-boost-for-quantum-factoring-20231017/) and [MIT News](https://news.mit.edu/2024/toward-code-breaking-quantum-computer-0823)<br/>
 
-**On the cut-query complexity of approximating max-cut** [[ICALP]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.115) [[arXiv]](https://arxiv.org/abs/2211.04506)<br/>
+**On the cut-query complexity of approximating max-cut** [[arXiv]](https://arxiv.org/abs/2211.04506) [[ICALP]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.115)<br/>
 with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
 ICALP 2024<br/>
 
-**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[JST]](https://ems.press/journals/jst/articles/7525210) [[arXiv]](https://arxiv.org/abs/2009.00927) [[code]](https://github.com/sragavan99/triangle-ppw-inequality) <br/>
+**A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[arXiv]](https://arxiv.org/abs/2009.00927) [[JST]](https://ems.press/journals/jst/articles/7525210) [[code]](https://github.com/sragavan99/triangle-ppw-inequality) <br/>
 with Ryan Arbon, Mohammed Mannan, and [Michael Psenka](https://www.michaelpsenka.io/)<br/>
 Journal of Spectral Theory, 2022<br/>
 
