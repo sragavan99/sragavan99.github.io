@@ -79,7 +79,7 @@ NAACL Student Research Workshop, 2021<br/>
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
-- QIP 2026 (January 2026, with Katherine Van Kirk, [slides here](slides/qip26-jacobi.pdf))
+- QIP 2026 (January 2026, with Katherine Van Kirk, [slides](slides/qip26-jacobi.pdf))
 - Tufts Quantum Computing Seminar (September 2025)
 - UNSW Number Theory Days (August 2025)
 - Ruhr University Bochum Quantum Information Workshop (April 2025)
