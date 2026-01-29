@@ -23,9 +23,13 @@ Email: first initial last name at mit dot edu
 <br/>
 # Publications
 
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
+with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
+Eurocrypt 2026<br/>
+
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
 with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
-QIP 2026<br/>
+Eurocrypt 2026, QIP 2026<br/>
 
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826) [[ITCS]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.109) <br/>
 with [Alex Poremba](https://scc1.bu.edu/poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
@@ -62,15 +66,12 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 ## Manuscripts
 
-**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
-with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
-
 **Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
 
 <br/>
 # Talks
 
-**Quantum Algorithms, Old and New** [[slides]](focs25-workshop-tutorial.pdf)
+**Quantum Algorithms, Old and New** [[slides]](slides/focs25-workshop-tutorial.pdf)
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space**
@@ -78,6 +79,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
+- QIP 2026 (January 2026, with Katherine Van Kirk, [slides here](slides/qip26-jacobi.pdf))
 - Tufts Quantum Computing Seminar (September 2025)
 - UNSW Number Theory Days (August 2025)
 - Ruhr University Bochum Quantum Information Workshop (April 2025)
@@ -86,6 +88,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
 - CMU Theory Seminar (March 2025)
 
 **Cloning Games, Black Holes and Cryptography**
+- QIP 2026 (January 2026)
 - Kyoto University Quantum Cryptography Workshop (October 2025, [video](https://www2.yukawa.kyoto-u.ac.jp/~tomoyuki.morimae/KyotoQcrypt2/Ragavan.mp4))
 - CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
