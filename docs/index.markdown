@@ -88,7 +88,7 @@ NAACL Student Research Workshop, 2021<br/>
 - CMU Theory Seminar (March 2025)
 
 **Cloning Games, Black Holes and Cryptography**
-- QIP 2026 (January 2026)
+- QIP 2026 (January 2026, [slides](slides/qip26-cloning.pdf))
 - Kyoto University Quantum Cryptography Workshop (October 2025, [video](https://www2.yukawa.kyoto-u.ac.jp/~tomoyuki.morimae/KyotoQcrypt2/Ragavan.mp4))
 - CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
