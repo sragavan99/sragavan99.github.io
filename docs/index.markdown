@@ -45,11 +45,14 @@ with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://p
 TCC 2024<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2026/01/15/constructing-indistinguishability-obfuscation-schemes-in-a-hardness-rich-world/)<br/>
 
-**Space-Efficient and Noise-Robust Quantum Factoring** [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501) [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4)<br/>
+**Space-Efficient and Noise-Robust Quantum Factoring** [[Journal of Cryptology]](https://rdcu.be/e2mnc)<br/>
 with [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
-CRYPTO 2024<br/>
-**Best Paper Award,** invited to the Journal of Cryptology<br/>
-Mentioned in [Quanta Magazine](https://www.quantamagazine.org/thirty-years-later-a-speed-boost-for-quantum-factoring-20231017/) and [MIT News](https://news.mit.edu/2024/toward-code-breaking-quantum-computer-0823)<br/>
+Journal of Cryptology, merge of the following two papers:<br/>
+- **Space-Efficient and Noise-Robust Quantum Factoring** [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501) [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4)<br/>
+  CRYPTO 2024<br/>
+  **Best Paper Award**<br/>
+  Mentioned in [Quanta Magazine](https://www.quantamagazine.org/thirty-years-later-a-speed-boost-for-quantum-factoring-20231017/) and [MIT News](https://news.mit.edu/2024/toward-code-breaking-quantum-computer-0823)<br/>
+- **Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
 
 **On the cut-query complexity of approximating max-cut** [[arXiv]](https://arxiv.org/abs/2211.04506) [[ICALP]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.115)<br/>
 with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
@@ -62,11 +65,6 @@ Journal of Spectral Theory, 2022<br/>
 **Morphology-Aware Meta-Embeddings for Tamil** [[NAACL]](https://aclanthology.org/2021.naacl-srw.13/)<br/>
 with Arjun Sai Krishnan<br/>
 NAACL Student Research Workshop, 2021<br/>
-
-<br/>
-## Manuscripts
-
-**Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
 
 <br/>
 # Talks
