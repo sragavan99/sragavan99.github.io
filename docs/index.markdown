@@ -47,7 +47,7 @@ Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2026/01
 
 **Space-Efficient and Noise-Robust Quantum Factoring** [[Journal of Cryptology]](https://rdcu.be/e2mnc)<br/>
 with [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
-Journal of Cryptology, merge of the following two papers:<br/>
+Journal of Cryptology, merge of the following two papers:
 - **Space-Efficient and Noise-Robust Quantum Factoring** [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501) [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4)<br/>
   CRYPTO 2024<br/>
   **Best Paper Award**<br/>
