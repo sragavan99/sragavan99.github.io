@@ -69,7 +69,7 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**Catalytic Tree Evaluation From Matching Vectors** [[ECCC]](https://eccc.weizmann.ac.il/report/2026/022/)<br/>
+**Catalytic Tree Evaluation From Matching Vectors** [[arXiv]](https://arxiv.org/abs/2602.14320) [[ECCC]](https://eccc.weizmann.ac.il/report/2026/022/)<br/>
 with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](https://sites.google.com/view/tedpyne/)<br/>
 
 <br/>
