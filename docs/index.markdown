@@ -79,7 +79,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](h
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space**
-- MIT CIS Seminar (November 2025, with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/))
+- MIT CIS Seminar (November 2025, with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [slides](slides/cisf25-2pir.pdf))
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
