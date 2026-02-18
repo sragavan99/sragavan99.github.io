@@ -17,9 +17,9 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- _February 2026_: I gave a talk at the BU Security Seminar on constructions and applications of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
-- _February 2026_: [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
-- _December 2025_: [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home).
+- _February 2026:_ I gave a talk at the BU Security Seminar on constructions and applications of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
+- _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
+- _December 2025:_ [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home).
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
 <br/>
