@@ -25,7 +25,7 @@ Email: first initial last name at mit dot edu
 If you are interested in learning about quantum algorithms, I hope some of the below slides might be useful!
 - [Sid Jain](https://sidjain.me/) and I gave an introductory tutorial for a [workshop](https://sites.google.com/view/quantumfocs2025/home) at FOCS 2025. We start from classic ideas underlying Shor's integer factoring algorithm and Grover's search algorithm, and outline how principles from these have been extended to yield new quantum algorithms in recent years. Slides are available [here](slides/focs25-workshop-tutorial.pdf).
 - For a less technical and higher-level overview of what we know about quantum algorithms for factoring integers, see [these slides](slides/cryptoday25-factoring-sota.pdf) or [this video recording](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing).
-- If you are a mathematician or number theorist, you might find [these slides](slides/unsw25-jacobi.pdf) more beneficial. A key open problem highlighted here is that of finding better classical algorithms for factoring integers of the form \(N = P^2Q\) where \(P, Q\) are primes and \(Q \ll P\). As far as I know, the current state of the art is due to [this paper](https://arxiv.org/abs/2308.06130) by Erik Mulder.
+- If you are a mathematician or number theorist, you might find [these slides](slides/unsw25-jacobi.pdf) more beneficial. A key open problem highlighted here is that of finding better classical algorithms for factoring integers of the form $N = P^2Q$ where $P, Q$ are primes and $Q \ll P$. As far as I know, the current state of the art is due to [this paper](https://arxiv.org/abs/2308.06130) by Erik Mulder.
 
 <br/>
 # Publications
