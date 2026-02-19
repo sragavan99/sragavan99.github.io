@@ -36,8 +36,6 @@ plugins:
   - jekyll-relative-links
 
 markdown: kramdown
-kramdown:
-  math_engine: mathjax
 
 # Exclude from processing.
 # The following items will not be processed, by default.
