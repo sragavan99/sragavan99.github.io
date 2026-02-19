@@ -32,6 +32,7 @@ github_username:  sragavan99
 # Build settings
 remote_theme: jekyll/minima
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
   - jekyll-relative-links
 
