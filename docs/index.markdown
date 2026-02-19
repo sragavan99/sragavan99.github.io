@@ -7,11 +7,9 @@ layout: home
 
 ![headshot](assets/headshot.jpg){: height="200px" width="230px" style="float:left; padding-right:20px" }
 
-Hi! I am a third-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
+Welcome! I am a third-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
 
 Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/). See my [CV](CV.markdown) for more information.
-
-If you are interested in learning about quantum algorithms, [Sid Jain](https://sidjain.me/) and I gave an introductory tutorial for a [workshop](https://sites.google.com/view/quantumfocs2025/home) at FOCS 2025. We start from classic ideas underlying Shor's factoring algorithm and Grover's search algorithm, and outline how principles from these have been extended to yield new quantum algorithms in recent years. Slides are available [here](focs25-workshop-tutorial.pdf)!
 
 Email: first initial last name at mit dot edu
 
@@ -21,6 +19,13 @@ Email: first initial last name at mit dot edu
 - _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
 - _December 2025:_ [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home).
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
+
+<br/>
+## Resources
+If you are interested in learning about quantum algorithms, I hope some of the below slides might be useful!
+- [Sid Jain](https://sidjain.me/) and I gave an introductory tutorial for a [workshop](https://sites.google.com/view/quantumfocs2025/home) at FOCS 2025. We start from classic ideas underlying Shor's integer factoring algorithm and Grover's search algorithm, and outline how principles from these have been extended to yield new quantum algorithms in recent years. Slides are available [here](slides/focs25-workshop-tutorial.pdf).
+- For a less technical and higher-level overview of what we know about quantum algorithms for factoring integers, see [these slides](slides/cryptoday25-factoring-sota.pdf) or [this video recording](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing).
+- If you are a mathematician or number theorist, you might find [these slides](slides/unsw25-jacobi.pdf) more beneficial. A key open problem highlighted here is that of finding better classical algorithms for factoring integers of the form $N = P^2Q$ where $P, Q$ are primes and $Q \ll P$. As far as I know, the current state of the art is due to [this paper](https://arxiv.org/abs/2308.06130) by Erik Mulder.
 
 <br/>
 # Publications
