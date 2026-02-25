@@ -95,7 +95,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](h
 - Tufts Quantum Computing Seminar (September 2025)
 - UNSW Number Theory Days (August 2025, [slides](slides/unsw25-jacobi.pdf))
 - Ruhr University Bochum Quantum Information Workshop (April 2025)
-- Simons Institute Quantum Colloquium (March 2025, [video](https://www.youtube.com/watch?v=TA32tEow2Ug&list=PLgKuh-lKre11rEOFaO62MJCzBXfjZSDqA&index=1&ab_channel=SimonsInstitute))
+- Simons Institute Quantum Colloquium (March 2025, [slides](slides/simons25-jacobi.pdf), [video](https://www.youtube.com/watch?v=TA32tEow2Ug&list=PLgKuh-lKre11rEOFaO62MJCzBXfjZSDqA&index=1&ab_channel=SimonsInstitute))
 - MIT Quantum Information Seminar (March 2025)
 - CMU Theory Seminar (March 2025)
 
