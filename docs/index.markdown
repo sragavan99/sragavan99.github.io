@@ -85,12 +85,14 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](h
 **Quantum Algorithms, Old and New** [[slides]](slides/focs25-workshop-tutorial.pdf)
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
 
-**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space**
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[latest slides]](slides/bu26-pir.pdf)
 - Boston University Security Seminar (February 2026, [slides](slides/bu26-pir.pdf))
 - MIT CIS Seminar (November 2025, with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [slides](slides/cisf25-2pir.pdf))
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
-**The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth**
+**The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth** [[latest slides]](slides/iqmvt26-jacobi.pdf)
+- Virginia Tech Quantum Seminar (February 2026, [slides](slides/iqmvt26-jacobi.pdf))
+- IQM Quantum Machine Learning Seminar (February 2026, [slides](slides/iqmvt26-jacobi.pdf))
 - QIP 2026 (January 2026, with Katherine Van Kirk, [slides](slides/qip26-jacobi.pdf))
 - Tufts Quantum Computing Seminar (September 2025)
 - UNSW Number Theory Days (August 2025, [slides](slides/unsw25-jacobi.pdf))
@@ -99,27 +101,27 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](h
 - MIT Quantum Information Seminar (March 2025)
 - CMU Theory Seminar (March 2025)
 
-**Cloning Games, Black Holes and Cryptography**
-- QIP 2026 (January 2026, [slides](slides/qip26-cloning.pdf))
+**Cloning Games, Black Holes and Cryptography** [[slides]](slides/qip26-cloning.pdf)
+- QIP 2026 (January 2026)
 - Kyoto University Quantum Cryptography Workshop (October 2025, [video](https://www2.yukawa.kyoto-u.ac.jp/~tomoyuki.morimae/KyotoQcrypt2/Ragavan.mp4))
 - CMU CyLab Crypto Seminar (March 2025, [video](https://youtu.be/-T_9OLcJ9a8))
 
-**Factoring with a Quantum Computer: The State of the Art**
+**Factoring with a Quantum Computer: The State of the Art** [[latest slides]](slides/uts25-factoring-sota.pdf)
 - University of Technology Sydney (August 2025, [slides](slides/uts25-factoring-sota.pdf))
 - University of Sydney (August 2025)
 - QuEra Computing (April 2025, with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk)
 - MIT Schwarzman College of Computing Cryptography and Security Day (January 2025, [slides](slides/cryptoday25-factoring-sota.pdf), [video](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing))
 
-**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants**
-- MIT CIS Seminar (September 2024, [slides](slides/cisf24-io.pdf))
+**Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[slides]](slides/cisf24-io.pdf)
+- MIT CIS Seminar (September 2024)
 
-**Space-Efficient and Noise-Robust Quantum Factoring**
-- CRYPTO 2024 (August 2024, [slides](slides/crypto24-factoring.pdf))
+**Space-Efficient and Noise-Robust Quantum Factoring** [[slides]](slides/crypto24-factoring.pdf)
+- CRYPTO 2024 (August 2024)
 - IBM Quantum Seminar (November 2023)
 - Yale Quantum Institute (November 2023)
 
-**The Cut-Query Complexity of Approximating Max-Cut**
-- ICALP 2024 (July 2024, [slides](slides/icalp24-maxcut.pdf))
+**The Cut-Query Complexity of Approximating Max-Cut** [[slides]](slides/icalp24-maxcut.pdf)
+- ICALP 2024 (July 2024)
 
 <br/>
 # Teaching and Service
