@@ -15,7 +15,8 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- _February 2026:_ I gave a talk at the BU Security Seminar on constructions and applications of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
+- _March 2026:_ I gave a talk at QuEra on [recent work](https://arxiv.org/abs/2510.08432) by [Greg Kahanamoku-Meyer](https://gregkm.me/), Katherine Van Kirk, and myself on improving the concrete costs of Regev's factoring algorithm. Slides (which Avengers fans may enjoy) are available [here](slides/quera26-spooky-pebbling.pdf).
+- _February 2026:_ I gave a talk at the BU Security Seminar on [constructions](https://eprint.iacr.org/2025/2008) and [applications](https://eccc.weizmann.ac.il/report/2026/022/) of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
 - _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
 - _December 2025:_ [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home).
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
@@ -81,6 +82,9 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](h
 
 <br/>
 # Talks
+
+**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[slides made jointly with Greg and Katherine]](slides/quera26-spooky-pebbling.pdf)
+- QuEra Computing (March 2026)
 
 **Quantum Algorithms, Old and New** [[slides]](slides/focs25-workshop-tutorial.pdf)
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
