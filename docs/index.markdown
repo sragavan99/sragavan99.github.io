@@ -7,7 +7,7 @@ layout: home
 
 ![headshot](assets/headshot.jpg){: height="200px" width="230px" style="float:left; padding-right:20px" }
 
-Welcome! I am a third-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in cryptography and quantum information.
+Welcome! I am a third-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in theoretical computer science, particularly quantum algorithms, coding theory, and cryptography.
 
 Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/). See my [CV](CV.markdown) for more information.
 
@@ -15,7 +15,7 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- _March 2026:_ I gave a talk at QuEra on [recent work](https://arxiv.org/abs/2510.08432) by [Greg Kahanamoku-Meyer](https://gregkm.me/), Katherine Van Kirk, and myself on improving the concrete costs of Regev's factoring algorithm. Slides (which Avengers fans may enjoy) are available [here](slides/quera26-spooky-pebbling.pdf).
+- _April 2026:_ I will be [speaking](https://www.ias.edu/math/events/computer-sciencediscrete-mathematics-seminar-i-621) at the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation.
 - _February 2026:_ I gave a talk at the BU Security Seminar on [constructions](https://eprint.iacr.org/2025/2008) and [applications](https://eccc.weizmann.ac.il/report/2026/022/) of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
 - _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
 - _December 2025:_ [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home).
