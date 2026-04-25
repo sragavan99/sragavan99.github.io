@@ -15,7 +15,7 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- _April 2026:_ I gave a talk at the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation. [Slides](slides/ias26-treeeval.pdf) and [video](https://www.youtube.com/watch?v=05yB2A_BgUs) are available!
+- _April 2026:_ I gave talks at the Harvard-MIT sublinear reading group and the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation. [Slides](slides/ias26-treeeval.pdf) and [video of the IAS talk](https://www.youtube.com/watch?v=05yB2A_BgUs) are available!
 - _February 2026:_ I gave a talk at the BU Security Seminar on [constructions](https://eprint.iacr.org/2025/2008) and [applications](https://eccc.weizmann.ac.il/report/2026/022/) of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
 - _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
 - _December 2025:_ [Sid Jain](https://sidjain.me/), [Sascha Schmidhuber](https://www.mit.edu/~alexsc/), [Noah Shutty](https://research.google/people/noahshutty/), and I recently organised a workshop at [FOCS 2025](https://focs.computer.org/2025/) on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home).
@@ -84,6 +84,7 @@ with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](h
 # Talks
 
 **Catalytic Tree Evaluation from Matching Vectors** [[slides]](slides/ias26-treeeval.pdf)
+- Harvard-MIT Sublinear Reading Group (April 2026)
 - Institute for Advanced Study, Computer Science and Discrete Mathematics Seminar (April 2026, [video](https://www.youtube.com/watch?v=05yB2A_BgUs))
 
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[slides made jointly with Greg and Katherine]](slides/quera26-spooky-pebbling.pdf)
