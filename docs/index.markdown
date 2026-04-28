@@ -139,5 +139,6 @@ NAACL Student Research Workshop, 2021<br/>
 # Teaching and Service
 
 - Program Committee Member, [QIP 2026](https://qip2026.lu.lv/)
+- Workshop Co-organiser, [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) at [FOCS 2025](https://focs.computer.org/2025/)
 - Teaching Assistant, 6.1200 Mathematics for Computer Science (MIT, Fall 2025)
 - Teaching Assistant, COS 445 Economics and Computing (Princeton, Spring 2019)
