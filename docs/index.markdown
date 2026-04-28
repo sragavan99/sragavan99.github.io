@@ -30,31 +30,32 @@ If you are interested in learning about quantum algorithms, I hope some of the b
 
 <br/>
 # Publications
+*In most publications here, author ordering is alphabetical as is the convention in theoretical computer science and mathematics. Exceptions are indicated with asterisks next to the first author's/authors' name(s).*
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
-with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/)<br/>
+[Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and SR<br/>
 Eurocrypt 2026<br/>
 
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
-with [Greg Kahanamoku-Meyer](https://gregkm.me/) and Katherine Van Kirk<br/>
+[Greg Meyer](https://gregkm.me/), SR, and Katherine Van Kirk<br/>
 Eurocrypt 2026, QIP 2026<br/>
 
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826) [[ITCS]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.109) <br/>
-with [Alex Poremba](https://scc1.bu.edu/poremba/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+[Alex Poremba](https://scc1.bu.edu/poremba/), SR, and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 ITCS 2026, QIP 2026<br/>
 
 **The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034) [[STOC]](https://dl.acm.org/doi/10.1145/3717823.3718273)<br/>
-with [Greg Kahanamoku-Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
+[Greg Kahanamoku-Meyer](https://gregkm.me/), SR, [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
 STOC 2025, QIP 2026<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2025/06/07/beyond-cryptography-the-use-of-factorization-to-evaluate-the-power-of-a-quantum-computer/)<br/>
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[ePrint]](https://eprint.iacr.org/2024/856) [[TCC]](https://link.springer.com/chapter/10.1007/978-3-031-78023-3_1)<br/>
-with [Neekon Vafa](https://neekonvafa.com/) and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+SR, [Neekon Vafa](https://neekonvafa.com/), and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 TCC 2024<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2026/01/15/constructing-indistinguishability-obfuscation-schemes-in-a-hardness-rich-world/)<br/>
 
 **Space-Efficient and Noise-Robust Quantum Factoring** [[Journal of Cryptology]](https://link.springer.com/article/10.1007/s00145-026-09572-x) [[public PDF link]](https://rdcu.be/e2mnc)<br/>
-with [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
+SR and [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv)<br/>
 Journal of Cryptology, merge of the following two papers:
 - **Space-Efficient and Noise-Robust Quantum Factoring** [[arXiv]](https://arxiv.org/abs/2310.00899) [[ePrint]](https://eprint.iacr.org/2023/1501) [[CRYPTO]](https://link.springer.com/chapter/10.1007/978-3-031-68391-6_4)<br/>
   CRYPTO 2024<br/>
@@ -63,22 +64,25 @@ Journal of Cryptology, merge of the following two papers:
 - **Regev Factoring Beyond Fibonacci: Optimizing Prefactors** [[ePrint]](https://eprint.iacr.org/2024/636)<br/>
 
 **On the cut-query complexity of approximating max-cut** [[arXiv]](https://arxiv.org/abs/2211.04506) [[ICALP]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.115)<br/>
-with Orestis Plevrakis and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
+Orestis Plevrakis, SR, and [Matt Weinberg](https://www.cs.princeton.edu/~smattw/)<br/>
 ICALP 2024<br/>
 
 **A proof of the triangular Ashbaugh-Benguria-Payne–Pólya–Weinberger inequality** [[arXiv]](https://arxiv.org/abs/2009.00927) [[JST]](https://ems.press/journals/jst/articles/7525210) [[code]](https://github.com/sragavan99/triangle-ppw-inequality) <br/>
-with Ryan Arbon, Mohammed Mannan, and [Michael Psenka](https://www.michaelpsenka.io/)<br/>
+Ryan Arbon, Mohammed Mannan, [Michael Psenka](https://www.michaelpsenka.io/), and SR<br/>
 Journal of Spectral Theory, 2022<br/>
 
 **Morphology-Aware Meta-Embeddings for Tamil** [[NAACL]](https://aclanthology.org/2021.naacl-srw.13/)<br/>
-with Arjun Sai Krishnan<br/>
+Arjun Sai Krishnan<sup>\*</sup> and SR<sup>\*</sup><br/>
 NAACL Student Research Workshop, 2021<br/>
 
 <br/>
 # Manuscripts
 
+**Optimization Using Locally-Quantum Decoders** [[arXiv]](https://arxiv.org/abs/2604.24633)
+[Noah Shutty<sup>\*</sup>](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), SR, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), [Nicholas C. Rubin](https://ncrubin.github.io/), Abid Khan, Sami Boulebnane, [Ruslan Shaydulin](https://shaydul.in/), [John Azariah](https://johnazariah.github.io/), and Stephen P. Jordan
+
 **Catalytic Tree Evaluation From Matching Vectors** [[arXiv]](https://arxiv.org/abs/2602.14320) [[ECCC]](https://eccc.weizmann.ac.il/report/2026/022/) [[ePrint]](https://eprint.iacr.org/2026/265)<br/>
-with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and [Ted Pyne](https://sites.google.com/view/tedpyne/)<br/>
+[Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and SR<br/>
 
 <br/>
 # Talks
