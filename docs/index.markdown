@@ -32,11 +32,11 @@ If you are interested in learning about quantum algorithms, I hope some of the b
 # Publications
 *In most publications here, author ordering is alphabetical as is the convention in theoretical computer science and mathematics. Exceptions are indicated with asterisks next to the first author's/authors' name(s).*
 
-**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[Eurocrypt]](https://link.springer.com/chapter/10.1007/978-3-032-25330-9_3) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
 [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and **SR**<br/>
 Eurocrypt 2026<br/>
 
-**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
+**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[Eurocrypt]](https://link.springer.com/chapter/10.1007/978-3-032-25291-3_14) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
 [Greg Meyer](https://gregkm.me/), **SR**, and Katherine Van Kirk<br/>
 Eurocrypt 2026, QIP 2026<br/>
 
