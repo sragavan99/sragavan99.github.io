@@ -15,9 +15,9 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- _May 2026:_ I gave two talks at Eurocrypt 2026, one on private information retrieval ([slides](slides/eurocrypt26-pir.pdf)) and one on quantum factoring using spooky pebbling with [Greg Meyer](https://gregkm.me/) ([slides](slides/eurocrypt26-spooky-pebbling.pdf)).
 - _April 2026:_ [Noah Shutty](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), myself, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), Stephen Jordan, and other collaborators uploaded a [manuscript](https://arxiv.org/abs/2604.24633) exploring the use of quantum decoders for LDPC codes in quantum algorithms.
 - _April 2026:_ I gave talks at the Harvard-MIT sublinear reading group and the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation. [Slides](slides/ias26-treeeval.pdf) and [video of the IAS talk](https://www.youtube.com/watch?v=05yB2A_BgUs) are available!
-- _February 2026:_ I gave a talk at the BU Security Seminar on [constructions](https://eprint.iacr.org/2025/2008) and [applications](https://eccc.weizmann.ac.il/report/2026/022/) of information-theoretic private information retrieval. Slides are available [here](slides/bu26-pir.pdf).
 - _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
@@ -91,13 +91,15 @@ NAACL Student Research Workshop, 2021<br/>
 - Harvard-MIT Sublinear Reading Group (April 2026)
 - Institute for Advanced Study, Computer Science and Discrete Mathematics Seminar (April 2026, [video](https://www.youtube.com/watch?v=05yB2A_BgUs))
 
-**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[slides made jointly with Greg and Katherine]](slides/quera26-spooky-pebbling.pdf)
-- QuEra Computing (March 2026)
+**Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[slides made jointly with Greg and Katherine]](slides/eurocrypt26-spooky-pebbling.pdf)
+- Eurocrypt 2026 (May 2026, with [Greg Meyer](https://gregkm.me/), [slides](slides/eurocrypt26-spooky-pebbling.pdf))
+- QuEra Computing (March 2026, [slides](slides/quera26-spooky-pebbling.pdf))
 
 **Quantum Algorithms, Old and New** [[slides]](slides/focs25-workshop-tutorial.pdf)
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
 
-**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[latest slides]](slides/bu26-pir.pdf)
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[latest slides]](slides/eurocrypt26-pir.pdf)
+- Eurocrypt 2026 (May 2026, [slides](slides/eurocrypt26-pir.pdf))
 - Boston University Security Seminar (February 2026, [slides](slides/bu26-pir.pdf))
 - MIT CIS Seminar (November 2025, with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [slides](slides/cisf25-2pir.pdf))
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
