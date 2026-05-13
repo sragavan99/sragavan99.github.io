@@ -98,7 +98,7 @@ NAACL Student Research Workshop, 2021<br/>
 **Quantum Algorithms, Old and New** [[slides]](slides/focs25-workshop-tutorial.pdf)
 - FOCS 2025, tutorial for a workshop on [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) (December 2025, with [Sid Jain](https://sidjain.me/))
 
-**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[latest slides]](slides/eurocrypt26-pir.pdf)
+**Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[slides made jointly with Alexandra]](slides/eurocrypt26-pir.pdf)
 - Eurocrypt 2026 (May 2026, [slides](slides/eurocrypt26-pir.pdf))
 - Boston University Security Seminar (February 2026, [slides](slides/bu26-pir.pdf))
 - MIT CIS Seminar (November 2025, with [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [slides](slides/cisf25-2pir.pdf))
