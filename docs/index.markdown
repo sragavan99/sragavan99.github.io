@@ -15,10 +15,10 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- _July 2026:_ I gave a talk ([slides](slides/simons26-lowspacefactoring-jacobi.pdf)) at the Simons Institute surveying recent approaches to quantumly factoring with few qubits, based partially on our work on the Jacobi factoring circuit (with [Greg Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk). This talk was part of a [workshop](https://simons.berkeley.edu/workshops/quantum-circuits-algorithms-cryptography) organised by Greg on quantum algorithms for discrete logarithms and integer factoring.
 - _May 2026:_ I gave two talks at Eurocrypt 2026, one on private information retrieval ([slides](slides/eurocrypt26-pir.pdf)) and one on quantum factoring using spooky pebbling with [Greg Meyer](https://gregkm.me/) ([slides](slides/eurocrypt26-spooky-pebbling.pdf)).
 - _April 2026:_ [Noah Shutty](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), myself, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), Stephen Jordan, and other collaborators uploaded a [manuscript](https://arxiv.org/abs/2604.24633) exploring the use of quantum decoders for LDPC codes in quantum algorithms.
 - _April 2026:_ I gave talks at the Harvard-MIT sublinear reading group and the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation. [Slides](slides/ias26-treeeval.pdf) and [video of the IAS talk](https://www.youtube.com/watch?v=05yB2A_BgUs) are available!
-- _February 2026:_ [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/022/) drawing a connection between information-theoretic private information retrieval and the tree evaluation problem. See pages 183-198 of [these slides](slides/bu26-pir.pdf) for a teaser!
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
 <br/>
@@ -105,6 +105,7 @@ NAACL Student Research Workshop, 2021<br/>
 - MIT Simple Person's Applied Mathematics Seminar (October 2025)
 
 **The Jacobi Factoring Circuit: Classically Hard Factoring in Sublinear Quantum Space and Depth** [[latest slides]](slides/iqmvt26-jacobi.pdf)
+- Simons Institute (July 2026, [slides](slides/simons26-lowspacefactoring-jacobi.pdf))
 - Virginia Tech Quantum Seminar (February 2026, [slides](slides/iqmvt26-jacobi.pdf))
 - IQM Quantum Machine Learning Seminar (February 2026, [slides](slides/iqmvt26-jacobi.pdf))
 - QIP 2026 (January 2026, with Katherine Van Kirk, [slides](slides/qip26-jacobi.pdf))
