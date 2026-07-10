@@ -15,8 +15,8 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- _July 2026:_ I gave a talk ([slides](slides/simons26-lowspacefactoring-jacobi.pdf)) at the Simons Institute surveying recent approaches to quantumly factoring with few qubits, based partially on our work on the Jacobi factoring circuit (with [Greg Meyer](https://gregkm.me/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk). This talk was part of a [workshop](https://simons.berkeley.edu/workshops/quantum-circuits-algorithms-cryptography) organised by Greg on quantum algorithms for discrete logarithms and integer factoring.
-- _May 2026:_ I gave two talks at Eurocrypt 2026, one on private information retrieval ([slides](slides/eurocrypt26-pir.pdf)) and one on quantum factoring using spooky pebbling with [Greg Meyer](https://gregkm.me/) ([slides](slides/eurocrypt26-spooky-pebbling.pdf)).
+- _July 2026:_ I gave a talk ([slides](slides/simons26-lowspacefactoring-jacobi.pdf)) at the Simons Institute surveying recent approaches to quantumly factoring with few qubits, based partially on our work on the Jacobi factoring circuit (with [Greg Meyer](https://gmeyer.net/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk). This talk was part of a [workshop](https://simons.berkeley.edu/workshops/quantum-circuits-algorithms-cryptography) organised by Greg on quantum algorithms for discrete logarithms and integer factoring.
+- _May 2026:_ I gave two talks at Eurocrypt 2026, one on private information retrieval ([slides](slides/eurocrypt26-pir.pdf)) and one on quantum factoring using spooky pebbling with [Greg Meyer](https://gmeyer.net/) ([slides](slides/eurocrypt26-spooky-pebbling.pdf)).
 - _April 2026:_ [Noah Shutty](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), myself, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), Stephen Jordan, and other collaborators uploaded a [manuscript](https://arxiv.org/abs/2604.24633) exploring the use of quantum decoders for LDPC codes in quantum algorithms.
 - _April 2026:_ I gave talks at the Harvard-MIT sublinear reading group and the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation. [Slides](slides/ias26-treeeval.pdf) and [video of the IAS talk](https://www.youtube.com/watch?v=05yB2A_BgUs) are available!
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
@@ -37,7 +37,7 @@ If you are interested in learning about quantum algorithms, I hope some of the b
 Eurocrypt 2026<br/>
 
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[Eurocrypt]](https://link.springer.com/chapter/10.1007/978-3-032-25291-3_14) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
-[Greg Meyer](https://gregkm.me/), **SR**, and Katherine Van Kirk<br/>
+[Greg Meyer](https://gmeyer.net/), **SR**, and Katherine Van Kirk<br/>
 Eurocrypt 2026, QIP 2026<br/>
 
 **Cloning Games, Black Holes and Cryptography** [[arXiv]](https://arxiv.org/abs/2411.04730) [[ePrint]](https://eprint.iacr.org/2024/1826) [[ITCS]](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.109) <br/>
@@ -45,7 +45,7 @@ Eurocrypt 2026, QIP 2026<br/>
 ITCS 2026, QIP 2026<br/>
 
 **The Jacobi Factoring Circuit: Quantum Factoring with Near-Linear Gates and Sublinear Space and Depth** [[arXiv]](https://arxiv.org/abs/2412.12558) [[ePrint]](https://eprint.iacr.org/2024/2034) [[STOC]](https://dl.acm.org/doi/10.1145/3717823.3718273)<br/>
-[Greg Meyer](https://gregkm.me/), **SR**, [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
+[Greg Meyer](https://gmeyer.net/), **SR**, [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk<br/>
 STOC 2025, QIP 2026<br/>
 Featured on [Lakshmi Chandrasekaran's blog](https://scieye.wordpress.com/2025/06/07/beyond-cryptography-the-use-of-factorization-to-evaluate-the-power-of-a-quantum-computer/)<br/>
 
@@ -92,7 +92,7 @@ NAACL Student Research Workshop, 2021<br/>
 - Institute for Advanced Study, Computer Science and Discrete Mathematics Seminar (April 2026, [video](https://www.youtube.com/watch?v=05yB2A_BgUs))
 
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[slides made jointly with Greg and Katherine]](slides/eurocrypt26-spooky-pebbling.pdf)
-- Eurocrypt 2026 (May 2026, with [Greg Meyer](https://gregkm.me/), [slides](slides/eurocrypt26-spooky-pebbling.pdf))
+- Eurocrypt 2026 (May 2026, with [Greg Meyer](https://gmeyer.net/), [slides](slides/eurocrypt26-spooky-pebbling.pdf))
 - QuEra Computing (March 2026, [slides](slides/quera26-spooky-pebbling.pdf))
 
 **Quantum Algorithms, Old and New** [[slides]](slides/focs25-workshop-tutorial.pdf)
@@ -109,7 +109,7 @@ NAACL Student Research Workshop, 2021<br/>
 - Virginia Tech Quantum Seminar (February 2026, [slides](slides/iqmvt26-jacobi.pdf))
 - IQM Quantum Machine Learning Seminar (February 2026, [slides](slides/iqmvt26-jacobi.pdf))
 - QIP 2026 (January 2026, with Katherine Van Kirk, [slides](slides/qip26-jacobi.pdf))
-- Tufts Quantum Computing Seminar (September 2025)
+- Tufts Quantum Computing Seminar (September 2025, with [Greg Meyer](https://gmeyer.net/))
 - UNSW Number Theory Days (August 2025, [slides](slides/unsw25-jacobi.pdf))
 - Ruhr University Bochum Quantum Information Workshop (April 2025)
 - Simons Institute Quantum Colloquium (March 2025, [slides](slides/simons25-jacobi.pdf), [video](https://www.youtube.com/watch?v=TA32tEow2Ug&list=PLgKuh-lKre11rEOFaO62MJCzBXfjZSDqA&index=1&ab_channel=SimonsInstitute))
@@ -124,7 +124,7 @@ NAACL Student Research Workshop, 2021<br/>
 **Factoring with a Quantum Computer: The State of the Art** [[latest slides]](slides/uts25-factoring-sota.pdf)
 - University of Technology Sydney (August 2025, [slides](slides/uts25-factoring-sota.pdf))
 - University of Sydney (August 2025)
-- QuEra Computing (April 2025, with [Greg Meyer](https://gregkm.me/) and Katherine Van Kirk)
+- QuEra Computing (April 2025, with [Greg Meyer](https://gmeyer.net/) and Katherine Van Kirk)
 - MIT Schwarzman College of Computing Cryptography and Security Day (January 2025, [slides](slides/cryptoday25-factoring-sota.pdf), [video](https://www.youtube.com/watch?v=TVev-BYtPX8&ab_channel=MITSchwarzmanCollegeofComputing))
 
 **Indistinguishability Obfuscation from Bilinear Maps and LPN Variants** [[slides]](slides/cisf24-io.pdf)
