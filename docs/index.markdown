@@ -15,10 +15,10 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- _July 2026:_ [Aparna Gupte](https://www.mit.edu/~agupte/) and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/126/) giving better server-communication tradeoffs for private information retrieval with 4 or more servers.
+- _July 2026:_ I gave a talk ([slides](slides/simons26-pir-and-tree-eval.pdf)) at the [Simons Institute crypto reunion](https://simons.berkeley.edu/workshops/cryptography-10-years-later-obfuscation-proof-systems-secure-computation-reunion) on time-space tradeoffs for PIR (Eurocrypt 2026, with Alexandra Henzinger) and PIR for time-space tradeoffs (with Alexandra Henzinger and Ted Pyne).
 - _July 2026:_ I gave a talk ([slides](slides/simons26-lowspacefactoring-jacobi.pdf)) at the Simons Institute surveying recent approaches to quantumly factoring with few qubits, based partially on our work on the Jacobi factoring circuit (with [Greg Meyer](https://gmeyer.net/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk). This talk was part of a [workshop](https://simons.berkeley.edu/workshops/quantum-circuits-algorithms-cryptography) organised by Greg on quantum algorithms for discrete logarithms and integer factoring.
 - _May 2026:_ I gave two talks at Eurocrypt 2026, one on private information retrieval ([slides](slides/eurocrypt26-pir.pdf)) and one on quantum factoring using spooky pebbling with [Greg Meyer](https://gmeyer.net/) ([slides](slides/eurocrypt26-spooky-pebbling.pdf)).
-- _April 2026:_ [Noah Shutty](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), myself, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), Stephen Jordan, and other collaborators uploaded a [manuscript](https://arxiv.org/abs/2604.24633) exploring the use of quantum decoders for LDPC codes in quantum algorithms.
-- _April 2026:_ I gave talks at the Harvard-MIT sublinear reading group and the Institute for Advanced Study in Princeton on catalytic algorithms for tree evaluation. [Slides](slides/ias26-treeeval.pdf) and [video of the IAS talk](https://www.youtube.com/watch?v=05yB2A_BgUs) are available!
 - _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
 <br/>
@@ -78,6 +78,12 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
+**Efficient Unclonable Encryption from Pauli Eigenstates**<br/>
+**SR**; concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
+
+**Exponentially Fewer-Server PIR from Sparser S-Decoding Polynomials** [[ECCC]](https://eccc.weizmann.ac.il/report/2026/126/)<br/>
+[Aparna Gupte](https://www.mit.edu/~agupte/) and **SR**<br/>
+
 **Optimization Using Locally-Quantum Decoders** [[arXiv]](https://arxiv.org/abs/2604.24633)<br/>
 [Noah Shutty<sup>\*</sup>](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), **SR**, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), [Nicholas C. Rubin](https://ncrubin.github.io/), Abid Khan, Sami Boulebnane, [Ruslan Shaydulin](https://shaydul.in/), [John Azariah](https://johnazariah.github.io/), and Stephen P. Jordan<br/>
 
@@ -86,6 +92,9 @@ NAACL Student Research Workshop, 2021<br/>
 
 <br/>
 # Talks
+
+**Time-Space Tradeoffs for PIR and PIR for Time-Space Tradeoffs** [[slides made jointly with Alexandra]](slides/simons26-pir-and-tree-eval.pdf)
+- Simons Institute Crypto Reunion Workshop (July 2026)
 
 **Catalytic Tree Evaluation from Matching Vectors** [[slides]](slides/ias26-treeeval.pdf)
 - Harvard-MIT Sublinear Reading Group (April 2026)
