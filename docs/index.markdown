@@ -15,6 +15,7 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- _July 2026:_ I uploaded a [manuscript](https://eprint.iacr.org/2026/1509) showing that unclonable encryption of a bit exists unconditionally. This was concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/); their version can be found [here](https://arxiv.org/abs/2607.21551).
 - _July 2026:_ [Aparna Gupte](https://www.mit.edu/~agupte/) and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/126/) giving better server-communication tradeoffs for private information retrieval with 4 or more servers.
 - _July 2026:_ I gave a talk ([slides](slides/simons26-pir-and-tree-eval.pdf)) at the [Simons Institute crypto reunion](https://simons.berkeley.edu/workshops/cryptography-10-years-later-obfuscation-proof-systems-secure-computation-reunion) on time-space tradeoffs for PIR (Eurocrypt 2026, with Alexandra Henzinger) and PIR for time-space tradeoffs (with Alexandra Henzinger and Ted Pyne).
 - _July 2026:_ I gave a talk ([slides](slides/simons26-lowspacefactoring-jacobi.pdf)) at the Simons Institute surveying recent approaches to quantumly factoring with few qubits, based partially on our work on the Jacobi factoring circuit (with [Greg Meyer](https://gmeyer.net/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk). This talk was part of a [workshop](https://simons.berkeley.edu/workshops/quantum-circuits-algorithms-cryptography) organised by Greg on quantum algorithms for discrete logarithms and integer factoring.
@@ -78,7 +79,7 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**Efficient Unclonable Encryption from Pauli Eigenstates**<br/>
+**Efficient Unclonable Encryption from Pauli Eigenstates**<br/> [[ePrint]](https://eprint.iacr.org/2026/1509)
 **SR**; concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
 
 **Exponentially Fewer-Server PIR from Sparser S-Decoding Polynomials** [[ECCC]](https://eccc.weizmann.ac.il/report/2026/126/)<br/>
