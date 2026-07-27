@@ -79,10 +79,10 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**Efficient Unclonable Encryption from Pauli Eigenstates** [[ePrint]](https://eprint.iacr.org/2026/1509) <br/>
+**Efficient Unclonable Encryption from Pauli Eigenstates** [[arXiv]](https://arxiv.org/abs/2607.21811) [[ePrint]](https://eprint.iacr.org/2026/1509) <br/>
 **SR**; concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
 
-**Exponentially Fewer-Server PIR from Sparser S-Decoding Polynomials** [[ECCC]](https://eccc.weizmann.ac.il/report/2026/126/)<br/>
+**Exponentially Fewer-Server PIR from Sparser S-Decoding Polynomials** [[arXiv]](https://arxiv.org/abs/2607.22033) [[ECCC]](https://eccc.weizmann.ac.il/report/2026/126/)<br/>
 [Aparna Gupte](https://www.mit.edu/~agupte/) and **SR**<br/>
 
 **Optimization Using Locally-Quantum Decoders** [[arXiv]](https://arxiv.org/abs/2604.24633)<br/>
