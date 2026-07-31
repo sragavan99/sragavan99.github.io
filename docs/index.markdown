@@ -15,6 +15,7 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- _July 2026:_ Peter Hall wrote [an article](https://www.scientificamerican.com/article/ai-helped-produce-two-proofs-for-the-same-cryptography-problem/) for Scientific American discussing the below results on unclonable encryption and how AI is changing the way we do research.
 - _July 2026:_ I uploaded a [manuscript](https://eprint.iacr.org/2026/1509) showing that unclonable encryption of a bit exists unconditionally. This was concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/); their version can be found [here](https://arxiv.org/abs/2607.21551).
 - _July 2026:_ [Aparna Gupte](https://www.mit.edu/~agupte/) and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/126/) giving better server-communication tradeoffs for private information retrieval with 4 or more servers.
 - _July 2026:_ I gave a talk ([slides](slides/simons26-pir-and-tree-eval.pdf)) at the [Simons Institute crypto reunion](https://simons.berkeley.edu/workshops/cryptography-10-years-later-obfuscation-proof-systems-secure-computation-reunion) on time-space tradeoffs for PIR (Eurocrypt 2026, with Alexandra Henzinger) and PIR for time-space tradeoffs (with Alexandra Henzinger and Ted Pyne).
