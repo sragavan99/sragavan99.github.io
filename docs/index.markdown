@@ -36,7 +36,7 @@ If you are interested in learning about quantum algorithms, I hope some of the b
 
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[Eurocrypt]](https://link.springer.com/chapter/10.1007/978-3-032-25330-9_3) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
 [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and **SR**<br/>
-Eurocrypt 2026<br/>
+Eurocrypt 2026, highlights talk at ITC 2026<br/>
 
 **Parallel Spooky Pebbling Makes Regev Factoring More Practical** [[arXiv]](https://www.arxiv.org/abs/2510.08432) [[ePrint]](https://eprint.iacr.org/2025/1887) [[Eurocrypt]](https://link.springer.com/chapter/10.1007/978-3-032-25291-3_14) [[code]](https://github.com/GregDMeyer/parallel-spooky-pebbling)<br/>
 [Greg Meyer](https://gmeyer.net/), **SR**, and Katherine Van Kirk<br/>
@@ -80,6 +80,9 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
+**The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP** [[ePrint]](https://eprint.iacr.org/2026/1693)<br/>
+[Aparna Gupte](https://www.mit.edu/~agupte/), **SR**, and [Mark Zhandry](https://mzhandry.github.io/)<br/>
+
 **Efficient Unclonable Encryption from Pauli Eigenstates** [[arXiv]](https://arxiv.org/abs/2607.21811) [[ePrint]](https://eprint.iacr.org/2026/1509) <br/>
 **SR**; concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
 
@@ -91,11 +94,13 @@ NAACL Student Research Workshop, 2021<br/>
 
 **Catalytic Tree Evaluation From Matching Vectors** [[arXiv]](https://arxiv.org/abs/2602.14320) [[ECCC]](https://eccc.weizmann.ac.il/report/2026/022/) [[ePrint]](https://eprint.iacr.org/2026/265)<br/>
 [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/), [Ted Pyne](https://sites.google.com/view/tedpyne/), and **SR**<br/>
+Highlights talk at ITC 2026<br/>
 
 <br/>
 # Talks
 
 **Time-Space Tradeoffs for PIR and PIR for Time-Space Tradeoffs** [[slides made jointly with Alexandra]](slides/simons26-pir-and-tree-eval.pdf)
+- ITC 2026 (August 2026, [slides](slides/itc26-pir-and-tree-eval.pdf))
 - Simons Institute Crypto Reunion Workshop (July 2026)
 
 **Catalytic Tree Evaluation from Matching Vectors** [[slides]](slides/ias26-treeeval.pdf)
