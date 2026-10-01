@@ -34,6 +34,10 @@ If you are interested in learning about quantum algorithms, I hope some of the b
 # Publications
 *In most publications here, author ordering is alphabetical as is the convention in theoretical computer science and mathematics. Exceptions are indicated with asterisks next to the first author's/authors' name(s).*
 
+**Exponentially Fewer-Server PIR from Sparser S-Decoding Polynomials** [[arXiv]](https://arxiv.org/abs/2607.22033) [[ECCC]](https://eccc.weizmann.ac.il/report/2026/126/) [[ePrint]](https://eprint.iacr.org/2026/1515)<br/>
+[Aparna Gupte](https://www.mit.edu/~agupte/) and **SR**<br/>
+SODA 2027<br/>
+
 **Two-Server Private Information Retrieval in Sublinear Time and Quasilinear Space** [[ePrint]](https://eprint.iacr.org/2025/2008) [[Eurocrypt]](https://link.springer.com/chapter/10.1007/978-3-032-25330-9_3) [[code]](https://github.com/ahenzinger/finite-diffs-pir)<br/>
 [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and **SR**<br/>
 Eurocrypt 2026, highlights talk at ITC 2026<br/>
@@ -83,11 +87,9 @@ NAACL Student Research Workshop, 2021<br/>
 **The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP** [[ePrint]](https://eprint.iacr.org/2026/1693)<br/>
 [Aparna Gupte](https://www.mit.edu/~agupte/), **SR**, and [Mark Zhandry](https://mzhandry.github.io/)<br/>
 
-**Efficient Unclonable Encryption from Pauli Eigenstates** [[arXiv]](https://arxiv.org/abs/2607.21811) [[ePrint]](https://eprint.iacr.org/2026/1509) <br/>
-**SR**; concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
-
-**Exponentially Fewer-Server PIR from Sparser S-Decoding Polynomials** [[arXiv]](https://arxiv.org/abs/2607.22033) [[ECCC]](https://eccc.weizmann.ac.il/report/2026/126/) [[ePrint]](https://eprint.iacr.org/2026/1515)<br/>
-[Aparna Gupte](https://www.mit.edu/~agupte/) and **SR**<br/>
+**Unconditional Unclonable Encryption** [[arXiv]](https://arxiv.org/abs/2607.21551)<br/>
+[Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home), **SR**, and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
+Merged from **Efficient Unclonable Encryption from Pauli Eigenstates** [[arXiv]](https://arxiv.org/abs/2607.21811)<br/>
 
 **Optimization Using Locally-Quantum Decoders** [[arXiv]](https://arxiv.org/abs/2604.24633)<br/>
 [Noah Shutty<sup>\*</sup>](https://research.google/people/noahshutty/), [Avijit Mandal](https://aviemathelec1995.github.io/), **SR**, Quentin Buzet, [André Chailloux](https://who.paris.inria.fr/Andre.Chailloux/), [Nicholas C. Rubin](https://ncrubin.github.io/), Abid Khan, Sami Boulebnane, [Ruslan Shaydulin](https://shaydul.in/), [John Azariah](https://johnazariah.github.io/), and Stephen P. Jordan<br/>
@@ -98,6 +100,12 @@ Highlights talk at ITC 2026<br/>
 
 <br/>
 # Talks
+
+**Unconditional Unclonable Encryption**
+- NTT Research (September 2026)
+
+**The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP**
+- Google Quantum AI Seminar (August 2026)
 
 **Time-Space Tradeoffs for PIR and PIR for Time-Space Tradeoffs** [[slides made jointly with Alexandra]](slides/simons26-pir-and-tree-eval.pdf)
 - ITC 2026 (August 2026, [slides](slides/itc26-pir-and-tree-eval.pdf))
