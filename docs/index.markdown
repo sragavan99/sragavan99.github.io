@@ -84,8 +84,9 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP** [[ePrint]](https://eprint.iacr.org/2026/1693)<br/>
+**A Fourier-Label Information-Loss Barrier for Dihedral Coset Algorithms** [[arXiv]](https://arxiv.org/abs/2609.40062) [[ePrint]](https://eprint.iacr.org/2026/1693)<br/>
 [Aparna Gupte](https://www.mit.edu/~agupte/), **SR**, and [Mark Zhandry](https://mzhandry.github.io/)<br/>
+Previously titled _The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP_<br/>
 
 **Unconditional Unclonable Encryption** [[arXiv]](https://arxiv.org/abs/2607.21551)<br/>
 [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home), **SR**, and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
