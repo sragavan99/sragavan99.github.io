@@ -7,7 +7,7 @@ layout: home
 
 ![headshot](assets/headshot.jpg){: height="200px" width="230px" style="float:left; padding-right:20px" }
 
-Welcome! I am a third-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in theoretical computer science, particularly quantum algorithms, coding theory, and cryptography.
+Welcome! I am a fourth-year PhD student at MIT, where I am very fortunate to be advised by [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv). I am broadly interested in theoretical computer science, particularly quantum algorithms, coding theory, and cryptography.
 
 Previously, I worked as a quantitative research analyst at Citadel Securities. Before that, I completed my undergraduate degree in mathematics at Princeton University in 2021, where I had the pleasure of being advised by [Matt Weinberg](https://www.cs.princeton.edu/~smattw/). See my [CV](CV.markdown) for more information.
 
@@ -15,13 +15,11 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
-- _July 2026:_ Peter Hall wrote [an article](https://www.scientificamerican.com/article/ai-helped-produce-two-proofs-for-the-same-cryptography-problem/) for Scientific American discussing the below results on unclonable encryption and how AI is changing the way we do research.
-- _July 2026:_ I uploaded a [manuscript](https://eprint.iacr.org/2026/1509) showing that unclonable encryption of a bit exists unconditionally. This was concurrently and independently found by [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home) and [Amit Sahai](https://web.cs.ucla.edu/~sahai/); their version can be found [here](https://arxiv.org/abs/2607.21551).
+- _October 2026:_ [Noah Shutty](https://research.google/people/noahshutty/) and I uploaded [manuscript](https://arxiv.org/abs/2610.00502) designing quantum algorithms for variants of optimal polynomial intersection that work with Reed–Muller codes and with global nonlinear constraints.
+- _October 2026:_ I gave talks at NTT Research and the Charles River Crypto Day on the crazy summer that unclonable encryption has had, based on the below work with Prabhanjan Ananth and Amit Sahai, and a line of wonderful follow-up works by [Archishna Bhattacharyya, Anne Broadbent, and Eric Culf](https://arxiv.org/abs/2607.28561); [Andrea Colandagelo, Qipeng Liu, and Ziyi Xie](https://eprint.iacr.org/2026/1742); and [Prabhanjan Ananth](https://arxiv.org/abs/2608.19091).
+- _September 2026:_ [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home), [Amit Sahai](https://web.cs.ucla.edu/~sahai/), and I posted a [merged version](https://arxiv.org/abs/2607.21551) of our unclonable encryption result over the summer.
+- _July 2026:_ Peter Hall wrote [an article](https://www.scientificamerican.com/article/ai-helped-produce-two-proofs-for-the-same-cryptography-problem/) for Scientific American discussing the above results on unclonable encryption and how AI is changing the way we do research.
 - _July 2026:_ [Aparna Gupte](https://www.mit.edu/~agupte/) and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/126/) giving better server-communication tradeoffs for private information retrieval with 4 or more servers.
-- _July 2026:_ I gave a talk ([slides](slides/simons26-pir-and-tree-eval.pdf)) at the [Simons Institute crypto reunion](https://simons.berkeley.edu/workshops/cryptography-10-years-later-obfuscation-proof-systems-secure-computation-reunion) on time-space tradeoffs for PIR (Eurocrypt 2026, with Alexandra Henzinger) and PIR for time-space tradeoffs (with Alexandra Henzinger and Ted Pyne).
-- _July 2026:_ I gave a talk ([slides](slides/simons26-lowspacefactoring-jacobi.pdf)) at the Simons Institute surveying recent approaches to quantumly factoring with few qubits, based partially on our work on the Jacobi factoring circuit (with [Greg Meyer](https://gmeyer.net/), [Vinod Vaikuntanathan](https://people.csail.mit.edu/vinodv), and Katherine Van Kirk). This talk was part of a [workshop](https://simons.berkeley.edu/workshops/quantum-circuits-algorithms-cryptography) organised by Greg on quantum algorithms for discrete logarithms and integer factoring.
-- _May 2026:_ I gave two talks at Eurocrypt 2026, one on private information retrieval ([slides](slides/eurocrypt26-pir.pdf)) and one on quantum factoring using spooky pebbling with [Greg Meyer](https://gmeyer.net/) ([slides](slides/eurocrypt26-spooky-pebbling.pdf)).
-- _November 2025:_ I'm very excited to be interning at [Google Quantum AI](https://quantumai.google/) with [Noah Shutty](https://research.google/people/noahshutty/) in summer 2026!
 
 <br/>
 ## Resources
@@ -84,9 +82,12 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
+**Quantum Algorithms for OPI Variants Beyond Locality and Classical Decodability** [[arXiv]](https://arxiv.org/abs/2610.00502)<br/>
+**SR** and [Noah Shutty](https://research.google/people/noahshutty/)<br/>
+
 **A Fourier-Label Information-Loss Barrier for Dihedral Coset Algorithms** [[arXiv]](https://arxiv.org/abs/2609.40062) [[ePrint]](https://eprint.iacr.org/2026/1693)<br/>
 [Aparna Gupte](https://www.mit.edu/~agupte/), **SR**, and [Mark Zhandry](https://mzhandry.github.io/)<br/>
-Previously titled _The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP_<br/>
+Previously titled **The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP**<br/>
 
 **Unconditional Unclonable Encryption** [[arXiv]](https://arxiv.org/abs/2607.21551)<br/>
 [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home), **SR**, and [Amit Sahai](https://web.cs.ucla.edu/~sahai/)<br/>
@@ -103,6 +104,7 @@ Highlights talk at ITC 2026<br/>
 # Talks
 
 **Unconditional Unclonable Encryption**
+- Charles River Crypto Day (October 2026)
 - NTT Research (September 2026)
 
 **The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP**
