@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BPL ingredient map</title>
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#edf1f5;color:#183047;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#1f5fa8}p{margin:8px 0}
+.site{display:flex;align-items:flex-end;gap:8px 28px;flex-wrap:wrap;padding:12px 24px 0;background:#fff;border-bottom:1px solid #ccd6df}
+.brand{font-weight:700;padding-bottom:10px}nav{display:flex;gap:22px}
+nav a{padding:0 2px 8px;color:#506478;text-decoration:none;font-weight:600;border-bottom:3px solid transparent}
+nav a:hover{color:#183047}nav a[aria-current=page]{color:#183047;border-color:#183047}
+.badge{flex:none;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#183047;color:#fff;font-weight:700;font-size:14px}
+.card-head{display:flex;align-items:flex-start;gap:10px}.card-head h2{flex:1;margin:0;font-size:18px;line-height:28px}
+dl.api{margin:10px 0 0}dl.api div+div{margin-top:10px}
+dl.api dt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#506478}
+dl.api dd{margin:2px 0 0}p.note{color:#506478;font-size:14px}
+code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eef3f7;padding:1px 4px;border-radius:4px}
+.toy{display:inline-block;padding:0 7px;border-radius:9px;background:#e3f2ef;color:#087D70;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:1px}
+.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 24px;background:#fff;border-bottom:1px solid #ccd6df;position:sticky;top:0;z-index:3}
+button{font:inherit;padding:7px 12px;border:1px solid #aebdca;border-radius:6px;background:#fff;color:#183047;cursor:pointer}
+button:hover{background:#edf3f8}#summary{color:#506478;font-size:14px}
+.help{padding:10px 24px 2px;background:#fff}.help p{max-width:118ch;margin:0 0 8px}
+.teal{color:#087D70;font-weight:600}.orange{color:#B65F19;font-weight:600}
+#viewport{overflow:auto;padding:16px}#drawing{position:relative;width:100%;min-width:1000px;margin:auto;background:#fff;border:1px solid #d7e0e7}
+svg{display:block;width:100%;height:auto}
+.node,.edge{transition:opacity .15s}.node.off{opacity:.22}.edge.off{opacity:.08}
+.node[data-kind="ingredient"]{cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.node[data-kind="ingredient"]:hover>rect{stroke:#173f8a;stroke-width:3}.node[data-kind="ingredient"].off:hover{opacity:.45}
+.node:focus{outline:none}.node:focus-visible>rect{stroke:#173f8a;stroke-width:4}
+.node.api-open{opacity:1}.node.api-open>rect{stroke:#173f8a;stroke-width:4}
+#card{position:absolute;z-index:2;width:min(460px,calc(100% - 16px),calc(100vw - 48px));max-height:calc(100% - 16px);overflow:auto;padding:14px 16px 12px;
+background:#fff;border:1px solid #9fb2c4;border-left:4px solid #173f8a;border-radius:10px;box-shadow:0 10px 30px rgba(24,48,71,.22);font-size:15px}
+#card[hidden]{display:none}#card:focus{outline:none}
+#card-close{flex:none;width:30px;height:30px;padding:0;font-size:20px;line-height:1;border-color:transparent;color:#506478}
+#card-close:hover{border-color:#aebdca}#card-more{display:inline-block;margin-top:10px;font-size:14px;font-weight:600}
+@media (max-width:700px){.toolbar{position:static}}
+@media print{.site,.toolbar,.help,#card{display:none}#viewport{padding:0}#drawing{width:100%!important;min-width:0;border:0}}
+</style></head><body>
+<header class="site"><span class="brand">BPL proof ingredients</span><nav aria-label="Pages"><a href="index.html" aria-current=page>Map</a><a href="toy_apis.html">Toy APIs</a></nav></header>
+<div class="help"><p>Click an ingredient to switch it on or off; right-click it (long-press on a touch screen,
+Shift+F10 from the keyboard) to see its toy API. Faded boxes are off. A task is on when all its ingredients are on.
+An obstacle is on when not all of its <span class="teal">improving</span> ingredients are on, and either it has no
+<span class="orange">worsening</span> ingredients or at least one of them is on. An arrow is shown when its ingredient is on.</p></div>
+<div class="toolbar"><button id="none" type="button">All off</button><button id="all" type="button">All on</button>
+<button id="fit" type="button">Fit width</button><button id="full" type="button">Full size</button>
+<span id="summary" aria-live="polite"></span></div>
+<main><div id="viewport"><div id="drawing"><svg xmlns="http://www.w3.org/2000/svg" width="2250" height="1600" viewBox="0 0 2250 1600" role="group" aria-labelledby="title description">
+<title id="title">BPL: tasks, ingredients, and obstacles</title>
+<desc id="description">Three columns with four numbered tasks and an added finishing task, ten unique ingredient nodes, and eight unique obstacle nodes. Fifteen blue-gray arrows show task uses. Fourteen solid teal arrows improve obstacles; thirteen dashed orange arrows introduce or worsen them. Tasks 3 and 4 construct and sparsify each stage. Finish is an added closure outside the numbered notes. Ingredients run from 1 to 10 top to bottom. This explanation order is not an execution schedule.</desc>
+<rect width="2250" height="1600" fill="#FFFFFF"/>
+<text x="40" y="48" font-family="DejaVu Sans, sans-serif" font-size="36" font-weight="700" text-anchor="start" fill="#183047">BPL: tasks, ingredients, and obstacles</text>
+<text x="40" y="82" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#506478">Task wording follows the notes; ingredients appear once, in order from 1 to 10.</text>
+<g><path d="M 40 113 C 68.6 113 63.4 113 92 113" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 40 113 C 68.6 113 63.4 113 92 113" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="92,113 85,109 85,117" fill="#71839D"/></g>
+<text x="105" y="120" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start" fill="#183047">Task uses ingredient</text>
+<g><path d="M 610 113 C 638.6 113 633.4 113 662 113" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 610 113 C 638.6 113 633.4 113 662 113" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="662,113 655,109 655,117" fill="#087D70"/></g>
+<text x="675" y="120" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start" fill="#183047">Improves obstacle</text>
+<g><path d="M 1170 113 C 1198.6 113 1193.4 113 1222 113" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1170 113 C 1198.6 113 1193.4 113 1222 113" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1222,113 1215,109 1215,117" fill="#B65F19"/></g>
+<text x="1235" y="120" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start" fill="#183047">Introduces / worsens obstacle</text>
+<text x="40" y="163" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="700" text-anchor="start" fill="#183047">TASKS</text>
+<text x="230" y="163" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Revised four-part decomposition</text>
+<text x="910" y="163" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="700" text-anchor="start" fill="#183047">INGREDIENTS</text>
+<text x="1100" y="163" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Explanation order 1-10</text>
+<text x="1760" y="163" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="700" text-anchor="start" fill="#183047">OBSTACLES</text>
+<text x="1950" y="163" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Direct signed effects</text>
+<g id="use-task1-1" class="edge" data-edge="true" data-source="task1" data-target="i1" data-sign="uses"><title>Selective shortcutting instantiates the correction step; the global matrix-power argument remains a separate obligation.</title><path d="M 561 297 C 751.85 297 717.15 255 908 255" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 297 C 751.85 297 717.15 255 908 255" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,255 901,251 901,259" fill="#71839D"/></g>
+<g id="use-task1-2" class="edge" data-edge="true" data-source="task1" data-target="i2" data-sign="uses"><title>Node splitting instantiates weight reduction while controlling active-node growth; it does not replace the global correctness argument.</title><path d="M 561 313 C 751.85 313 717.15 387 908 387" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 313 C 751.85 313 717.15 387 908 387" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,387 901,383 901,391" fill="#71839D"/></g>
+<g id="use-task2-7" class="edge" data-edge="true" data-source="task2" data-target="i7" data-sign="uses"><title>The clever pointer scheme describes sparse destinations by paths relative to one current vertex.</title><path d="M 561 584.75 C 751.85 584.75 717.15 1055 908 1055" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 584.75 C 751.85 584.75 717.15 1055 908 1055" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,1055 901,1051 901,1059" fill="#71839D"/></g>
+<g id="use-task2-8" class="edge" data-edge="true" data-source="task2" data-target="i8" data-sign="uses"><title>Reversible navigation supplies inverse access and returns without stacking full vertex addresses.</title><path d="M 561 600.75 C 751.85 600.75 717.15 1187 908 1187" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 600.75 C 751.85 600.75 717.15 1187 908 1187" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,1187 901,1183 901,1191" fill="#71839D"/></g>
+<g id="use-task2-9" class="edge" data-edge="true" data-source="task2" data-target="i9" data-sign="uses"><title>Streamed arithmetic bounds the numerical information retained by suspended calls throughout the sequence.</title><path d="M 561 616.75 C 751.85 616.75 717.15 1319 908 1319" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 616.75 C 751.85 616.75 717.15 1319 908 1319" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,1319 901,1315 901,1323" fill="#71839D"/></g>
+<g id="use-task3-1" class="edge" data-edge="true" data-source="task3" data-target="i1" data-sign="uses"><title>Trial runs estimate column crowding, freeze the column multipliers, and restart selective shortcutting. This is the column sparsifier in the notes.</title><path d="M 561 864 C 751.85 864 717.15 271 908 271" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 864 C 751.85 864 717.15 271 908 271" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,271 901,267 901,275" fill="#71839D"/></g>
+<g id="use-task3-2" class="edge" data-edge="true" data-source="task3" data-target="i2" data-sign="uses"><title>Vertex splitting is node splitting: it reduces large residual weights where shortcutting is suppressed, with controlled active-node growth.</title><path d="M 561 880 C 751.85 880 717.15 403 908 403" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 880 C 751.85 880 717.15 403 908 403" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,403 901,399 901,407" fill="#71839D"/></g>
+<g id="use-task3-3" class="edge" data-edge="true" data-source="task3" data-target="i3" data-sign="uses"><title>Sampled trial runs estimate the density of substantial incoming entries using the same conditional sampling interface.</title><path d="M 561 896 C 751.85 896 717.15 519 908 519" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 896 C 751.85 896 717.15 519 908 519" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,519 901,515 901,523" fill="#71839D"/></g>
+<g id="use-task3-4" class="edge" data-edge="true" data-source="task3" data-target="i4" data-sign="uses"><title>The sampled estimators inside trial runs need bounded row and incoming access and the associated conditional normalization.</title><path d="M 561 912 C 751.85 912 717.15 651 908 651" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 912 C 751.85 912 717.15 651 908 651" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,651 901,647 901,655" fill="#71839D"/></g>
+<g id="use-task3-5" class="edge" data-edge="true" data-source="task3" data-target="i5" data-sign="uses"><title>Recursion-friendly sampling makes the nested estimates accurate while limiting averaging descriptions retained across the entire sequence.</title><path d="M 561 928 C 751.85 928 717.15 783 908 783" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 928 C 751.85 928 717.15 783 908 783" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,783 901,779 901,787" fill="#71839D"/></g>
+<g id="use-task4-3" class="edge" data-edge="true" data-source="task4" data-target="i3" data-sign="uses"><title>A coherent seed prescribes vertex subsets; rates matched to entry size reduce O(16^i) substantial neighbors to constant expected sampled degree.</title><path d="M 561 1167.25 C 751.85 1167.25 717.15 535 908 535" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 1167.25 C 751.85 1167.25 717.15 535 908 535" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,535 901,531 901,539" fill="#71839D"/></g>
+<g id="use-task4-4" class="edge" data-edge="true" data-source="task4" data-target="i4" data-sign="uses"><title>Row and incoming caps bound degree on every seed. Conditional normalization compensates for suppression for ideal inputs; estimated inputs introduce controlled bias.</title><path d="M 561 1183.25 C 751.85 1183.25 717.15 667 908 667" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 1183.25 C 751.85 1183.25 717.15 667 908 667" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,667 901,663 901,671" fill="#71839D"/></g>
+<g id="use-task4-5" class="edge" data-edge="true" data-source="task4" data-target="i5" data-sign="uses"><title>Conditional averaging of paired accuracy improvements controls recursive error and retained averaging words. It does not itself enforce worst-case degree.</title><path d="M 561 1199.25 C 751.85 1199.25 717.15 799 908 799" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 1199.25 C 751.85 1199.25 717.15 799 908 799" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,799 901,795 901,803" fill="#71839D"/></g>
+<g id="use-task4-6" class="edge" data-edge="true" data-source="task4" data-target="i6" data-sign="uses"><title>During recursive averaging, compress accumulated estimates and normalization signals, controlling representation size and distortion before final gates and normalization.</title><path d="M 561 1215.25 C 751.85 1215.25 717.15 923 908 923" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 1215.25 C 751.85 1215.25 717.15 923 908 923" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,923 901,919 901,927" fill="#71839D"/></g>
+<g id="use-finish-10" class="edge" data-edge="true" data-source="finish" data-target="i10" data-sign="uses"><title>Enumerate the analyzed conditional seed space and select a median of the root estimates.</title><path d="M 561 1451 C 751.85 1451 717.15 1451 908 1451" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 561 1451 C 751.85 1451 717.15 1451 908 1451" fill="none" stroke="#71839D" stroke-width="2.2"/><polygon points="908,1451 901,1447 901,1455" fill="#71839D"/></g>
+<g id="edge-1-weights-improves" class="edge" data-edge="true" data-source="i1" data-target="o-weights" data-sign="improves"><title>Substituting continuation equations reduces residual entries in destinations where correction is enabled.</title><path d="M 1341 239 C 1570.35 239 1528.65 262 1758 262" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 239 C 1570.35 239 1528.65 262 1758 262" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,262 1751,258 1751,266" fill="#087D70"/></g>
+<g id="edge-1-indegree-worsens" class="edge" data-edge="true" data-source="i1" data-target="o-indegree" data-sign="worsens"><title>Shortcutting can create additional incoming connections.</title><path d="M 1341 255 C 1570.35 255 1528.65 422 1758 422" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 255 C 1570.35 255 1528.65 422 1758 422" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,422 1751,418 1751,426" fill="#B65F19"/></g>
+<g id="edge-1-rows-worsens" class="edge" data-edge="true" data-source="i1" data-target="o-rows" data-sign="worsens"><title>A shortcut can expose several later destinations in one row.</title><path d="M 1341 271 C 1570.35 271 1528.65 571.833 1758 571.833" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 271 C 1570.35 271 1528.65 571.833 1758 571.833" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,571.833 1751,567.833 1751,575.833" fill="#B65F19"/></g>
+<g id="edge-1-reverse-worsens" class="edge" data-edge="true" data-source="i1" data-target="o-reverse" data-sign="worsens"><title>The inverse access of the original graph does not directly enumerate the new shortcut computations.</title><path d="M 1341 287 C 1570.35 287 1528.65 1094 1758 1094" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 287 C 1570.35 287 1528.65 1094 1758 1094" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,1094 1751,1090 1751,1098" fill="#B65F19"/></g>
+<g id="edge-2-weights-improves" class="edge" data-edge="true" data-source="i2" data-target="o-weights" data-sign="improves"><title>Distributing incoming weight among copies reduces individual edge weights where shortcutting is suppressed.</title><path d="M 1341 379 C 1570.35 379 1528.65 278 1758 278" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 379 C 1570.35 379 1528.65 278 1758 278" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,278 1751,274 1751,282" fill="#087D70"/></g>
+<g id="edge-2-rows-worsens" class="edge" data-edge="true" data-source="i2" data-target="o-rows" data-sign="worsens"><title>Copies introduce additional possible destinations, although the active-node increase is controlled.</title><path d="M 1341 411 C 1570.35 411 1528.65 585.5 1758 585.5" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 411 C 1570.35 411 1528.65 585.5 1758 585.5" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,585.5 1751,581.5 1751,589.5" fill="#B65F19"/></g>
+<g id="edge-2-indegree-worsens" class="edge" data-edge="true" data-source="i2" data-target="o-indegree" data-sign="worsens"><title>Destination copies may keep the same predecessors, and active source copies can add predecessors; splitting is not a degree bound.</title><path d="M 1341 395 C 1570.35 395 1528.65 438 1758 438" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 395 C 1570.35 395 1528.65 438 1758 438" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,438 1751,434 1751,442" fill="#B65F19"/></g>
+<g id="edge-3-rows-improves" class="edge" data-edge="true" data-source="i3" data-target="o-rows" data-sign="improves"><title>Sampling at a rate matched to entry size leaves few substantial sampled entries in expectation.</title><path d="M 1341 503 C 1570.35 503 1528.65 599.167 1758 599.167" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 503 C 1570.35 503 1528.65 599.167 1758 599.167" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,599.167 1751,595.167 1751,603.167" fill="#087D70"/></g>
+<g id="edge-3-errors-worsens" class="edge" data-edge="true" data-source="i3" data-target="o-errors" data-sign="worsens"><title>Replacing exact contributions by samples introduces fluctuations, and seed reuse correlates recursive estimates.</title><path d="M 1341 519 C 1570.35 519 1528.65 750 1758 750" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 519 C 1570.35 519 1528.65 750 1758 750" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,750 1751,746 1751,754" fill="#B65F19"/></g>
+<g id="edge-3-records-worsens" class="edge" data-edge="true" data-source="i3" data-target="o-records" data-sign="worsens"><title>Using conditional mixing requires descriptions of averaging walks that a recursive implementation must retain or regenerate.</title><path d="M 1341 535 C 1570.35 535 1528.65 918 1758 918" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 535 C 1570.35 535 1528.65 918 1758 918" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,918 1751,914 1751,922" fill="#B65F19"/></g>
+<g id="edge-3-seed-worsens" class="edge" data-edge="true" data-source="i3" data-target="o-seed" data-sign="worsens"><title>A single seeded estimate need not be accurate.</title><path d="M 1341 551 C 1570.35 551 1528.65 1438 1758 1438" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 551 C 1570.35 551 1528.65 1438 1758 1438" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,1438 1751,1434 1751,1442" fill="#B65F19"/></g>
+<g id="edge-4-indegree-improves" class="edge" data-edge="true" data-source="i4" data-target="o-indegree" data-sign="improves"><title>Incoming gates and caps bound the correction relations even on inaccurate seeds.</title><path d="M 1341 635 C 1570.35 635 1528.65 454 1758 454" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 635 C 1570.35 635 1528.65 454 1758 454" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,454 1751,450 1751,458" fill="#087D70"/></g>
+<g id="edge-4-rows-improves" class="edge" data-edge="true" data-source="i4" data-target="o-rows" data-sign="improves"><title>Row gates bound the outgoing support of completed sampled rows.</title><path d="M 1341 651 C 1570.35 651 1528.65 612.833 1758 612.833" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 651 C 1570.35 651 1528.65 612.833 1758 612.833" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,612.833 1751,608.833 1751,616.833" fill="#087D70"/></g>
+<g id="edge-4-errors-improves" class="edge" data-edge="true" data-source="i4" data-target="o-errors" data-sign="improves"><title>A pointwise incoming-degree bound limits how often a common right-factor error is charged, without assuming independence.</title><path d="M 1341 667 C 1570.35 667 1528.65 766 1758 766" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 667 C 1570.35 667 1528.65 766 1758 766" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,766 1751,762 1751,770" fill="#087D70"/></g>
+<g id="edge-4-numbers-worsens" class="edge" data-edge="true" data-source="i4" data-target="o-numbers" data-sign="worsens"><title>Smooth gates, ranks, and estimated normalizers create numerical subcomputations whose storage must be controlled.</title><path d="M 1341 683 C 1570.35 683 1528.65 1262 1758 1262" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 683 C 1570.35 683 1528.65 1262 1758 1262" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,1262 1751,1258 1751,1266" fill="#B65F19"/></g>
+<g id="edge-5-errors-improves" class="edge" data-edge="true" data-source="i5" data-target="o-errors" data-sign="improves"><title>Paired budgets cancel the common ideal sample; conditional mixing contracts the remaining fluctuations.</title><path d="M 1341 783 C 1570.35 783 1528.65 782 1758 782" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 783 C 1570.35 783 1528.65 782 1758 782" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,782 1751,778 1751,786" fill="#087D70"/></g>
+<g id="edge-5-records-improves" class="edge" data-edge="true" data-source="i5" data-target="o-records" data-sign="improves"><title>Walk length is charged to the decrease in accuracy budget, limiting data suspended across recursive calls.</title><path d="M 1341 799 C 1570.35 799 1528.65 934 1758 934" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 799 C 1570.35 799 1528.65 934 1758 934" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,934 1751,930 1751,938" fill="#087D70"/></g>
+<g id="edge-5-rows-worsens" class="edge" data-edge="true" data-source="i5" data-target="o-rows" data-sign="worsens"><title>Averages and differences of individually sparse sampled contributions can involve many destinations in the accumulated intermediate row.</title><path d="M 1341 767 C 1570.35 767 1528.65 626.5 1758 626.5" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 767 C 1570.35 767 1528.65 626.5 1758 626.5" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,626.5 1751,622.5 1751,630.5" fill="#B65F19"/></g>
+<g id="edge-5-numbers-worsens" class="edge" data-edge="true" data-source="i5" data-target="o-numbers" data-sign="worsens"><title>The averages and differences must be numerically evaluated without storing all their intermediate values.</title><path d="M 1341 815 C 1570.35 815 1528.65 1278 1758 1278" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 815 C 1570.35 815 1528.65 1278 1758 1278" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,1278 1751,1274 1751,1282" fill="#B65F19"/></g>
+<g id="edge-6-rows-improves" class="edge" data-edge="true" data-source="i6" data-target="o-rows" data-sign="improves"><title>Compress the intermediate estimated row assembled during averaging into a shared default and a budget-bounded set of exceptions; control the effect on later gated and normalized computations.</title><path d="M 1341 915 C 1570.35 915 1528.65 640.167 1758 640.167" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 915 C 1570.35 915 1528.65 640.167 1758 640.167" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,640.167 1751,636.167 1751,644.167" fill="#087D70"/></g>
+<g id="edge-6-errors-worsens" class="edge" data-edge="true" data-source="i6" data-target="o-errors" data-sign="worsens"><title>Compression changes intermediate estimated values; its distortion must be controlled even when noise and overflow are correlated.</title><path d="M 1341 931 C 1570.35 931 1528.65 798 1758 798" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 931 C 1570.35 931 1528.65 798 1758 798" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,798 1751,794 1751,802" fill="#B65F19"/></g>
+<g id="edge-7-records-improves" class="edge" data-edge="true" data-source="i7" data-target="o-records" data-sign="improves"><title>Short relative descriptions replace a full saved vertex identifier in each suspended caller.</title><path d="M 1341 1047 C 1570.35 1047 1528.65 950 1758 950" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 1047 C 1570.35 1047 1528.65 950 1758 950" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,950 1751,946 1751,954" fill="#087D70"/></g>
+<g id="edge-7-reverse-worsens" class="edge" data-edge="true" data-source="i7" data-target="o-reverse" data-sign="worsens"><title>Discarding the old full address makes restoration and inverse access an explicit requirement of the pointer scheme.</title><path d="M 1341 1063 C 1570.35 1063 1528.65 1110 1758 1110" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 1063 C 1570.35 1063 1528.65 1110 1758 1110" fill="none" stroke="#B65F19" stroke-width="2.2" stroke-dasharray="6 4"/><polygon points="1758,1110 1751,1106 1751,1114" fill="#B65F19"/></g>
+<g id="edge-8-reverse-improves" class="edge" data-edge="true" data-source="i8" data-target="o-reverse" data-sign="improves"><title>Contours of appropriate computation trees enumerate incoming computations and supply restoring inverse access.</title><path d="M 1341 1195 C 1570.35 1195 1528.65 1126 1758 1126" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 1195 C 1570.35 1195 1528.65 1126 1758 1126" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,1126 1751,1122 1751,1130" fill="#087D70"/></g>
+<g id="edge-8-records-improves" class="edge" data-edge="true" data-source="i8" data-target="o-records" data-sign="improves"><title>Restoring excursions avoid retaining a separate full starting address.</title><path d="M 1341 1179 C 1570.35 1179 1528.65 966 1758 966" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 1179 C 1570.35 1179 1528.65 966 1758 966" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,966 1751,962 1751,970" fill="#087D70"/></g>
+<g id="edge-9-numbers-improves" class="edge" data-edge="true" data-source="i9" data-target="o-numbers" data-sign="improves"><title>Compute requested digits while limiting numerical bits retained in suspended calls; the precision-dependent storage bounds compose across the recursion.</title><path d="M 1341 1319 C 1570.35 1319 1528.65 1294 1758 1294" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 1319 C 1570.35 1319 1528.65 1294 1758 1294" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,1294 1751,1290 1751,1298" fill="#087D70"/></g>
+<g id="edge-10-seed-improves" class="edge" data-edge="true" data-source="i10" data-target="o-seed" data-sign="improves"><title>Enumerating the analyzed conditional seed space and taking a median removes reliance on one fortunate seed.</title><path d="M 1341 1451 C 1570.35 1451 1528.65 1454 1758 1454" fill="none" stroke="#FFFFFF" stroke-width="6.8"/><path d="M 1341 1451 C 1570.35 1451 1528.65 1454 1758 1454" fill="none" stroke="#087D70" stroke-width="2.2"/><polygon points="1758,1454 1751,1450 1751,1458" fill="#087D70"/></g>
+<g id="node-task1" class="node" data-node="task1" data-kind="task" role="group" aria-label="Task 1: Approximating matrix powers with a sequence of corrector matrices">
+<title>Task 1: Approximating matrix powers with a sequence of corrector matrices</title>
+<rect x="40" y="190" width="520" height="230" rx="12" fill="#F4F6FB" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="64" y="219" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="#455D84">TASK 1</text>
+<text x="64" y="247" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">Approximating matrix powers with a</text>
+<text x="64" y="274" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">sequence of corrector matrices</text>
+<text x="64" y="313" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">Assume correctors are trivial to compute in low</text>
+<text x="64" y="336" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">space.</text>
+<text x="64" y="371" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">Intermediate correctors are neither Savitch nor</text>
+<text x="64" y="393" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">one-shot.</text>
+</g>
+<g id="node-task2" class="node" data-node="task2" data-kind="task" role="group" aria-label="Task 2: Compute the sequence of corrector matrices in low space">
+<title>Task 2: Compute the sequence of corrector matrices in low space</title>
+<rect x="40" y="497.25" width="520" height="207" rx="12" fill="#F4F6FB" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="64" y="526.25" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="#455D84">TASK 2</text>
+<text x="64" y="554.25" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">Compute the sequence of corrector</text>
+<text x="64" y="581.25" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">matrices in low space</text>
+<text x="64" y="620.25" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">Assume each Eᵢ is O(1)-sparse.</text>
+<text x="64" y="655.25" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">Clever pointer scheme; evaluate the entire sequence</text>
+<text x="64" y="677.25" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">in low space.</text>
+</g>
+<g id="node-task3" class="node" data-node="task3" data-kind="task" role="group" aria-label="Task 3: Compute an O(16ⁱ)-sparse Eᵢ in low space">
+<title>Task 3: Compute an O(16ⁱ)-sparse Eᵢ in low space</title>
+<rect x="40" y="781.5" width="520" height="229" rx="12" fill="#F4F6FB" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="64" y="810.5" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="#455D84">TASK 3</text>
+<text x="64" y="838.5" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">Compute an O(16ⁱ)-sparse Eᵢ in low</text>
+<text x="64" y="865.5" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">space</text>
+<text x="64" y="904.5" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">Assume Eᵢ₋₁ is O(1)-sparse.</text>
+<text x="64" y="939.5" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">Trial runs &amp; column sparsifier; vertex splitting;</text>
+<text x="64" y="961.5" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">recursion-friendly sampling. Compute the entire</text>
+<text x="64" y="983.5" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">sequence in low space.</text>
+</g>
+<g id="node-task4" class="node" data-node="task4" data-kind="task" role="group" aria-label="Task 4: Sparsifying from O(16ⁱ) to O(1) in low space">
+<title>Task 4: Sparsifying from O(16ⁱ) to O(1) in low space</title>
+<rect x="40" y="1087.75" width="520" height="207" rx="12" fill="#F4F6FB" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="64" y="1116.75" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="#455D84">TASK 4</text>
+<text x="64" y="1144.75" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">Sparsifying from O(16ⁱ) to O(1) in low</text>
+<text x="64" y="1171.75" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">space</text>
+<text x="64" y="1210.75" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">Assume Eᵢ is already O(16ⁱ)-sparse.</text>
+<text x="64" y="1245.75" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">Compute sparser Eᵢ and the entire sequence in low</text>
+<text x="64" y="1267.75" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">space.</text>
+</g>
+<g id="node-finish" class="node" data-node="finish" data-kind="task" role="group" aria-label="Task Finish: Remove reliance on a good seed">
+<title>Task Finish: Remove reliance on a good seed</title>
+<rect x="40" y="1372" width="520" height="158" rx="12" fill="#F4F6FB" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="64" y="1401" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="#455D84">ADDED CLOSURE</text>
+<text x="64" y="1429" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#183047">Remove reliance on a good seed</text>
+<text x="64" y="1468" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">Added closure, outside the numbered notes.</text>
+<text x="64" y="1503" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#455D84">Enumerate seeds and take a median.</text>
+</g>
+<g id="node-i1" class="node" data-node="i1" data-kind="ingredient" role="group" aria-label="Ingredient 1: Selective shortcutting">
+<title>Ingredient 1: Selective shortcutting</title>
+<rect x="910" y="203" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="231" r="15" fill="#183047"/>
+<text x="935" y="236" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">1</text>
+<text x="962" y="232" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Selective shortcutting</text>
+<text x="962" y="263" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Estimate column crowding; shortcut</text>
+<text x="962" y="283" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">selectively to reduce edge weights.</text>
+</g>
+<g id="node-i2" class="node" data-node="i2" data-kind="ingredient" role="group" aria-label="Ingredient 2: Node splitting">
+<title>Ingredient 2: Node splitting</title>
+<rect x="910" y="335" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="363" r="15" fill="#183047"/>
+<text x="935" y="368" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">2</text>
+<text x="962" y="364" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Node splitting</text>
+<text x="962" y="395" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Divide transition weights among new nodes</text>
+<text x="962" y="415" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">with controlled growth.</text>
+</g>
+<g id="node-i3" class="node" data-node="i3" data-kind="ingredient" role="group" aria-label="Ingredient 3: Vertex sampling and conditional mixing">
+<title>Ingredient 3: Vertex sampling and conditional mixing</title>
+<rect x="910" y="467" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="495" r="15" fill="#183047"/>
+<text x="935" y="500" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">3</text>
+<text x="962" y="496" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Vertex sampling and</text>
+<text x="962" y="522" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">conditional mixing</text>
+<text x="962" y="553" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Sample vertices; mix seeds while preserving</text>
+<text x="962" y="573" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">required inclusions.</text>
+</g>
+<g id="node-i4" class="node" data-node="i4" data-kind="ingredient" role="group" aria-label="Ingredient 4: Controlling WORST-case degree">
+<title>Ingredient 4: Controlling WORST-case degree</title>
+<rect x="910" y="599" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="627" r="15" fill="#183047"/>
+<text x="935" y="632" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">4</text>
+<text x="962" y="628" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Controlling WORST-case</text>
+<text x="962" y="654" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">degree</text>
+<text x="962" y="685" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Suppress crowded rows and columns;</text>
+<text x="962" y="705" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">compensate for lost contributions.</text>
+</g>
+<g id="node-i5" class="node" data-node="i5" data-kind="ingredient" role="group" aria-label="Ingredient 5: Recursion-friendly sampling">
+<title>Ingredient 5: Recursion-friendly sampling</title>
+<rect x="910" y="731" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="759" r="15" fill="#183047"/>
+<text x="935" y="764" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">5</text>
+<text x="962" y="760" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Recursion-friendly sampling</text>
+<text x="962" y="791" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Average successive accuracy improvements</text>
+<text x="962" y="811" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">with decreasing averaging overhead.</text>
+</g>
+<g id="node-i6" class="node" data-node="i6" data-kind="ingredient" role="group" aria-label="Ingredient 6: Compressing intermediate averages">
+<title>Ingredient 6: Compressing intermediate averages</title>
+<rect x="910" y="863" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="891" r="15" fill="#183047"/>
+<text x="935" y="896" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">6</text>
+<text x="962" y="892" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Compressing intermediate</text>
+<text x="962" y="918" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">averages</text>
+<text x="962" y="949" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Represent intermediate averages using a</text>
+<text x="962" y="969" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">default and bounded exceptions.</text>
+</g>
+<g id="node-i7" class="node" data-node="i7" data-kind="ingredient" role="group" aria-label="Ingredient 7: Pointer scheme for sparse rows">
+<title>Ingredient 7: Pointer scheme for sparse rows</title>
+<rect x="910" y="995" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="1023" r="15" fill="#183047"/>
+<text x="935" y="1028" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">7</text>
+<text x="962" y="1024" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Pointer scheme for sparse</text>
+<text x="962" y="1050" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">rows</text>
+<text x="962" y="1081" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Navigate using one current vertex and short</text>
+<text x="962" y="1101" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">relative paths.</text>
+</g>
+<g id="node-i8" class="node" data-node="i8" data-kind="ingredient" role="group" aria-label="Ingredient 8: Reversible walks">
+<title>Ingredient 8: Reversible walks</title>
+<rect x="910" y="1127" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="1155" r="15" fill="#183047"/>
+<text x="935" y="1160" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">8</text>
+<text x="962" y="1156" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Reversible walks</text>
+<text x="962" y="1187" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Enumerate predecessors and restore</text>
+<text x="962" y="1207" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">positions without saving vertex addresses.</text>
+</g>
+<g id="node-i9" class="node" data-node="i9" data-kind="ingredient" role="group" aria-label="Ingredient 9: Streaming arithmetic">
+<title>Ingredient 9: Streaming arithmetic</title>
+<rect x="910" y="1259" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="1287" r="15" fill="#183047"/>
+<text x="935" y="1292" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">9</text>
+<text x="962" y="1288" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Streaming arithmetic</text>
+<text x="962" y="1319" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Compute digits without retaining full</text>
+<text x="962" y="1339" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">intermediate numerical values.</text>
+</g>
+<g id="node-i10" class="node" data-node="i10" data-kind="ingredient" role="group" aria-label="Ingredient 10: Median of multiple trials">
+<title>Ingredient 10: Median of multiple trials</title>
+<rect x="910" y="1391" width="430" height="120" rx="12" fill="#FFFFFF" stroke="#B8C6D3" stroke-width="1.5"/>
+<circle cx="935" cy="1419" r="15" fill="#183047"/>
+<text x="935" y="1424" font-family="DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#FFFFFF">10</text>
+<text x="962" y="1420" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Median of multiple trials</text>
+<text x="962" y="1451" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Enumerate seeds; select a median without</text>
+<text x="962" y="1471" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">storing the estimates.</text>
+</g>
+<g id="node-o-weights" class="node" data-node="o-weights" data-kind="obstacle" role="group" aria-label="Large edge weights">
+<title>Large edge weights</title>
+<rect x="1760" y="214" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="241" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Large edge weights</text>
+<text x="1784" y="270" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Too much acceptance contribution remains in the</text>
+<text x="1784" y="290" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">transition term.</text>
+</g>
+<g id="node-o-indegree" class="node" data-node="o-indegree" data-kind="obstacle" role="group" aria-label="High-indegree vertices">
+<title>High-indegree vertices</title>
+<rect x="1760" y="382" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="409" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">High-indegree vertices</text>
+<text x="1784" y="438" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">One destination receives too many incoming</text>
+<text x="1784" y="458" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">contributions.</text>
+</g>
+<g id="node-o-rows" class="node" data-node="o-rows" data-kind="obstacle" role="group" aria-label="Dense rows">
+<title>Dense rows</title>
+<rect x="1760" y="550" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="577" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Dense rows</text>
+<text x="1784" y="606" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Rows and intermediate averages can involve too</text>
+<text x="1784" y="626" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">many destinations.</text>
+</g>
+<g id="node-o-errors" class="node" data-node="o-errors" data-kind="obstacle" role="group" aria-label="Accumulating correlated errors">
+<title>Accumulating correlated errors</title>
+<rect x="1760" y="718" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="745" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Accumulating correlated errors</text>
+<text x="1784" y="774" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Shared randomness couples errors reused</text>
+<text x="1784" y="794" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">through recursive products.</text>
+</g>
+<g id="node-o-records" class="node" data-node="o-records" data-kind="obstacle" role="group" aria-label="Space footprint of addresses and walk descriptions">
+<title>Space footprint of addresses and walk descriptions</title>
+<rect x="1760" y="886" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="913" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Space footprint of addresses and</text>
+<text x="1784" y="938" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">walk descriptions</text>
+<text x="1784" y="967" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Suspended callers retain too many address and</text>
+<text x="1784" y="987" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">walk bits.</text>
+</g>
+<g id="node-o-reverse" class="node" data-node="o-reverse" data-kind="obstacle" role="group" aria-label="Missing reverse access">
+<title>Missing reverse access</title>
+<rect x="1760" y="1054" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="1081" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Missing reverse access</text>
+<text x="1784" y="1110" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">A destination alone does not identify incoming</text>
+<text x="1784" y="1130" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">computations.</text>
+</g>
+<g id="node-o-numbers" class="node" data-node="o-numbers" data-kind="obstacle" role="group" aria-label="Numerical precision issues">
+<title>Numerical precision issues</title>
+<rect x="1760" y="1222" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="1249" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Numerical precision issues</text>
+<text x="1784" y="1278" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Accurate intermediate values require too many</text>
+<text x="1784" y="1298" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">simultaneously retained bits.</text>
+</g>
+<g id="node-o-seed" class="node" data-node="o-seed" data-kind="obstacle" role="group" aria-label="Reliance on a good seed">
+<title>Reliance on a good seed</title>
+<rect x="1760" y="1390" width="450" height="112" rx="12" fill="#EEF3F7" stroke="#B8C6D3" stroke-width="1.5"/>
+<text x="1784" y="1417" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#183047">Reliance on a good seed</text>
+<text x="1784" y="1446" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">Some seeds still yield inaccurate acceptance</text>
+<text x="1784" y="1466" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#506478">estimates.</text>
+</g>
+<path d="M 40 1544 L 2210 1544" fill="none" stroke="#D7E0E7" stroke-width="1"/>
+<text x="40" y="1570" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#506478">15 task links + 27 signed effects. Ingredient order is explanatory; tasks 3 and 4 inherit task 2&#x27;s evaluation machinery.</text>
+<text x="40" y="1593" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#506478">i = stage index. Expected degree, worst-case access bounds, and accuracy are distinct. Scope: SPACE(log n log log n).</text>
+</svg>
+<section id="card" role="dialog" aria-labelledby="card-title" tabindex="-1" hidden>
+<div class="card-head"><span class="badge" id="card-badge"></span><h2 id="card-title"></h2><button id="card-close" type="button" aria-label="Close toy API">×</button></div>
+<div id="card-body"></div><a id="card-more" href="toy_apis.html">All toy APIs →</a></section></div></div></main>
+<template id="api-i1" data-title="Selective shortcutting"><dl class="api"><div><dt>Input</dt><dd>A forward transition graph with some large edge weights.</dd></div><div><dt>Output</dt><dd>Smaller residual weights at eligible destinations, preserving acceptance values after updating accumulated acceptance contributions.</dd></div><div><dt>Upstream purpose</dt><dd>Reduce transition weights where the correction can have controlled incoming degree.</dd></div><div><dt>Approach</dt><dd>Trial runs estimate column crowding and decide where to shortcut. <span class="toy">Toy</span> a weight-1/2 edge through a vertex with no immediate acceptance contribution and two weight-1/2 outgoing edges becomes two weight-1/4 shortcuts.</dd></div></dl></template>
+<template id="api-i2" data-title="Node splitting"><dl class="api"><div><dt>Input</dt><dd>A graph whose remaining heavy edges enter a small set of flagged vertices.</dd></div><div><dt>Output</dt><dd>An equivalent graph with smaller individual weights and controlled node growth.</dd></div><div><dt>Upstream purpose</dt><dd>Handle heavy edges at destinations where shortcutting was suppressed.</dd></div><div><dt>Approach</dt><dd>Duplicate a vertex's future behaviour and divide incoming weights among its copies. <span class="toy">Toy</span> four copies turn an incoming weight of 0.8 into four weights of 0.2.</dd></div></dl></template>
+<template id="api-i3" data-title="Vertex sampling and conditional mixing"><dl class="api"><div><dt>Input</dt><dd>A vertex set and a desired sampling rate.</dd></div><div><dt>Output</dt><dd>A seeded sampler and a rapidly mixing seed walk with constantly many choices per step. A fixed seed and rate give repeatable membership decisions without storing the sampled set.</dd></div><div><dt>Upstream purpose</dt><dd>Average sampled computations using short walk descriptions. The full construction also needs this mixing while designated end points remain sampled; the toy setting omits that conditioning.</dd></div><div><dt>Approach</dt><dd>Use a <strong>seed-homomorphic hash with a rapidly mixing walk on the seed space</strong>. Here, seed-homomorphic means that simple seed updates implement corresponding transformations of all hash outputs. Affine hashing supplies those transformations; <strong>relative property (T)</strong> establishes a spectral gap uniform in the seed-space size and sampling rate. <span class="toy">Toy</span> sampling 16 neighbours at rate 1/16 gives one neighbour in expectation, and walking between seeds varies that sample. Ingredient 5 decides how much averaging to perform.</dd></div></dl></template>
+<template id="api-i4" data-title="Controlling WORST-case degree"><dl class="api"><div><dt>Input</dt><dd>A sampled graph, a degree cap, and exact conditional retention probabilities bounded away from zero.</dd></div><div><dt>Output</dt><dd>Bounded row and column degrees on every seed, with the intended conditional entry means.</dd></div><div><dt>Upstream purpose</dt><dd>Guarantee bounded access and prevent one correlated error from being reused too often.</dd></div><div><dt>Approach</dt><dd>Suppress crowded rows and columns, then compensate using each contribution's own retention probability. <span class="toy">Toy</span> a contribution of 0.6 surviving with probability 3/4 becomes 0.8 when retained and zero otherwise; its mean remains 0.6.</dd></div></dl></template>
+<template id="api-i5" data-title="Recursion-friendly sampling"><dl class="api"><div><dt>Input</dt><dd>Successively more accurate recursive estimates, with shrinking errors, and the seed mixing operation supplied by ingredient 3.</dd></div><div><dt>Output</dt><dd>An accurate average for most seeds, with averaging overhead controlled across recursion.</dd></div><div><dt>Upstream purpose</dt><dd>Improve accuracy without paying for a large averaging description at every recursive level.</dd></div><div><dt>Approach</dt><dd>Write the fine estimate as <strong>coarse + (medium - coarse) + (fine - medium)</strong>. Average the coarse term heavily and the smaller refinements less. Evaluate both terms of each difference on the same seed. Pay for its averaging description using the decrease in recursion budget; no independence between the terms is assumed.</dd></div></dl></template>
+<template id="api-i6" data-title="Compressing intermediate averages"><dl class="api"><div><dt>Input</dt><dd>A potentially dense intermediate vector, a storage budget, and queries that keep large entries only when the row is uncrowded.</dd></div><div><dt>Output</dt><dd>A shared default plus a bounded exception list, with controlled change in those downstream queries.</dd></div><div><dt>Upstream purpose</dt><dd>Averages and differences of sparse rows can involve many distinct destinations.</dd></div><div><dt>Approach</dt><dd>Use rank-based thresholds and smooth clamping. <span class="toy">Toy</span> <code>(0.9, 0.2, 0.1, 0.08)</code> becomes <code>(0.9, 0.2, 0.2, 0.2)</code>, encoded by default 0.2 and one exception. Both vectors give the same answer to: "report entries above 0.8, provided the second-largest entry is below 0.25."</dd></div></dl><p class="note">The space bound counts address/value records. Each record needs address and precision bits, and the exception budget varies within the recursion. The guarantee concerns the specified downstream queries; arbitrary row sums and individual small entries can change.</p></template>
+<template id="api-i7" data-title="Pointer scheme for sparse rows"><dl class="api"><div><dt>Input</dt><dd>Nested sparse-row queries, with operations to follow a selected neighbour and return.</dd></div><div><dt>Output</dt><dd>Access using one current vertex and short relative paths.</dd></div><div><dt>Upstream purpose</dt><dd>Avoid retaining a full vertex address in every suspended recursive call.</dd></div><div><dt>Approach</dt><dd>Store local neighbour choices and reconstruct locations when needed. <span class="toy">Toy</span> describing 20 binary forward choices takes 20 bits, while one current vertex address is shared across the queries. Ingredient 8 supplies the return operation; return tokens and other call metadata still need separate space accounting.</dd></div></dl></template>
+<template id="api-i8" data-title="Reversible walks"><dl class="api"><div><dt>Input</dt><dd>A halting forward neighbour-finding procedure, with a bounded number of incoming moves per destination.</dd></div><div><dt>Output</dt><dd>Incoming enumeration and forward/backward moves paired by small return tokens.</dd></div><div><dt>Upstream purpose</dt><dd>Visit destinations, inspect incoming contributions, and return without saving source addresses.</dd></div><div><dt>Approach</dt><dd>Construct local predecessor checks and traverse the procedure's computation graph reversibly. <span class="toy">Toy</span> if two source moves reach the same destination, one bit identifies which incoming move to undo.</dd></div></dl></template>
+<template id="api-i9" data-title="Streaming arithmetic"><dl class="api"><div><dt>Input</dt><dd>Arithmetic expressions whose operands supply digits on demand, with known numerical bounds and divisors bounded away from zero.</dd></div><div><dt>Output</dt><dd>Result digits to the requested accuracy, with controlled memory retained across operand calls.</dd></div><div><dt>Upstream purpose</dt><dd>Evaluate averages, gates, and normalization without stacking full numerical intermediates.</dd></div><div><dt>Approach</dt><dd><span class="toy">Toy</span> average two recursively computed numbers to 100-bit accuracy using signed digits, bounded carries, and recomputation. Account for retained data using the change in requested precision between caller and operand.</dd></div></dl></template>
+<template id="api-i10" data-title="Median of multiple trials"><dl class="api"><div><dt>Input</dt><dd>An enumerable family of finite-precision estimates, with a strict majority within the desired error.</dd></div><div><dt>Output</dt><dd>A deterministic estimate with that error guarantee.</dd></div><div><dt>Upstream purpose</dt><dd>Remove dependence on selecting a good seed.</dd></div><div><dt>Approach</dt><dd>Recompute trials while counting values below candidate thresholds. <span class="toy">Toy</span> the estimates <code>0, 0.49, 0.50, 0.51, 1</code> have median 0.50; repeated scans find it without storing the list.</dd></div></dl></template>
+<script>
+'use strict';
+const svg=document.querySelector('#drawing svg'),drawing=document.getElementById('drawing'),summary=document.getElementById('summary');
+const card=document.getElementById('card'),cardBadge=document.getElementById('card-badge'),cardTitle=document.getElementById('card-title');
+const cardBody=document.getElementById('card-body'),cardMore=document.getElementById('card-more'),cardClose=document.getElementById('card-close');
+const nodes=new Map(Array.from(svg.querySelectorAll('[data-node]'),el=>[el.dataset.node,el]));
+const edges=Array.from(svg.querySelectorAll('[data-edge]'),el=>({el,source:el.dataset.source,target:el.dataset.target,sign:el.dataset.sign,
+  ingredient:el.dataset.sign==='uses'?el.dataset.target:el.dataset.source}));
+const ofKind=kind=>Array.from(nodes.keys()).filter(key=>nodes.get(key).dataset.kind===kind);
+const ingredients=ofKind('ingredient'),tasks=ofKind('task'),obstacles=ofKind('obstacle');
+const neighbours=(key,sign)=>edges.filter(e=>e.sign===sign&&(e.source===key||e.target===key)).map(e=>e.source===key?e.target:e.source);
+const uses=new Map(tasks.map(key=>[key,neighbours(key,'uses')]));
+const green=new Map(obstacles.map(key=>[key,neighbours(key,'improves')]));
+const red=new Map(obstacles.map(key=>[key,neighbours(key,'worsens')]));
+let selected=new Set(),api='';
+function active(){
+  const on=new Set(selected),has=key=>selected.has(key);
+  for(const key of tasks)if(uses.get(key).every(has))on.add(key);
+  for(const key of obstacles){const r=red.get(key);if(!green.get(key).every(has)&&(r.length===0||r.some(has)))on.add(key);}
+  return on;
+}
+function writeHash(){
+  const ids=ingredients.filter(key=>selected.has(key)).map(key=>key.slice(1)),parts=[];
+  if(ids.length)parts.push('on='+ids.join(','));
+  if(api)parts.push('api='+api.slice(1));
+  history.replaceState(null,'',parts.length?'#'+parts.join('&'):location.pathname+location.search);
+}
+function render(){
+  const on=active(),count=list=>list.filter(key=>on.has(key)).length;
+  for(const [key,el] of nodes)el.classList.toggle('off',!on.has(key));
+  for(const key of ingredients)nodes.get(key).setAttribute('aria-checked',String(on.has(key)));
+  for(const e of edges)e.el.classList.toggle('off',!on.has(e.ingredient));
+  summary.textContent=count(ingredients)+'/'+ingredients.length+' ingredients · '+count(tasks)+'/'+tasks.length+' tasks · '+count(obstacles)+'/'+obstacles.length+' obstacles on';
+  writeHash();
+}
+function set(keys){selected=new Set(keys);render();}
+function toggle(key){selected.has(key)?selected.delete(key):selected.add(key);render();}
+// The toy API card sits beside its ingredient, over the arrows; it moves inside the drawing if it would overflow.
+function place(){
+  if(!api)return;
+  const scale=svg.getBoundingClientRect().width/svg.viewBox.baseVal.width,rect=nodes.get(api).querySelector('rect');
+  const x=rect.x.baseVal.value+rect.width.baseVal.value,y=rect.y.baseVal.value;
+  const left=Math.max(8,Math.min(x*scale+14,drawing.clientWidth-card.offsetWidth-8));
+  const top=Math.max(8,Math.min(y*scale,drawing.clientHeight-card.offsetHeight-8));
+  card.style.left=left+'px';card.style.top=top+'px';
+}
+function openApi(key,focus){
+  const template=document.getElementById('api-'+key);
+  if(!template)return;
+  if(api)nodes.get(api).classList.remove('api-open');
+  api=key;nodes.get(key).classList.add('api-open');
+  cardBadge.textContent=key.slice(1);cardTitle.textContent=template.dataset.title;
+  cardBody.replaceChildren(template.content.cloneNode(true));
+  cardMore.href='toy_apis.html#ingredient-'+key.slice(1);
+  card.hidden=false;card.scrollTop=0;place();
+  if(focus)cardClose.focus({preventScroll:true});
+  reveal();
+  writeHash();
+}
+// Scroll only as needed: sideways when the drawing is wider than the screen, and vertically only if the card's top is hidden or barely visible.
+function reveal(){
+  const viewport=document.getElementById('viewport'),v=viewport.getBoundingClientRect();
+  let r=card.getBoundingClientRect();
+  if(r.right>v.right)viewport.scrollLeft+=Math.min(r.right-v.right+16,r.left-v.left-16);
+  else if(r.left<v.left)viewport.scrollLeft-=v.left-r.left+16;
+  r=card.getBoundingClientRect();
+  const toolbar=document.querySelector('.toolbar'),below=getComputedStyle(toolbar).position==='sticky'?toolbar.getBoundingClientRect().bottom:0;
+  if(r.top<below+8||r.top>innerHeight-160)scrollBy(0,r.top-below-12);
+}
+function closeApi(){
+  if(!api)return;
+  const key=api,hadFocus=card.contains(document.activeElement);
+  nodes.get(key).classList.remove('api-open');api='';card.hidden=true;
+  if(hadFocus)nodes.get(key).focus();
+  writeHash();
+}
+let pressTimer=0,pressStart=null,suppressClick=false;
+for(const key of ingredients){
+  const el=nodes.get(key);
+  el.setAttribute('tabindex','0');el.setAttribute('role','switch');el.setAttribute('aria-haspopup','dialog');
+  el.addEventListener('click',()=>{if(suppressClick){suppressClick=false;return;}toggle(key);});
+  el.addEventListener('contextmenu',event=>{event.preventDefault();openApi(key,false);});
+  el.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle(key);}
+    else if(event.key==='ContextMenu'||(event.shiftKey&&event.key==='F10')){event.preventDefault();openApi(key,true);}
+  });
+  // Long-press for touch screens that do not fire contextmenu (iOS Safari).
+  el.addEventListener('touchstart',event=>{
+    suppressClick=false;clearTimeout(pressTimer);
+    if(event.touches.length!==1)return;
+    pressStart=[event.touches[0].clientX,event.touches[0].clientY];
+    pressTimer=setTimeout(()=>{suppressClick=true;openApi(key,false);setTimeout(()=>{suppressClick=false;},800);},500);
+  },{passive:true});
+  el.addEventListener('touchmove',event=>{
+    const t=event.touches[0];
+    if(pressStart&&Math.hypot(t.clientX-pressStart[0],t.clientY-pressStart[1])>10)clearTimeout(pressTimer);
+  },{passive:true});
+  for(const type of ['touchend','touchcancel'])el.addEventListener(type,()=>clearTimeout(pressTimer));
+}
+cardClose.addEventListener('click',closeApi);
+drawing.addEventListener('click',event=>{if(api&&!card.contains(event.target)&&!event.target.closest('[data-kind="ingredient"]'))closeApi();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeApi();});
+new ResizeObserver(place).observe(drawing);
+document.getElementById('none').addEventListener('click',()=>set([]));
+document.getElementById('all').addEventListener('click',()=>set(ingredients));
+document.getElementById('fit').addEventListener('click',()=>{drawing.style.width='100%';});
+document.getElementById('full').addEventListener('click',()=>{drawing.style.width=svg.viewBox.baseVal.width+'px';});
+const params=new URLSearchParams(location.hash.slice(1));
+set((params.get('on')||'').split(',').map(id=>'i'+id).filter(key=>ingredients.includes(key)));
+if(params.get('api'))openApi('i'+params.get('api'),false);
+</script>
+</body></html>

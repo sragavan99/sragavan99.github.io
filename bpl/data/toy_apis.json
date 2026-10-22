@@ -1,0 +1,256 @@
+{
+  "source": {
+    "repository": "tcs-harness",
+    "commit": "b5d016ad30bf61a209ba3f95dd6a28987a8458b0",
+    "markdown": "projects/bpl_rewrite/ingredients_obstacles_dependencies.md",
+    "graph": "projects/bpl_rewrite/ingredient_map/graph.json",
+    "svg": "projects/bpl_rewrite/ingredient_map/ingredients_obstacles.svg"
+  },
+  "intro": [
+    "These toy contracts isolate what each ingredient accomplishes. **Output** states the objective; **Approach** gives the mechanism and a small example. The examples use exact probabilities and simplified thresholds. The full construction adds the error, access, and space guarantees described elsewhere in this map and in the [source notes](#source-pointers)."
+  ],
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "Selective shortcutting",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "A forward transition graph with some large edge weights."
+        },
+        {
+          "label": "Output",
+          "text": "Smaller residual weights at eligible destinations, preserving acceptance values after updating accumulated acceptance contributions."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Reduce transition weights where the correction can have controlled incoming degree."
+        },
+        {
+          "label": "Approach",
+          "text": "Trial runs estimate column crowding and decide where to shortcut. Toy: a weight-1/2 edge through a vertex with no immediate acceptance contribution and two weight-1/2 outgoing edges becomes two weight-1/4 shortcuts."
+        }
+      ],
+      "notes": [],
+      "description": "Estimate column crowding; shortcut selectively to reduce edge weights."
+    },
+    {
+      "id": 2,
+      "name": "Node splitting",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "A graph whose remaining heavy edges enter a small set of flagged vertices."
+        },
+        {
+          "label": "Output",
+          "text": "An equivalent graph with smaller individual weights and controlled node growth."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Handle heavy edges at destinations where shortcutting was suppressed."
+        },
+        {
+          "label": "Approach",
+          "text": "Duplicate a vertex's future behaviour and divide incoming weights among its copies. Toy: four copies turn an incoming weight of 0.8 into four weights of 0.2."
+        }
+      ],
+      "notes": [],
+      "description": "Divide transition weights among new nodes with controlled growth."
+    },
+    {
+      "id": 3,
+      "name": "Vertex sampling and conditional mixing",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "A vertex set and a desired sampling rate."
+        },
+        {
+          "label": "Output",
+          "text": "A seeded sampler and a rapidly mixing seed walk with constantly many choices per step. A fixed seed and rate give repeatable membership decisions without storing the sampled set."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Average sampled computations using short walk descriptions. The full construction also needs this mixing while designated end points remain sampled; the toy setting omits that conditioning."
+        },
+        {
+          "label": "Approach",
+          "text": "Use a **seed-homomorphic hash with a rapidly mixing walk on the seed space**. Here, seed-homomorphic means that simple seed updates implement corresponding transformations of all hash outputs. Affine hashing supplies those transformations; **relative property (T)** establishes a spectral gap uniform in the seed-space size and sampling rate. Toy: sampling 16 neighbours at rate 1/16 gives one neighbour in expectation, and walking between seeds varies that sample. Ingredient 5 decides how much averaging to perform."
+        }
+      ],
+      "notes": [],
+      "description": "Sample vertices; mix seeds while preserving required inclusions."
+    },
+    {
+      "id": 4,
+      "name": "Controlling WORST-case degree",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "A sampled graph, a degree cap, and exact conditional retention probabilities bounded away from zero."
+        },
+        {
+          "label": "Output",
+          "text": "Bounded row and column degrees on every seed, with the intended conditional entry means."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Guarantee bounded access and prevent one correlated error from being reused too often."
+        },
+        {
+          "label": "Approach",
+          "text": "Suppress crowded rows and columns, then compensate using each contribution's own retention probability. Toy: a contribution of 0.6 surviving with probability 3/4 becomes 0.8 when retained and zero otherwise; its mean remains 0.6."
+        }
+      ],
+      "notes": [],
+      "description": "Suppress crowded rows and columns; compensate for lost contributions."
+    },
+    {
+      "id": 5,
+      "name": "Recursion-friendly sampling",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "Successively more accurate recursive estimates, with shrinking errors, and the seed mixing operation supplied by ingredient 3."
+        },
+        {
+          "label": "Output",
+          "text": "An accurate average for most seeds, with averaging overhead controlled across recursion."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Improve accuracy without paying for a large averaging description at every recursive level."
+        },
+        {
+          "label": "Approach",
+          "text": "Write the fine estimate as **coarse + (medium - coarse) + (fine - medium)**. Average the coarse term heavily and the smaller refinements less. Evaluate both terms of each difference on the same seed. Pay for its averaging description using the decrease in recursion budget; no independence between the terms is assumed."
+        }
+      ],
+      "notes": [],
+      "description": "Average successive accuracy improvements with decreasing averaging overhead."
+    },
+    {
+      "id": 6,
+      "name": "Compressing intermediate averages",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "A potentially dense intermediate vector, a storage budget, and queries that keep large entries only when the row is uncrowded."
+        },
+        {
+          "label": "Output",
+          "text": "A shared default plus a bounded exception list, with controlled change in those downstream queries."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Averages and differences of sparse rows can involve many distinct destinations."
+        },
+        {
+          "label": "Approach",
+          "text": "Use rank-based thresholds and smooth clamping. Toy: `(0.9, 0.2, 0.1, 0.08)` becomes `(0.9, 0.2, 0.2, 0.2)`, encoded by default 0.2 and one exception. Both vectors give the same answer to: \"report entries above 0.8, provided the second-largest entry is below 0.25.\""
+        }
+      ],
+      "notes": [
+        "The space bound counts address/value records. Each record needs address and precision bits, and the exception budget varies within the recursion. The guarantee concerns the specified downstream queries; arbitrary row sums and individual small entries can change."
+      ],
+      "description": "Represent intermediate averages using a default and bounded exceptions."
+    },
+    {
+      "id": 7,
+      "name": "Pointer scheme for sparse rows",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "Nested sparse-row queries, with operations to follow a selected neighbour and return."
+        },
+        {
+          "label": "Output",
+          "text": "Access using one current vertex and short relative paths."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Avoid retaining a full vertex address in every suspended recursive call."
+        },
+        {
+          "label": "Approach",
+          "text": "Store local neighbour choices and reconstruct locations when needed. Toy: describing 20 binary forward choices takes 20 bits, while one current vertex address is shared across the queries. Ingredient 8 supplies the return operation; return tokens and other call metadata still need separate space accounting."
+        }
+      ],
+      "notes": [],
+      "description": "Navigate using one current vertex and short relative paths."
+    },
+    {
+      "id": 8,
+      "name": "Reversible walks",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "A halting forward neighbour-finding procedure, with a bounded number of incoming moves per destination."
+        },
+        {
+          "label": "Output",
+          "text": "Incoming enumeration and forward/backward moves paired by small return tokens."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Visit destinations, inspect incoming contributions, and return without saving source addresses."
+        },
+        {
+          "label": "Approach",
+          "text": "Construct local predecessor checks and traverse the procedure's computation graph reversibly. Toy: if two source moves reach the same destination, one bit identifies which incoming move to undo."
+        }
+      ],
+      "notes": [],
+      "description": "Enumerate predecessors and restore positions without saving vertex addresses."
+    },
+    {
+      "id": 9,
+      "name": "Streaming arithmetic",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "Arithmetic expressions whose operands supply digits on demand, with known numerical bounds and divisors bounded away from zero."
+        },
+        {
+          "label": "Output",
+          "text": "Result digits to the requested accuracy, with controlled memory retained across operand calls."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Evaluate averages, gates, and normalization without stacking full numerical intermediates."
+        },
+        {
+          "label": "Approach",
+          "text": "Toy: average two recursively computed numbers to 100-bit accuracy using signed digits, bounded carries, and recomputation. Account for retained data using the change in requested precision between caller and operand."
+        }
+      ],
+      "notes": [],
+      "description": "Compute digits without retaining full intermediate numerical values."
+    },
+    {
+      "id": 10,
+      "name": "Median of multiple trials",
+      "fields": [
+        {
+          "label": "Input",
+          "text": "An enumerable family of finite-precision estimates, with a strict majority within the desired error."
+        },
+        {
+          "label": "Output",
+          "text": "A deterministic estimate with that error guarantee."
+        },
+        {
+          "label": "Upstream purpose",
+          "text": "Remove dependence on selecting a good seed."
+        },
+        {
+          "label": "Approach",
+          "text": "Recompute trials while counting values below candidate thresholds. Toy: the estimates `0, 0.49, 0.50, 0.51, 1` have median 0.50; repeated scans find it without storing the list."
+        }
+      ],
+      "notes": [],
+      "description": "Enumerate seeds; select a median without storing the estimates."
+    }
+  ]
+}
