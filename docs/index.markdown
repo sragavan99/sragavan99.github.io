@@ -3,6 +3,11 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+# Shown in search results and link previews. Kept here rather than in
+# _config.yml so the page title stays just the site title.
+description: >-
+  MIT PhD student in theoretical computer science: quantum algorithms,
+  coding theory, and cryptography.
 ---
 
 ![headshot](assets/headshot.jpg){: height="200px" width="230px" style="float:left; padding-right:20px" }
@@ -16,8 +21,8 @@ Email: first initial last name at mit dot edu
 <br/>
 ## Recent News
 - _October 2026:_ I gave a talk at the BU Security Seminar on constructions and applications of decoding polynomials.
-- _October 2026:_ [Noah Shutty](https://research.google/people/noahshutty/) and I uploaded [manuscript](https://arxiv.org/abs/2610.00502) designing quantum algorithms for variants of optimal polynomial intersection that work with Reed–Muller codes and with global nonlinear constraints.
-- _October 2026:_ I gave talks at NTT Research and the Charles River Crypto Day on the crazy summer that unclonable encryption has had, based on the below work with Prabhanjan Ananth and Amit Sahai, and a line of wonderful follow-up works by [Archishna Bhattacharyya, Anne Broadbent, and Eric Culf](https://arxiv.org/abs/2607.28561); [Andrea Colandagelo, Qipeng Liu, and Ziyi Xie](https://eprint.iacr.org/2026/1742); and [Prabhanjan Ananth](https://arxiv.org/abs/2608.19091).
+- _October 2026:_ [Noah Shutty](https://research.google/people/noahshutty/) and I uploaded a [manuscript](https://arxiv.org/abs/2610.00502) designing quantum algorithms for variants of optimal polynomial intersection that work with Reed–Muller codes and with global nonlinear constraints.
+- _October 2026:_ I gave talks at NTT Research and the Charles River Crypto Day on the crazy summer that unclonable encryption has had, based on the below work with Prabhanjan Ananth and Amit Sahai, and a line of wonderful follow-up works by [Archishna Bhattacharyya, Anne Broadbent, and Eric Culf](https://arxiv.org/abs/2607.28561); [Andrea Coladangelo, Qipeng Liu, and Ziyi Xie](https://eprint.iacr.org/2026/1742); and [Prabhanjan Ananth](https://arxiv.org/abs/2608.19091).
 - _September 2026:_ [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home), [Amit Sahai](https://web.cs.ucla.edu/~sahai/), and I posted a [merged version](https://arxiv.org/abs/2607.21551) of our unclonable encryption result over the summer.
 - _July 2026:_ Peter Hall wrote [an article](https://www.scientificamerican.com/article/ai-helped-produce-two-proofs-for-the-same-cryptography-problem/) for Scientific American discussing the above results on unclonable encryption and how AI is changing the way we do research.
 - _July 2026:_ [Aparna Gupte](https://www.mit.edu/~agupte/) and I uploaded a [manuscript](https://eccc.weizmann.ac.il/report/2026/126/) giving better server-communication tradeoffs for private information retrieval with 4 or more servers.
@@ -107,7 +112,7 @@ Highlights talk at ITC 2026<br/>
 **Decoding Polynomials and How to Use Them** [[slides]](slides/bu26-decoding-polys.pdf)
 - Boston University Security Seminar (October 2026)
 
-**Unconditional Unclonable Encryption**
+**Unconditional Unclonable Encryption** [[slides]](slides/cryptoday26-unclonable-encryption.pdf)
 - Charles River Crypto Day (October 2026)
 - NTT Research (September 2026)
 
@@ -176,3 +181,7 @@ Highlights talk at ITC 2026<br/>
 - Workshop Co-organiser, [Breaking and Making Quantum Speedups](https://sites.google.com/view/quantumfocs2025/home) at [FOCS 2025](https://focs.computer.org/2025/)
 - Teaching Assistant, 6.1200 Mathematics for Computer Science (MIT, Fall 2025)
 - Teaching Assistant, COS 445 Economics and Computing (Princeton, Spring 2019)
+
+<br/>
+# Blog
+{% comment %}The theme's home layout lists the posts from _posts/ directly below this heading.{% endcomment %}
