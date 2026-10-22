@@ -111,7 +111,7 @@ Highlights talk at ITC 2026<br/>
 - Charles River Crypto Day (October 2026)
 - NTT Research (September 2026)
 
-**The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP**
+**The ePrint:2026/1591 Quantum Algorithm Does Not Solve DCP** [[slides]](slides/google26-dcp-algorithm.pdf)
 - Google Quantum AI Seminar (August 2026)
 
 **Time-Space Tradeoffs for PIR and PIR for Time-Space Tradeoffs** [[slides made jointly with Alexandra]](slides/simons26-pir-and-tree-eval.pdf)
