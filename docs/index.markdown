@@ -15,6 +15,7 @@ Email: first initial last name at mit dot edu
 
 <br/>
 ## Recent News
+- _October 2026:_ I gave a talk at the BU Security Seminar on constructions and applications of decoding polynomials.
 - _October 2026:_ [Noah Shutty](https://research.google/people/noahshutty/) and I uploaded [manuscript](https://arxiv.org/abs/2610.00502) designing quantum algorithms for variants of optimal polynomial intersection that work with Reed–Muller codes and with global nonlinear constraints.
 - _October 2026:_ I gave talks at NTT Research and the Charles River Crypto Day on the crazy summer that unclonable encryption has had, based on the below work with Prabhanjan Ananth and Amit Sahai, and a line of wonderful follow-up works by [Archishna Bhattacharyya, Anne Broadbent, and Eric Culf](https://arxiv.org/abs/2607.28561); [Andrea Colandagelo, Qipeng Liu, and Ziyi Xie](https://eprint.iacr.org/2026/1742); and [Prabhanjan Ananth](https://arxiv.org/abs/2608.19091).
 - _September 2026:_ [Prabhanjan Ananth](https://sites.google.com/site/prabhanjanva/home), [Amit Sahai](https://web.cs.ucla.edu/~sahai/), and I posted a [merged version](https://arxiv.org/abs/2607.21551) of our unclonable encryption result over the summer.
@@ -102,6 +103,9 @@ Highlights talk at ITC 2026<br/>
 
 <br/>
 # Talks
+
+**Decoding Polynomials and How to Use Them**
+- Boston University Security Seminar (October 2026)
 
 **Unconditional Unclonable Encryption**
 - Charles River Crypto Day (October 2026)
