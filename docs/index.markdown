@@ -104,7 +104,7 @@ Highlights talk at ITC 2026<br/>
 <br/>
 # Talks
 
-**Decoding Polynomials and How to Use Them**
+**Decoding Polynomials and How to Use Them** [[slides]](slides/bu26-decoding-polys.pdf)
 - Boston University Security Seminar (October 2026)
 
 **Unconditional Unclonable Encryption**
