@@ -1,7 +1,7 @@
 {
   "source": {
     "repository": "tcs-harness",
-    "commit": "b5d016ad30bf61a209ba3f95dd6a28987a8458b0",
+    "commit": "77efbe8bf0e4fc8ec48237141996fe048b66c97e",
     "markdown": "projects/bpl_rewrite/ingredients_obstacles_dependencies.md",
     "graph": "projects/bpl_rewrite/ingredient_map/graph.json",
     "svg": "projects/bpl_rewrite/ingredient_map/ingredients_obstacles.svg"

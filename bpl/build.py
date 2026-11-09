@@ -4,10 +4,13 @@
     python3 bpl/build.py --harness ../tcs-harness   # refresh bpl/data/ from tcs-harness, then build
     python3 bpl/build.py                            # rebuild the pages from bpl/data/ alone
 
-The toy APIs are parsed from the "Toy APIs" section of
-projects/bpl_rewrite/ingredients_obstacles_dependencies.md in tcs-harness; edit
-them there, in that Markdown format, rather than in bpl/data/toy_apis.json.
-The map is the SVG that tcs-harness's render.py generates. Python 3 only.
+Sources in tcs-harness (edit them there, not the JSON in bpl/data/):
+- the "Toy APIs" section of projects/bpl_rewrite/ingredients_obstacles_dependencies.md, in its Markdown format;
+- the map SVG that projects/bpl_rewrite/ingredient_map/render.py generates;
+- the component guide in projects/bpl_rewrite/run08_modular_architecture_final/: main.tex, the page
+  numbers of main.pdf's named destinations, and website-spec.md. The PDF itself is not published.
+
+Python 3 only. Refreshing also needs pdfinfo (poppler) or the pypdf package to read the PDF's page numbers.
 """
 
 import argparse
@@ -19,6 +22,11 @@ import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 
+import chrome
+from chrome import page
+import guide
+import manuscript
+
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "bpl" / "data"
@@ -29,6 +37,21 @@ MARKDOWN = MAP_DIR / "ingredients_obstacles_dependencies.md"
 GRAPH = MAP_DIR / "ingredient_map" / "graph.json"
 SVG = MAP_DIR / "ingredient_map" / "ingredients_obstacles.svg"
 REQUIRED = ["Input", "Output", "Upstream purpose", "Approach"]
+RUN08 = MAP_DIR / "run08_modular_architecture_final"
+TEX, PDF, SPEC = RUN08 / "main.tex", RUN08 / "main.pdf", RUN08 / "website-spec.md"
+# "Implements" relationships, each quoting the sentence that states it in the final manuscript or its
+# website specification. Refreshing checks that every quote is still there.
+IMPLEMENTS = [
+    dict(source="P-ROW", target="L-ESTIMATE", status="conditional",
+         quote=r"The row and vector interfaces implement the selected \Aref{L-ESTIMATE} on every legal seed, under the correspondence and restoration contracts."),
+    dict(source="P-VECTOR", target="L-ESTIMATE", status="conditional",
+         quote=r"The row and vector interfaces implement the selected \Aref{L-ESTIMATE} on every legal seed, under the correspondence and restoration contracts."),
+    dict(source="P-NUMSTEP", target="L-CERT", status="open obligation",
+         quote=r"Proving that the physical stepper implements the rules and that every reconstructed physical leaf has this intended tree is U-REF."),
+    dict(source="L-FAMILY", target="L-SPLIT", quote=r"The copy sample in \Aref{L-FAMILY} and the copy branch of \Aref{T-INTRINSIC} implement the corresponding queries."),
+    dict(source="T-INTRINSIC", target="L-SPLIT", quote=r"The copy sample in \Aref{L-FAMILY} and the copy branch of \Aref{T-INTRINSIC} implement the corresponding queries."),
+    dict(source="P-MERGE", target="L-GROUP", spec=True, quote="P-MERGE realizes the coordinate of L-GROUP for the selected policy."),
+]
 
 
 def fail(message):
@@ -77,7 +100,7 @@ def parse_toy_apis(markdown):
 
 def refresh(harness):
     """Copy the map SVG and convert the toy APIs to JSON, checking them against graph.json."""
-    for path in [MARKDOWN, GRAPH, SVG]:
+    for path in [MARKDOWN, GRAPH, SVG, TEX, PDF, SPEC]:
         if not (harness / path).is_file():
             fail(f"missing {harness / path}; pass the tcs-harness checkout with --harness")
     graph = json.loads((harness / GRAPH).read_text(encoding="utf-8"))
@@ -99,7 +122,7 @@ def refresh(harness):
         commit = subprocess.run(["git", "-C", str(harness), "rev-parse", "HEAD"], check=True,
                                 capture_output=True, text=True).stdout.strip()
         dirty = subprocess.run(["git", "-C", str(harness), "status", "--porcelain", "--",
-                                str(MARKDOWN), str(GRAPH), str(SVG)],
+                                str(MARKDOWN), str(GRAPH), str(SVG), str(RUN08)],
                                check=True, capture_output=True, text=True).stdout.strip()
         commit += " (with uncommitted changes)" if dirty else ""
     except (OSError, subprocess.CalledProcessError):
@@ -110,7 +133,69 @@ def refresh(harness):
     DATA.mkdir(parents=True, exist_ok=True)
     (DATA / "toy_apis.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     shutil.copyfile(harness / SVG, DATA / "ingredients_obstacles.svg")
+    refresh_guide(harness, commit)
     return commit
+
+
+def squash(text):
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def pdf_pages(path):
+    """Page number of each named destination in the PDF, from pdfinfo or pypdf."""
+    try:
+        out = subprocess.run(["pdfinfo", "-dests", str(path)], check=True, capture_output=True, text=True).stdout
+        return {m[2]: int(m[1]) for m in re.finditer(r'^\s*(\d+) \[.*\] "(.*)"$', out, re.M)}
+    except (OSError, subprocess.CalledProcessError):
+        pass
+    try:
+        import pypdf
+    except ImportError:
+        fail("reading main.pdf's page numbers needs pdfinfo (poppler) or the pypdf package")
+    reader = pypdf.PdfReader(str(path))
+    return {name: reader.get_destination_page_number(dest) + 1 for name, dest in reader.named_destinations.items()}
+
+
+def refresh_guide(harness, commit):
+    """Parse the final Run 08 manuscript into bpl/data/guide.json."""
+    tex = (harness / TEX).read_text(encoding="utf-8")
+    try:
+        data = manuscript.parse(tex)
+    except manuscript.TexError as error:
+        fail(f"{TEX}: {error}")
+    dests = pdf_pages(harness / PDF)
+    pages = {}
+    targets = ([("section", s["slug"]) for s in data["sections"]] + [("operation", o["slug"]) for o in data["operations"]]
+               + [("component", c["id"]) for c in data["components"]] + [("definition", d["id"]) for d in data["definitions"]])
+    missing = [f"{k}.{v}" for k, v in targets if f"{k}.{v}" not in dests]
+    if missing:
+        fail(f"main.pdf has no named destination for {missing}")
+    for kind, key in targets:
+        pages[f"{kind}.{key}"] = dests[f"{kind}.{key}"]
+    spec = squash((harness / SPEC).read_text(encoding="utf-8"))
+    ids = {c["id"] for c in data["components"]}
+    # Where each quote lives: the operation or definition whose TeX contains it.
+    places = [("operation", o["slug"], f'§{o["number"]} {o["title"]}', squash(" ".join(b.get("tex", "") for b in o["blocks"]) + " " + (o["proof"] or "")))
+              for o in data["operations"]]
+    places += [("definition", d["id"], d["id"], squash(d["tex"])) for d in data["definitions"]]
+    implements = []
+    for rel in IMPLEMENTS:
+        if rel["source"] not in ids or rel["target"] not in ids:
+            fail(f"implements relation {rel} names an unknown component")
+        if rel.get("spec"):
+            if squash(rel["quote"]) not in spec:
+                fail(f"quote not found in website-spec.md: {rel['quote']!r}")
+            where = dict(kind="spec")
+        else:
+            found = [p for p in places if squash(rel["quote"]) in p[3]]
+            if len(found) != 1:
+                fail(f"quote not found exactly once in main.tex: {rel['quote']!r}")
+            where = dict(kind=found[0][0], key=found[0][1], label=found[0][2])
+        implements.append(dict(source=rel["source"], target=rel["target"], status=rel.get("status"),
+                               quote=rel["quote"], where=where))
+    data.update(source=dict(repository="tcs-harness", commit=commit, tex=str(TEX), pdf=str(PDF), spec=str(SPEC)),
+                pages=pages, implements=implements)
+    (DATA / "guide.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def inline(text):
@@ -140,37 +225,6 @@ def api_body(item):
     return f'<dl class="api">{rows}</dl>{notes}'
 
 
-BASE_CSS = """*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#edf1f5;color:#183047;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:#1f5fa8}p{margin:8px 0}
-.site{display:flex;align-items:flex-end;gap:8px 28px;flex-wrap:wrap;padding:12px 24px 0;background:#fff;border-bottom:1px solid #ccd6df}
-.brand{font-weight:700;padding-bottom:10px}nav{display:flex;gap:22px}
-nav a{padding:0 2px 8px;color:#506478;text-decoration:none;font-weight:600;border-bottom:3px solid transparent}
-nav a:hover{color:#183047}nav a[aria-current=page]{color:#183047;border-color:#183047}
-.badge{flex:none;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#183047;color:#fff;font-weight:700;font-size:14px}
-.card-head{display:flex;align-items:flex-start;gap:10px}.card-head h2{flex:1;margin:0;font-size:18px;line-height:28px}
-dl.api{margin:10px 0 0}dl.api div+div{margin-top:10px}
-dl.api dt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#506478}
-dl.api dd{margin:2px 0 0}p.note{color:#506478;font-size:14px}
-code{font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eef3f7;padding:1px 4px;border-radius:4px}
-.toy{display:inline-block;padding:0 7px;border-radius:9px;background:#e3f2ef;color:#087D70;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:1px}
-"""
-
-
-def page(title, current, body, css="", script=""):
-    tabs = "".join(f'<a href="{href}"{" aria-current=page" if key == current else ""}>{label}</a>'
-                   for key, href, label in [("map", "index.html", "Map"), ("apis", "toy_apis.html", "Toy APIs")])
-    return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>{title}</title>
-<style>
-{BASE_CSS}{css}</style></head><body>
-<header class="site"><span class="brand">BPL proof ingredients</span><nav aria-label="Pages">{tabs}</nav></header>
-{body}{script}</body></html>
-"""
-
-
 MAP_CSS = """.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 24px;background:#fff;border-bottom:1px solid #ccd6df;position:sticky;top:0;z-index:3}
 button{font:inherit;padding:7px 12px;border:1px solid #aebdca;border-radius:6px;background:#fff;color:#183047;cursor:pointer}
 button:hover{background:#edf3f8}#summary{color:#506478;font-size:14px}
@@ -187,7 +241,7 @@ svg{display:block;width:100%;height:auto}
 background:#fff;border:1px solid #9fb2c4;border-left:4px solid #173f8a;border-radius:10px;box-shadow:0 10px 30px rgba(24,48,71,.22);font-size:15px}
 #card[hidden]{display:none}#card:focus{outline:none}
 #card-close{flex:none;width:30px;height:30px;padding:0;font-size:20px;line-height:1;border-color:transparent;color:#506478}
-#card-close:hover{border-color:#aebdca}#card-more{display:inline-block;margin-top:10px;font-size:14px;font-weight:600}
+#card-close:hover{border-color:#aebdca}.card-links{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 0;font-size:14px;font-weight:600}
 @media (max-width:700px){.toolbar{position:static}}
 @media print{.site,.toolbar,.help,#card{display:none}#viewport{padding:0}#drawing{width:100%!important;min-width:0;border:0}}
 """
@@ -197,7 +251,7 @@ MAP_SCRIPT = """<script>
 'use strict';
 const svg=document.querySelector('#drawing svg'),drawing=document.getElementById('drawing'),summary=document.getElementById('summary');
 const card=document.getElementById('card'),cardBadge=document.getElementById('card-badge'),cardTitle=document.getElementById('card-title');
-const cardBody=document.getElementById('card-body'),cardMore=document.getElementById('card-more'),cardClose=document.getElementById('card-close');
+const cardBody=document.getElementById('card-body'),cardMore=document.getElementById('card-more'),cardClose=document.getElementById('card-close'),cardBuilt=document.getElementById('card-built');
 const nodes=new Map(Array.from(svg.querySelectorAll('[data-node]'),el=>[el.dataset.node,el]));
 const edges=Array.from(svg.querySelectorAll('[data-edge]'),el=>({el,source:el.dataset.source,target:el.dataset.target,sign:el.dataset.sign,
   ingredient:el.dataset.sign==='uses'?el.dataset.target:el.dataset.source}));
@@ -246,7 +300,7 @@ function openApi(key,focus){
   api=key;nodes.get(key).classList.add('api-open');
   cardBadge.textContent=key.slice(1);cardTitle.textContent=template.dataset.title;
   cardBody.replaceChildren(template.content.cloneNode(true));
-  cardMore.href='toy_apis.html#ingredient-'+key.slice(1);
+  cardMore.href='toy_apis.html#ingredient-'+key.slice(1);cardBuilt.href=template.dataset.built;
   card.hidden=false;card.scrollTop=0;place();
   if(focus)cardClose.focus({preventScroll:true});
   reveal();
@@ -316,7 +370,10 @@ def build():
     if svg_ingredients != keys:
         fail(f"the map's ingredients {sorted(svg_ingredients)} differ from the toy APIs {sorted(keys)}")
     svg = svg_text.split("\n", 1)[1].replace('role="img"', 'role="group"', 1)
-    templates = "".join(f'<template id="api-i{item["id"]}" data-title="{html.escape(item["name"])}">{api_body(item)}</template>\n'
+    manual = json.loads((DATA / "guide.json").read_text(encoding="utf-8"))
+    g = guide.Guide(manual, data, svg_text, api_body)
+    built = {item["id"]: g.url("section", slug) for slug, item in g.ingredient.items()}
+    templates = "".join(f'<template id="api-i{item["id"]}" data-title="{html.escape(item["name"])}" data-built="{built[item["id"]]}">{api_body(item)}</template>\n'
                         for item in data["ingredients"])
     body = f"""<div class="help"><p>Click an ingredient to switch it on or off; right-click it (long-press on a touch screen,
 Shift+F10 from the keyboard) to see its toy API. Faded boxes are off. A task is on when all its ingredients are on.
@@ -325,35 +382,62 @@ An obstacle is on when not all of its <span class="teal">improving</span> ingred
 <div class="toolbar"><button id="none" type="button">All off</button><button id="all" type="button">All on</button>
 <button id="fit" type="button">Fit width</button><button id="full" type="button">Full size</button>
 <span id="summary" aria-live="polite"></span></div>
-<main><div id="viewport"><div id="drawing">{svg}<section id="card" role="dialog" aria-labelledby="card-title" tabindex="-1" hidden>
+<main id="content"><div id="viewport"><div id="drawing">{svg}<section id="card" role="dialog" aria-labelledby="card-title" tabindex="-1" hidden>
 <div class="card-head"><span class="badge" id="card-badge"></span><h2 id="card-title"></h2><button id="card-close" type="button" aria-label="Close toy API">×</button></div>
-<div id="card-body"></div><a id="card-more" href="toy_apis.html">All toy APIs →</a></section></div></div></main>
+<div id="card-body"></div><p class="card-links"><a id="card-built" href="index.html">How it’s built →</a> <a id="card-more" href="toy_apis.html">All toy APIs →</a></p></section></div></div></main>
 {templates}"""
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.html").write_text(page("BPL ingredient map", "map", body, MAP_CSS, MAP_SCRIPT), encoding="utf-8")
+    (OUT / "map.html").write_text(page("BPL ingredient map", "map", body, css=MAP_CSS, script=MAP_SCRIPT, modes=False), encoding="utf-8")
 
     cards = "".join(f"""<article class="card" id="ingredient-{item["id"]}"><div class="card-head"><span class="badge">{item["id"]}</span>
 <h2>{html.escape(item["name"])}</h2></div><p class="desc">{inline(item["description"])}</p>{api_body(item)}
-<a class="more" href="index.html#api={item["id"]}">Show on map →</a></article>
+<p class="more"><a href="map.html#api={item["id"]}">Show on map →</a> <a href="{built[item["id"]]}">How it’s built →</a></p></article>
 """ for item in data["ingredients"])
     intro = "".join(f"<p>{inline(p)}</p>" for p in data["intro"])
     css = """main{max-width:1240px;margin:0 auto;padding:20px 24px 40px}h1{font-size:28px;margin:4px 0 6px}.intro{max-width:90ch;color:#30475e}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(440px,100%),1fr));gap:16px;margin-top:18px}
 .card{padding:16px 18px;background:#fff;border:1px solid #d7e0e7;border-radius:10px;scroll-margin-top:16px}
 .card:target{border-color:#173f8a;box-shadow:0 0 0 2px #173f8a}.desc{margin:6px 0 0;color:#506478;font-style:italic}
-.more{display:inline-block;margin-top:10px;font-size:14px;font-weight:600}
+.more{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 0;font-size:14px;font-weight:600}
 """
-    body = f'<main><h1>Toy APIs for each ingredient</h1><div class="intro">{intro}</div>\n<div class="grid">\n{cards}</div></main>\n'
-    (OUT / "toy_apis.html").write_text(page("BPL toy APIs", "apis", body, css), encoding="utf-8")
+    body = f'<main id="content"><h1>Toy APIs for each ingredient</h1><div class="intro">{intro}</div>\n<div class="grid">\n{cards}</div></main>\n'
+    (OUT / "toy_apis.html").write_text(page("BPL toy APIs", "apis", body, css=css, modes=False), encoding="utf-8")
+    build_guide(g)
 
     REDIRECT.write_text("""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
 <title>BPL proof ingredients</title>
-<script>location.replace('bpl_proof_ingredients/'+location.hash);</script>
+<script>location.replace('bpl_proof_ingredients/'+(/(^#|&)(on|api)=/.test(location.hash)?'map.html':'')+location.hash);</script>
 <meta http-equiv="refresh" content="0; url=bpl_proof_ingredients/">
 </head><body><p><a href="bpl_proof_ingredients/">BPL proof ingredients</a></p></body></html>
 """, encoding="utf-8")
-    return data
+    return data, g
+
+
+def build_guide(g):
+    """Write the guide pages, the shared assets and the search index; remove pages that no longer exist."""
+    pages = {"index.html": g.home_page(), "reference.html": g.reference_page()}
+    for s in g.data["sections"]:
+        if g.section_kind(s["slug"]) in ("ingredient", "shared"):
+            pages[g.url("section", s["slug"])] = g.section_page(s["slug"])
+    for o in g.data["operations"]:
+        if o["section"] != "walkthrough":
+            pages[g.url("operation", o["slug"])] = g.operation_page(o["slug"])
+    for c in g.data["components"]:
+        pages[g.url("component", c["id"])] = g.component_page(c["id"])
+    for sub in ["ingredients", "sections", "operations", "components"]:
+        for old in (OUT / sub).glob("*.html") if (OUT / sub).is_dir() else []:
+            if f"{sub}/{old.name}" not in pages:
+                old.unlink()
+    for path, text in pages.items():
+        (OUT / path).parent.mkdir(parents=True, exist_ok=True)
+        (OUT / path).write_text(text, encoding="utf-8")
+    (OUT / "assets").mkdir(exist_ok=True)
+    (OUT / "assets" / "site.css").write_text(chrome.CSS, encoding="utf-8")
+    (OUT / "assets" / "site.js").write_text(chrome.JS, encoding="utf-8")
+    index = json.dumps(g.search_index(), ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+    (OUT / "assets" / "search.js").write_text(f"window.BPL_INDEX={index};\n", encoding="utf-8")
+    return len(pages)
 
 
 def main():
@@ -362,9 +446,9 @@ def main():
     args = parser.parse_args()
     if args.harness:
         print(f"Refreshed bpl/data/ from tcs-harness at {refresh(args.harness.resolve())}.")
-    data = build()
-    print(f'Built {len(data["ingredients"])} toy APIs into docs/bpl_proof_ingredients/ '
-          "(index.html, toy_apis.html) and the redirect at docs/bpl_proof_ingredients.html.")
+    data, g = build()
+    print(f'Built the map, {len(data["ingredients"])} toy APIs and the component guide ({len(g.comps)} components, '
+          f'{len(g.ops)} operations, {len(g.defs)} definitions) into docs/bpl_proof_ingredients/.')
 
 
 if __name__ == "__main__":

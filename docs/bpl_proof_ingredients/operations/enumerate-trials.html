@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-root="../" data-mode="exact"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>§12.1 Evaluate one trial for each admitted seed</title>
+<script>try{if(new URLSearchParams(location.search).get('mode')==='full')document.documentElement.dataset.mode='full';}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/search.js"></script>
+<script defer src="../assets/site.js"></script>
+
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
+<nav aria-label="Pages"><a href="../index.html" aria-current=page>Guide</a><a href="../map.html">Map</a><a href="../toy_apis.html">Toy APIs</a><a href="../reference.html">Reference</a></nav>
+<div class="search"><label class="visually-hidden" for="q">Search components</label>
+<input id="q" type="search" placeholder="Search by ID or title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="q-results" aria-autocomplete="list">
+<ul id="q-results" role="listbox" hidden></ul></div>
+<div class="mode-switch" role="group" aria-label="Comparison mode">
+<button type="button" data-set-mode="exact" aria-pressed="true">Exact names</button><button type="button" data-set-mode="full" aria-pressed="false">Full space</button></div></div></header>
+<div class="layout with-outline"><main id="content">
+<p class="crumbs"><a href="../index.html">Guide</a> › <a href="../ingredients/median.html">§12 Median of multiple trials</a> › <a href="../operations/enumerate-trials.html">§12.1 Evaluate one trial for each admitted seed</a></p>
+<p class="kicker">Operation · §12.1</p><h1>Evaluate one trial for each admitted seed</h1>
+<p class="where">Manuscript: §12.1, p. 46.</p>
+<section class="panel"><p class="label">Physical queries</p><ul class="comp-list"><li class=""><a class="id" href="../components/P-SEEDS.html">P-SEEDS</a> <span class="t">Enumerate exactly the root conditional law</span></li><li class=""><a class="id" href="../components/P-TRIAL.html">P-TRIAL</a> <span class="t">Evaluate one seed on a fixed grid</span></li></ul></section>
+<p>The finishing law conditions only on the hit at the primary start. Each admitted seed produces one grid numerator by streaming the final reward and clipping the result. The full-space seed enumeration retains the multiplicity of original fair-bit strings.</p><article class="panel"><p class="kicker">Physical routine</p><h3><a class="id" href="../components/P-SEEDS.html">P-SEEDS</a> Enumerate exactly the root conditional law</h3><span class="signature">\(\Call{P-SEEDS}(\rho,c)\longrightarrow(\sigma,c^+,b)\)</span><p>\(c\) is the next fixed-length encoding index, initially zero. Return the next admitted seed \(\sigma\), its successor index \(c^+\), and \(b=1\); return \((\bot,\mathrm{end},0)\) when exhausted. Only channel 0 is conditioned at \(z_L\). The exact configuration has no auxiliary bits. Every valid encoding is emitted once; any auxiliary bit-string multiplicity is preserved.</p><p><a href="../components/P-SEEDS.html">Steps and relationships →</a></p></article><article class="panel"><p class="kicker">Physical routine</p><h3><a class="id" href="../components/P-TRIAL.html">P-TRIAL</a> Evaluate one seed on a fixed grid</h3><span class="signature">\(\Call{P-TRIAL}(\rho,\sigma)\longrightarrow(a)\)</span><p>Return the clipped numerator of the first ten signed digits of the same root reward estimator, using channel 0, suffix empty, source rate \(f_L\), stage \(L\) and budget \(M\). The seed and task do not change between digit requests.</p><p><a href="../components/P-TRIAL.html">Steps and relationships →</a></p></article>
+<section class="panel proof" aria-labelledby="proof-enumerate-trials"><h2 id="proof-enumerate-trials">What to prove</h2><p class="kicker">Open proof obligation · §12.1</p><p>Check that enumeration realizes the single conditioned law in <a class="id" href="../reference.html#D-ROOTLAW">D-ROOTLAW</a> and that each trial implements the fixed stream and grid truncation.</p></section>
+</main><aside aria-label="Section outline"><div class="outline-box"><h2><a href="../ingredients/median.html">§12 Median of multiple trials</a></h2><details class="outline" open><summary>§12.1 Evaluate one trial for each admitted seed</summary><ul><li><a href="../operations/enumerate-trials.html" aria-current=page>Operation overview</a></li><li class=""><a href="../components/P-SEEDS.html">P-SEEDS</a></li><li class=""><a href="../components/P-TRIAL.html">P-TRIAL</a></li></ul></details><details class="outline"><summary>§12.2 Select the lower median by scans</summary><ul><li><a href="../operations/take-median.html">Operation overview</a></li><li class=""><a href="../components/P-MEDIAN.html">P-MEDIAN</a></li></ul></details><p><a href="../index.html#ingredients">All ingredients</a></p></div></aside></div></body></html>

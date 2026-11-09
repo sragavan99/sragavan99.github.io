@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-root="../" data-mode="exact"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>P-INCOMINGRANK: Recover an incoming rank from score contours</title>
+<script>try{if(new URLSearchParams(location.search).get('mode')==='full')document.documentElement.dataset.mode='full';}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/search.js"></script>
+<script defer src="../assets/site.js"></script>
+
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
+<nav aria-label="Pages"><a href="../index.html" aria-current=page>Guide</a><a href="../map.html">Map</a><a href="../toy_apis.html">Toy APIs</a><a href="../reference.html">Reference</a></nav>
+<div class="search"><label class="visually-hidden" for="q">Search components</label>
+<input id="q" type="search" placeholder="Search by ID or title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="q-results" aria-autocomplete="list">
+<ul id="q-results" role="listbox" hidden></ul></div>
+<div class="mode-switch" role="group" aria-label="Comparison mode">
+<button type="button" data-set-mode="exact" aria-pressed="true">Exact names</button><button type="button" data-set-mode="full" aria-pressed="false">Full space</button></div></div></header>
+<div class="layout with-outline"><main id="content">
+<p class="crumbs"><a href="../index.html">Guide</a> › <a href="../ingredients/reversible-walks.html">§10 Reversible walks</a> › <a href="../operations/incoming-score-rank.html">§10.2 Recover the padded incoming score rank</a> › P-INCOMINGRANK</p>
+<p class="kicker">Physical routine · Both modes</p>
+<h1><span class="id-title">P-INCOMINGRANK</span><br>Recover an incoming rank from score contours</h1>
+<p class="where">Manuscript: Algorithm P-INCOMINGRANK, §10.2 Recover the padded incoming score rank, p. 41.</p>
+
+<section class="panel" aria-labelledby="io"><h2 id="io">Input and output</h2>
+<p class="kicker">Explicit interface · Recover an incoming rank from score contours</p>
+<span class="signature">\(\Call{P-INCOMINGRANK}(\mathcal T,\mathrm{kind},t)\longrightarrow(b)\)</span>
+<p>Return a canonical digit of the zero-padded incoming rank: \(k_c\) for incoming-\(I\) or \(j_{\rm det}\) for a pilot detector. At certificate place \(r\), each port is scored by <a class="id" href="../components/T-SCORE.html">T-SCORE</a>'s fixed quantization. The result is the \(k\)th largest quantized score, padded by zero, with all scores in the uncapped relation counted.</p><p><strong>State and cost.</strong> One graph-owned score field and cursor, bounded saturated count/direction, four inter-pass bits. The wrapper never copies the graph or completed score.</p></section>
+
+<section class="panel" aria-labelledby="steps"><h2 id="steps">Algorithm</h2>
+<p><strong>Requires.</strong> All legal score sinks admitted; total TOUR access; uncapped source relation.</p><ol class="steps"><li><span class="invoke">\((Q)\gets\) <a class="id" href="../components/P-REPLAY.html">P-REPLAY</a>\((\mathcal T,\mathrm{incoming\ graph},\mathrm{kind})\)</span>; take its fixed rank \(k\).</li><li>For certificate places \(r=t\) and, if \(t&gt;0\), \(r=t-1\), initialize one graph-owned payload \(q=2^r\) at the success sink and count \(c=0\).</li><li>At each payload \(q\), make a full contour using repeated <span class="invoke">\((z)\gets\) <a class="id" href="../components/P-TOUR.html">P-TOUR</a>\((G,\mathrm{forward})\)</span>; increment \(c\) at canonical initials, saturating at \(k\). Finish the contour and return to the same payload/sink.</li><li>If \(c&lt;k\) and \(q&gt;0\), decrement this same payload and repeat. At the first \(c=k\), or at zero, record \(N_r=q\bmod16\) and erase the graph region.</li><li>Return the signed decode of \(N_t-2N_{t-1}\pmod{16}\), or \(N_0\) at \(t=0\).</li></ol></section>
+<section class="panel proof" aria-labelledby="proof-incoming-score-rank"><h2 id="proof-incoming-score-rank">What to prove</h2><p class="kicker">Open proof obligation · §10.2</p><p>Match the quantized ranks and zero padding to the finite reference. The graph owns the score payload and the scan must restore the same destination and payload before it advances.</p></section>
+<section class="panel rel" aria-labelledby="rel"><h2 id="rel">Relationships</h2><h3>Calls</h3><p class=why>Runs another routine at runtime or in the explicit logical reference.</p><ul><li class=""><a class="id" href="../components/P-REPLAY.html">P-REPLAY</a> <span class="t">Regenerate parameters in shared scratch</span> <span class="why">Step 1</span></li><li class=""><a class="id" href="../components/P-TOUR.html">P-TOUR</a> <span class="t">Reversible contour around one success halt</span> <span class="why">Step 3</span></li></ul><h3>Called by</h3><ul><li class=""><a class="id" href="../components/P-INCOMING.html">P-INCOMING</a> <span class="t">Incoming score rank without a saved endpoint</span></li></ul></section>
+</main><aside aria-label="Section outline"><div class="outline-box"><h2><a href="../ingredients/reversible-walks.html">§10 Reversible walks</a></h2><details class="outline"><summary>§10.1 Traverse a terminal computation graph</summary><ul><li><a href="../operations/terminal-contour.html">Operation overview</a></li><li class=""><a href="../components/T-SCORE.html">T-SCORE</a></li><li class=""><a href="../components/P-PROBE.html">P-PROBE</a></li><li class=""><a href="../components/P-TOUR.html">P-TOUR</a></li></ul></details><details class="outline" open><summary>§10.2 Recover the padded incoming score rank</summary><ul><li><a href="../operations/incoming-score-rank.html">Operation overview</a></li><li class=""><a href="../components/P-INCOMINGRANK.html" aria-current=page>P-INCOMINGRANK</a></li></ul></details><p><a href="../index.html#ingredients">All ingredients</a></p></div></aside></div></body></html>

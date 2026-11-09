@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-root="../" data-mode="exact"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>P-SEEDSTEP: One step of the conditional finite action</title>
+<script>try{if(new URLSearchParams(location.search).get('mode')==='full')document.documentElement.dataset.mode='full';}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/search.js"></script>
+<script defer src="../assets/site.js"></script>
+
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
+<nav aria-label="Pages"><a href="../index.html" aria-current=page>Guide</a><a href="../map.html">Map</a><a href="../toy_apis.html">Toy APIs</a><a href="../reference.html">Reference</a></nav>
+<div class="search"><label class="visually-hidden" for="q">Search components</label>
+<input id="q" type="search" placeholder="Search by ID or title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="q-results" aria-autocomplete="list">
+<ul id="q-results" role="listbox" hidden></ul></div>
+<div class="mode-switch" role="group" aria-label="Comparison mode">
+<button type="button" data-set-mode="exact" aria-pressed="true">Exact names</button><button type="button" data-set-mode="full" aria-pressed="false">Full space</button></div></div></header>
+<div class="layout with-outline"><main id="content">
+<p class="crumbs"><a href="../index.html">Guide</a> › <a href="../ingredients/vertex-sampling.html">§3 Vertex sampling and conditional mixing</a> › <a href="../operations/conditional-walk.html">§3.2 Walk on the conditioned seed set</a> › P-SEEDSTEP</p>
+<p class="kicker">Physical routine · Both modes</p>
+<h1><span class="id-title">P-SEEDSTEP</span><br>One step of the conditional finite action</h1>
+<p class="where">Manuscript: Algorithm P-SEEDSTEP, §3.2 Walk on the conditioned seed set, p. 8.</p>
+
+<section class="panel" aria-labelledby="io"><h2 id="io">Input and output</h2>
+<p class="kicker">Explicit interface · One step of the conditional finite action</p>
+<span class="signature">\(\Call{P-SEEDSTEP}(\sigma,H,g,z,\mathrm{mode})\longrightarrow(\sigma^+,g^{-1},b)\)</span>
+<p>The 512 generator slots and conditional-factor layout are fixed in <a class="id" href="../reference.html#D-SLOTS">D-SLOTS</a>. Modes RAW and TEST use a fixed wrap \(z\); RAW returns its full-space bijection without testing unknown endpoints, and TEST additionally returns its exact validity bit. Inverse mode uses the inverse affine map of that same fixed variant. Free auxiliary coordinates are selected by the public mask, never by their values.</p><p><strong>State and cost.</strong> Pure \(O(B)\) scratch; a returned seed lives only in the shared reconstruction buffer. No estimator query or saved per-frame seed.</p></section>
+
+<section class="panel" aria-labelledby="steps"><h2 id="steps">Algorithm</h2>
+<p><strong>Requires.</strong> \(H\) supplies public box sides and free-bit mask; TEST also supplies the endpoint names.</p><ol class="steps"><li>Decode \(g\) as one of eight factors and one of 64 slots. Identity/absent factors leave the seed unchanged.</li><li>For a channel slot obtain its explicit integer elementary matrix \(A\) and translation \(c\) from <a class="id" href="../reference.html#D-SLOTS">D-SLOTS</a>; set \(a_1^+=Aa_1\) and \(a_0^+=Aa_0+c+Lz\pmod p\).</li><li>In TEST mode compute \(w=a_0+va_1\bmod p\) for the designated endpoint and set \(b=\mathbf1\{w\in[0,L)^4,\ 0\le Aw+c+Lz&lt;L\}\). In RAW mode set \(b=\bot\).</li><li>For the auxiliary four-coordinate factor apply \(w\gets Aw+c\bmod2^{\ell_{\rm aux}}\); for a residual factor flip its designated bit on flip slots. Leave every frozen bit fixed.</li><li>In inverse mode apply \(A^{-1}\) and subtract the same \(c+Lz\), or undo the auxiliary action. Return the new seed, inverse slot/variant data and \(b\).</li></ol></section>
+<section class="panel proof" aria-labelledby="proof-conditional-walk"><h2 id="proof-conditional-walk">What to prove</h2><p class="kicker">Open proof obligation · §3.2</p><p>For use in the estimator, prove the exact word lift, weight preservation, and identification of the conditional law at each caller.</p></section>
+<section class="panel rel" aria-labelledby="rel"><h2 id="rel">Relationships</h2><h3>Calls</h3><p class=why>Runs another routine at runtime or in the explicit logical reference.</p><p class="none">None.</p><h3>Called by</h3><ul><li class=""><a class="id" href="../components/P-WORD.html">P-WORD</a> <span class="t">Endpoint-independent word variants</span></li></ul><h3>Uses definitions</h3><ul><li><a class="id" href="../reference.html#D-SLOTS">D-SLOTS</a> <span class="t">A concrete constant-size generator alphabet</span></li></ul></section>
+</main><aside aria-label="Section outline"><div class="outline-box"><h2><a href="../ingredients/vertex-sampling.html">§3 Vertex sampling and conditional mixing</a></h2><details class="outline"><summary>§3.1 Sample vertices at a prescribed rate</summary><ul><li><a href="../operations/vertex-filters.html">Operation overview</a></li><li class=""><a href="../components/P-MEMBER.html">P-MEMBER</a></li></ul></details><details class="outline" open><summary>§3.2 Walk on the conditioned seed set</summary><ul><li><a href="../operations/conditional-walk.html">Operation overview</a></li><li class=""><a href="../components/P-SEEDSTEP.html" aria-current=page>P-SEEDSTEP</a></li><li class=""><a href="../components/P-WORD.html">P-WORD</a></li></ul></details><details class="outline"><summary>§3.3 Validate a sampled arrival</summary><ul><li><a href="../operations/validate-arrivals.html">Operation overview</a></li><li class=""><a href="../components/P-VALID.html">P-VALID</a></li></ul></details><p><a href="../index.html#ingredients">All ingredients</a></p></div></aside></div></body></html>

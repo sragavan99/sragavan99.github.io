@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-root="../" data-mode="exact"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>P-VECTOR: Final reward or detector vector query</title>
+<script>try{if(new URLSearchParams(location.search).get('mode')==='full')document.documentElement.dataset.mode='full';}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/search.js"></script>
+<script defer src="../assets/site.js"></script>
+
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
+<nav aria-label="Pages"><a href="../index.html" aria-current=page>Guide</a><a href="../map.html">Map</a><a href="../toy_apis.html">Toy APIs</a><a href="../reference.html">Reference</a></nav>
+<div class="search"><label class="visually-hidden" for="q">Search components</label>
+<input id="q" type="search" placeholder="Search by ID or title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="q-results" aria-autocomplete="list">
+<ul id="q-results" role="listbox" hidden></ul></div>
+<div class="mode-switch" role="group" aria-label="Comparison mode">
+<button type="button" data-set-mode="exact" aria-pressed="true">Exact names</button><button type="button" data-set-mode="full" aria-pressed="false">Full space</button></div></div></header>
+<div class="layout with-outline"><main id="content">
+<p class="crumbs"><a href="../index.html">Guide</a> › <a href="../ingredients/recursive-sampling.html">§7 Recursion-friendly sampling</a> › <a href="../operations/vector-prefixes.html">§7.3 Accumulate detector and reward vectors</a> › P-VECTOR</p>
+<p class="kicker">Physical routine · Both modes</p>
+<h1><span class="id-title">P-VECTOR</span><br>Final reward or detector vector query</h1>
+<p class="where">Manuscript: Algorithm P-VECTOR, §7.3 Accumulate detector and reward vectors, p. 23.</p>
+
+<section class="panel" aria-labelledby="io"><h2 id="io">Input and output</h2>
+<p class="kicker">Explicit interface · Final reward or detector vector query</p>
+<span class="signature">\(\Call{P-VECTOR}(\mathcal T,t)\longrightarrow(b)\)</span>
+<p>Return one digit of a reward or detector vector in \([0,1]\), with no port or motion mode. The effective task and seed fix one real value for all digit places. Inactive/source-failed inputs return the canonical zero stream.</p><p><strong>State and cost.</strong> One fixed clipping continuation and bounded digit; shared seed, cursor and shared mutable registers are not copied.</p></section>
+
+<section class="panel" aria-labelledby="steps"><h2 id="steps">Algorithm</h2>
+<p><strong>Requires.</strong> Vector owner, legal budget and canonical all-seed numerical ranges.</p><ol class="steps"><li>Reject a nonvector or malformed request with zero; return zero if inactive or source-failed.</li><li>For active \(W_0\), choose the pure public reward expression; otherwise choose \(E=\operatorname{clip}_{[0,1]}(H_1\cdot\mathrm{scalarprefix})\). Set \(s=\varnothing,a=\bot\).</li><li>Repeat <span class="invoke">\((s',o)\gets\) <a class="id" href="../components/P-NUMSTEP.html">P-NUMSTEP</a>\((E,t,\mathrm{digit},s,a)\)</span>; set \(s=s'\).</li><li>For a scalar-prefix request call <span class="invoke">\((a)\gets\) <a class="id" href="../components/P-SCALARPREFIX.html">P-SCALARPREFIX</a>\((\mathcal T,1,j)\)</span>, with the expression's declared scale adapter.</li><li>On DONE\((b)\) erase state and return \(b\).</li></ol></section>
+<section class="panel proof" aria-labelledby="proof-vector-prefixes"><h2 id="proof-vector-prefixes">What to prove</h2><p class="kicker">Open proof obligation · §7.3</p><p>Prove scalar-prefix correspondence and count the state held across each old-prefix or arrival request.</p></section>
+<section class="panel rel" aria-labelledby="rel"><h2 id="rel">Relationships</h2><h3>Calls</h3><p class=why>Runs another routine at runtime or in the explicit logical reference.</p><ul><li class=""><a class="id" href="../components/P-NUMSTEP.html">P-NUMSTEP</a> <span class="t">Advance a numerical expression without calling its operands</span> <span class="why">Step 3</span></li><li class=""><a class="id" href="../components/P-SCALARPREFIX.html">P-SCALARPREFIX</a> <span class="t">Scalar prefixes for vector tasks</span> <span class="why">Step 4</span></li></ul><h3>Called by</h3><ul><li class=""><a class="id" href="../components/P-INTRINSICVALUE.html">P-INTRINSICVALUE</a> <span class="t">Answer one digit of a sample expression</span></li><li class=""><a class="id" href="../components/P-ROW.html">P-ROW</a> <span class="t">Final numerical row query</span></li><li class=""><a class="id" href="../components/P-TRIAL.html">P-TRIAL</a> <span class="t">Evaluate one seed on a fixed grid</span></li></ul><h3>Implements</h3><p class=why>Realizes a logical result under the stated correspondence.</p><ul><li><a class="id" href="../components/L-ESTIMATE.html">L-ESTIMATE</a> <span class="t">One finite estimator, with all structural choices fixed</span> <span class="tag">conditional</span><blockquote>The row and vector interfaces implement the selected <a class="id" href="../components/L-ESTIMATE.html">L-ESTIMATE</a> on every legal seed, under the correspondence and restoration contracts.</blockquote><span class="why">Stated in <a href="../operations/root-execution.html">§13.2 Run the estimator in either comparison mode</a>.</span></li></ul></section>
+</main><aside aria-label="Section outline"><div class="outline-box"><h2><a href="../ingredients/recursive-sampling.html">§7 Recursion-friendly sampling</a></h2><details class="outline"><summary>§7.1 Form one sample term</summary><ul><li><a href="../operations/sample-terms.html">Operation overview</a></li><li class=""><a href="../components/L-FAMILY.html">L-FAMILY</a></li><li class=""><a href="../components/P-CHILD.html">P-CHILD</a></li><li class=""><a href="../components/P-INTRINSICVALUE.html">P-INTRINSICVALUE</a></li></ul></details><details class="outline"><summary>§7.2 Average differences and expose ordered arrivals</summary><ul><li><a href="../operations/ordered-averages.html">Operation overview</a></li><li class=""><a href="../components/L-AVERAGE.html">L-AVERAGE</a></li><li class=""><a href="../components/P-DESCRIPTOR.html">P-DESCRIPTOR</a></li><li class=""><a href="../components/P-ARRIVAL.html">P-ARRIVAL</a></li></ul></details><details class="outline" open><summary>§7.3 Accumulate detector and reward vectors</summary><ul><li><a href="../operations/vector-prefixes.html">Operation overview</a></li><li class=""><a href="../components/P-SCALARPREFIX.html">P-SCALARPREFIX</a></li><li class=""><a href="../components/P-VECTOR.html" aria-current=page>P-VECTOR</a></li></ul></details><p><a href="../index.html#ingredients">All ingredients</a></p></div></aside></div></body></html>

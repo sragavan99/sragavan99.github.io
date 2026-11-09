@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-root="../" data-mode="exact"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>L-PILOT: Sampled detector and frozen multiplier</title>
+<script>try{if(new URLSearchParams(location.search).get('mode')==='full')document.documentElement.dataset.mode='full';}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/search.js"></script>
+<script defer src="../assets/site.js"></script>
+
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
+<nav aria-label="Pages"><a href="../index.html" aria-current=page>Guide</a><a href="../map.html">Map</a><a href="../toy_apis.html">Toy APIs</a><a href="../reference.html">Reference</a></nav>
+<div class="search"><label class="visually-hidden" for="q">Search components</label>
+<input id="q" type="search" placeholder="Search by ID or title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="q-results" aria-autocomplete="list">
+<ul id="q-results" role="listbox" hidden></ul></div>
+<div class="mode-switch" role="group" aria-label="Comparison mode">
+<button type="button" data-set-mode="exact" aria-pressed="true">Exact names</button><button type="button" data-set-mode="full" aria-pressed="false">Full space</button></div></div></header>
+<div class="layout with-outline"><main id="content">
+<p class="crumbs"><a href="../index.html">Guide</a> › <a href="../ingredients/shortcutting.html">§4 Selective shortcutting</a> › <a href="../operations/pilot-detector.html">§4.2 Detect crowded correction columns</a> › L-PILOT</p>
+<p class="kicker">Logical routine · Both modes</p>
+<h1><span class="id-title">L-PILOT</span><br>Sampled detector and frozen multiplier</h1>
+<p class="where">Manuscript: Algorithm L-PILOT, §4.2 Detect crowded correction columns, p. 10.</p>
+
+<section class="panel" aria-labelledby="io"><h2 id="io">Input and output</h2>
+<p class="kicker">Explicit interface · Sampled detector and frozen multiplier</p>
+<span class="signature">\(\Call{L-PILOT}(C,f,\Omega,K)\longrightarrow(g,u)\)</span>
+<p>\(\Omega\) explicitly lists the independent channel seeds, their hit bits at every vertex, and their uniform multiplicities. This call returns all exact detector values and the final column multiplier. Every expectation below is computed by summing over the indicated nonempty sublist, including duplicate encodings.</p><p><strong>State and cost.</strong> All pilot matrices, seed tables and detector arrays may be stored. Finite rounds, seeds, vertices and ranks ensure termination.</p></section>
+
+<section class="panel" aria-labelledby="steps"><h2 id="steps">Algorithm</h2>
+<p><strong>Requires.</strong> Finite sampler table with positive one-hit probabilities; legal rank constants.</p><ol class="steps"><li>Set \(\widehat E=0\) and \(u_{0,y}=0\).</li><li><p>In each round \(i=1,\ldots,K\) do the following.</p><ol><li><span class="invoke">\((Z)\gets\) <a class="id" href="../components/L-MATMUL.html">L-MATMUL</a>\((\widehat E,C)\)</span>. Set \(G=C+Z\).</li><li>For every seed \(\sigma\) and row \(x\), form \(v=(G_{xz}/f:Y_f(z)=1)\); <span class="invoke">\((s)\gets\) <a class="id" href="../components/L-RANK.html">L-RANK</a>\((v,k_{\rm row},0)\)</span>; set \(r_x(\sigma)=\rho(s)\).</li><li>For every \((\sigma,y)\) form \(v=(\phi(G_{xy}/f)r_x(\sigma):X_f(x)=1)\); <span class="invoke">\((b_{\sigma,y})\gets\) <a class="id" href="../components/L-RANK.html">L-RANK</a>\((v,j_{\rm det},0)\)</span>.</li><li>For each \(y\), sum \(b_{\sigma,y}\) over \(Y_f(y)=1\) and divide by that sublist's length to obtain \(u_{i,y}\).</li><li>Scan \(h=1,\ldots,i\) for the largest \(u_{h,y}\); set \(\widehat g_{i,y}=\gamma(\max_hu_{h,y})\) and \(\widehat E_{xy}=fQ(G_{xy}/f)\widehat g_{i,y}\).</li></ol></li><li>Return \((\widehat g_K,u)\) and discard \(\widehat E\).</li></ol></section>
+<section class="panel proof" aria-labelledby="proof-pilot-detector"><h2 id="proof-pilot-detector">What to prove</h2><p class="kicker">Open proof obligation · §4.2</p><p>Show that each enabled column has a bounded number of substantial candidates at its scale, and that the columns requiring copies can be counted from the total incidence bound.</p></section>
+<section class="panel rel" aria-labelledby="rel"><h2 id="rel">Relationships</h2><h3>Calls</h3><p class=why>Runs another routine at runtime or in the explicit logical reference.</p><ul><li class=""><a class="id" href="../components/L-MATMUL.html">L-MATMUL</a> <span class="t">Multiply explicit rational arrays</span> <span class="why">Step 2</span></li><li class=""><a class="id" href="../components/L-RANK.html">L-RANK</a> <span class="t">Rank with an explicit padding value</span> <span class="why">Step 2</span></li></ul><h3>Called by</h3><ul><li class=""><a class="id" href="../components/L-HIERARCHY.html">L-HIERARCHY</a> <span class="t">The exact reward hierarchy</span></li></ul></section>
+</main><aside aria-label="Section outline"><div class="outline-box"><h2><a href="../ingredients/shortcutting.html">§4 Selective shortcutting</a></h2><details class="outline"><summary>§4.1 A dense threshold example</summary><ul><li><a href="../operations/hard-threshold-example.html">Operation overview</a></li><li class=""><a href="../components/L-DENSE.html">L-DENSE</a></li></ul></details><details class="outline" open><summary>§4.2 Detect crowded correction columns</summary><ul><li><a href="../operations/pilot-detector.html">Operation overview</a></li><li class=""><a href="../components/L-PILOT.html" aria-current=page>L-PILOT</a></li></ul></details><details class="outline"><summary>§4.3 Compute the exact correction</summary><ul><li><a href="../operations/frozen-correction.html">Operation overview</a></li><li class=""><a href="../components/L-CORRECT.html">L-CORRECT</a></li></ul></details><p><a href="../index.html#ingredients">All ingredients</a></p></div></aside></div></body></html>

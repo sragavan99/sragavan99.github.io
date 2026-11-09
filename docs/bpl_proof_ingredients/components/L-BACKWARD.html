@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-root="../" data-mode="exact"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>L-BACKWARD: Exact continuation values</title>
+<script>try{if(new URLSearchParams(location.search).get('mode')==='full')document.documentElement.dataset.mode='full';}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/search.js"></script>
+<script defer src="../assets/site.js"></script>
+
+</head><body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
+<nav aria-label="Pages"><a href="../index.html" aria-current=page>Guide</a><a href="../map.html">Map</a><a href="../toy_apis.html">Toy APIs</a><a href="../reference.html">Reference</a></nav>
+<div class="search"><label class="visually-hidden" for="q">Search components</label>
+<input id="q" type="search" placeholder="Search by ID or title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="q-results" aria-autocomplete="list">
+<ul id="q-results" role="listbox" hidden></ul></div>
+<div class="mode-switch" role="group" aria-label="Comparison mode">
+<button type="button" data-set-mode="exact" aria-pressed="true">Exact names</button><button type="button" data-set-mode="full" aria-pressed="false">Full space</button></div></div></header>
+<div class="layout with-outline"><main id="content">
+<p class="crumbs"><a href="../index.html">Guide</a> › <a href="../sections/setup.html">§2 Input, base graph, and exact target</a> › <a href="../operations/base-graph.html">§2.2 Paired base graph and continuation values</a> › L-BACKWARD</p>
+<p class="kicker">Logical routine · Both modes</p>
+<h1><span class="id-title">L-BACKWARD</span><br>Exact continuation values</h1>
+<p class="where">Manuscript: Algorithm L-BACKWARD, §2.2 Paired base graph and continuation values, p. 5.</p>
+
+<section class="panel" aria-labelledby="io"><h2 id="io">Input and output</h2>
+<p class="kicker">Explicit interface · Exact continuation values</p>
+<span class="signature">\(\Call{L-BACKWARD}(S,e)\longrightarrow(p)\)</span>
+<p>An explicitly stored rational strictly forward matrix \(S\) and terminal indicator \(e\) determine one rational vector \(p\). The result is the complete continuation vector, not an entry oracle. Repeated labelled edges have already been added to the corresponding matrix entry.</p><p><strong>State and cost.</strong> Full vector and exact rational accumulator; no bit-space bound. Both finite loops decrease their remaining counts.</p></section>
+
+<section class="panel" aria-labelledby="steps"><h2 id="steps">Algorithm</h2>
+<p><strong>Requires.</strong> \(S\ge0\), \(S\mathbf1\le\mathbf1\), terminal rewards only.</p><ol class="steps"><li>Set every coordinate of \(p\) to zero.</li><li>For \(x\) in reverse vertex order, set \(v=e(x)\).</li><li>For each \(y&gt;x\), update \(v\gets v+S_{xy}p(y)\); then set \(p(x)=v\).</li><li>Return \(p\).</li></ol></section>
+<section class="panel proof" aria-labelledby="proof-base-graph"><h2 id="proof-base-graph">What to prove</h2><p class="kicker">Open proof obligation · §2.2</p><p>Verify the probability-preserving base conversion, the name convention, and both directions of the port pairing. Check the setup ranges and halting behavior on malformed and zero-layer inputs.</p></section>
+<section class="panel rel" aria-labelledby="rel"><h2 id="rel">Relationships</h2><h3>Calls</h3><p class=why>Runs another routine at runtime or in the explicit logical reference.</p><p class="none">None.</p><h3>Called by</h3><p class="none">None.</p></section>
+</main><aside aria-label="Section outline"><div class="outline-box"><h2><a href="../sections/setup.html">§2 Input, base graph, and exact target</a></h2><details class="outline"><summary>§2.1 Input and output</summary><ul><li><a href="../operations/input-target.html">Operation overview</a></li></ul></details><details class="outline" open><summary>§2.2 Paired base graph and continuation values</summary><ul><li><a href="../operations/base-graph.html">Operation overview</a></li><li class=""><a href="../components/L-BACKWARD.html" aria-current=page>L-BACKWARD</a></li><li class=""><a href="../components/P-SETUP.html">P-SETUP</a></li><li class=""><a href="../components/P-BASE.html">P-BASE</a></li></ul></details><p><a href="../index.html#ingredients">All ingredients</a></p></div></aside></div></body></html>
