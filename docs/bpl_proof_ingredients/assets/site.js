@@ -17,12 +17,16 @@ function setMode(mode){
   if(doc.dataset.mode==='full')params.set('mode','full');else params.delete('mode');
   const q=params.toString();history.replaceState(history.state,'',location.pathname+(q?'?'+q:'')+location.hash);
   rewriteLinks();
+  document.dispatchEvent(new CustomEvent('bpl:mode'));
 }
+window.bplRewriteLinks=rewriteLinks;
+const mathOptions={delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],
+  macros:{'\\Call':'\\textsf{#1}'},throwOnError:false,ignoredClasses:['no-math']};
+window.bplRenderMath=el=>{if(window.renderMathInElement)renderMathInElement(el,mathOptions);};
 document.addEventListener('DOMContentLoaded',()=>{
   setMode(doc.dataset.mode);
   for(const b of document.querySelectorAll('[data-set-mode]'))b.addEventListener('click',()=>setMode(b.dataset.setMode));
-  if(window.renderMathInElement)renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],
-    macros:{'\\Call':'\\textsf{#1}'},throwOnError:false,ignoredClasses:['no-math']});
+  window.bplRenderMath(document.body);
   // Outline: open only the selected branch (from the hash), with expand/collapse controls.
   const target=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));
   if(target){let d=target.closest('details');while(d){d.open=true;d=d.parentElement.closest('details');}if(target.tagName==='DETAILS')target.open=true;}

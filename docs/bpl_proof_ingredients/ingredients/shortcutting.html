@@ -10,6 +10,7 @@
 <script defer src="../assets/search.js"></script>
 <script defer src="../assets/site.js"></script>
 
+
 </head><body>
 <a class="skip" href="#content">Skip to content</a>
 <header class="site"><div class="site-row"><a class="brand" href="../index.html">BPL proof ingredients</a>
@@ -26,7 +27,7 @@
 <section class="panel" aria-labelledby="big"><h2 id="big">The big picture</h2>
 <p class="kicker">Map ingredient 1 · toy API</p><p class="where">Estimate column crowding; shortcut selectively to reduce edge weights.</p>
 <dl class="api"><div><dt>Input</dt><dd>A forward transition graph with some large edge weights.</dd></div><div><dt>Output</dt><dd>Smaller residual weights at eligible destinations, preserving acceptance values after updating accumulated acceptance contributions.</dd></div><div><dt>Upstream purpose</dt><dd>Reduce transition weights where the correction can have controlled incoming degree.</dd></div><div><dt>Approach</dt><dd>Trial runs estimate column crowding and decide where to shortcut. <span class="toy">Toy</span> a weight-1/2 edge through a vertex with no immediate acceptance contribution and two weight-1/2 outgoing edges becomes two weight-1/4 shortcuts.</dd></div></dl><p class="label">Improves</p><p>Large edge weights</p><p class="label">Introduces or worsens</p><p>High-indegree vertices; Dense rows; Missing reverse access</p><p class="label">Used by tasks</p><p>Task 1: Approximating matrix powers with a sequence of corrector matrices; Task 3: Compute an O(16ⁱ)-sparse Eᵢ in low space</p>
-<p><a href="../map.html#on=1&amp;api=1">Show on the map →</a> · <a href="../toy_apis.html#ingredient-1">All toy APIs →</a></p></section>
+<p><a href="../map.html#on=1&amp;api=1">Show on the map →</a> · <a href="../toy_apis.html#ingredient-1">All toy APIs →</a></p></section><section class="panel"><h2>In the physical algorithm</h2><p>This ingredient has no physical routines of its own. Its corrections and copies enter the physical algorithm through the task families: the pilot and actual corrections and the residual copies in <a class="id" href="../reference.html#D-ROWFAMILIES">D-ROWFAMILIES</a> and <a class="id" href="../reference.html#D-CHILD">D-CHILD</a>, whose fields <a class="id" href="../components/P-CHILD.html">P-CHILD</a> returns and whose sample terms <a class="id" href="../components/P-INTRINSICVALUE.html">P-INTRINSICVALUE</a> evaluates.</p></section>
 <section class="panel" aria-labelledby="ops"><h2 id="ops">Operations in manuscript order</h2>
 <p class="where">Open an operation to see its logical reference and physical queries.</p>
 <div class="toolbar-inline"><button type="button" data-expand="#content details.outline" data-open="1">Expand all</button>

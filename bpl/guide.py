@@ -1,6 +1,7 @@
 """Generate the component-guide pages from bpl/data/guide.json (see manuscript.py)."""
 
 import html
+import json
 import re
 import xml.etree.ElementTree as ET
 
@@ -19,7 +20,59 @@ WALKTHROUGH = [
     ("P-ARRIVAL", None, "Supply the signed weighted digit for this record: the signed arrival."),
 ]
 WALKTHROUGH_NEXT = ["group-arrivals", "compress-and-select", "final-row"]
+# The guide's statement of the §1 toy problem, in TeX, drawn from the numbers and steps in §1.1.
+TOY_PROBLEM = r"""The correction step needs the product \(EC\) of a correction matrix \(E\) and the transition matrix \(C\).
+One term of its \((x,y)\) entry follows a correction edge from the source \(x\) to a sampled midpoint \(z\), then a transition
+from \(z\) to the destination \(y\). In the example at stage \(l\), the two sampled entries are \(1/2\) and \(1/4\), so with the
+midpoint retained the term contributes \(f_l/(8\pi_{f_l})\) to the logical sample.
+
+\textbf{The problem:} produce the digits of this one contribution on demand, in low space. Starting at \(x\), the evaluator must
+move to \(z\) along the correction edge, read the transition entry there, and return to \(x\). It keeps only a bounded port token
+for the way back rather than the source's name, and it never stores either entry in full. The steps below show which routines do each part."""
 KIND = {"logical": "Logical routine", "physical": "Physical routine", "terminal": "Terminal program"}
+# The guide's own top-down grouping of the physical routines (not manuscript text). Every physical
+# routine must appear exactly once; the build checks this.
+LAYERS = [
+    ("root", "Root", "Validate the input and fix the finite parameters, then return the median over seeds.",
+     [("", "", ["P-ROOT", "P-SETUP"])]),
+    ("derandomize", "Derandomization (§12)", "Enumerate every admitted seed and return the lower median of the trial values. "
+     "Each candidate answer rescans the seeds and recomputes the trials, so no list of seeds or values is stored.",
+     [("", "", ["P-MEDIAN", "P-SEEDS", "P-TRIAL"])]),
+    ("queries", "The two recursive queries", "Every estimate is a digit of a row entry (P-ROW) or of a vector (P-VECTOR) for one "
+     "task. Together they implement the logical estimator L-ESTIMATE. Answering a query asks only for queries at smaller budgets, "
+     "which is where the recursion ends.", [("", "", ["P-ROW", "P-VECTOR"])]),
+    ("inside", "Inside one query", "L-ESTIMATE builds a row bottom-up: sample terms, averaged differences, grouping, compression, "
+     "final gates. A physical query runs that pipeline backwards on demand. The final gates ask for the compressed raw row, which asks "
+     "for grouped sums, which ask for single arrivals, which ask for child queries at smaller budgets. A vector query skips grouping "
+     "and compression and averages scalar arrivals directly.",
+     [("gates", "Final gates (§6.2)", ["P-LOCAL", "P-INCOMING", "P-CAP", "P-CLASS", "P-RAWRANK"]),
+      ("raw", "Compressed raw row (§8.2)", ["P-RAWNUM", "P-SELECT", "P-COMPRESS", "P-THRESHOLD", "P-INTERMEDIATERANK"]),
+      ("grouping", "Grouping arrivals (§8.1, §9.4)", ["P-REPRESENTATIVE", "P-MERGE", "P-MATCH", "P-MATCH-HASH"]),
+      ("arrivals", "Sample terms and arrivals (§3.3, §7)", ["P-SCALARPREFIX", "P-ARRIVAL", "P-VALID", "P-DESCRIPTOR",
+                                                           "P-INTRINSICVALID", "P-INTRINSICVALUE"])]),
+    ("infra", "Infrastructure", "Routines used at every level: digit-stream arithmetic, rebuilding tasks and seeds from short records, "
+     "and moving between endpoints without saving vertex names.",
+     [("arith", "Arithmetic (§11)", ["P-NUMSTEP", "P-NODESTEP", "P-AFFINE", "P-MULTIPLY", "P-RECIPROCAL", "P-RANK"]),
+      ("rebuild", "Rebuilding tasks and seeds (§3, §7.1, §9.1)", ["P-REPLAY", "P-CHILD", "P-WORD", "P-SEEDSTEP", "P-MEMBER"]),
+      ("navigate", "Moving without saving names (§2.2, §9, §10)", ["P-BASE", "T-INTRINSIC", "T-DESCRIPTOR", "T-RAW", "T-FINAL", "T-SCORE",
+                                                                   "P-VISITPOOL", "P-VISITRAW", "P-VISITINTRINSIC", "P-ENDPOINT",
+                                                                   "P-ENDPOINT-KEY", "P-KEY", "P-PROBE", "P-TOUR", "P-INCOMINGRANK"])]),
+]
+EDGE_KINDS = {"budget": "smaller budget", "slack": "previous slack level", "completed": "completed raw row"}
+NO_PHYSICAL = ("This ingredient has no physical routines of its own. Its corrections and copies enter the physical algorithm through "
+               "the task families: the pilot and actual corrections and the residual copies in D-ROWFAMILIES and D-CHILD, whose fields "
+               "P-CHILD returns and whose sample terms P-INTRINSICVALUE evaluates.")
+
+
+def edge_kind(callee, arguments):
+    """Classify a call by its task argument, as written in the manuscript's pseudocode."""
+    if callee in ("P-ROW", "P-VECTOR", "P-INCOMING") and re.search(r"\\rm leaf|_R\b|\\rm score|m-c", arguments):
+        return "budget"
+    if re.search(r"\[2d\]|^\\mathcal T,2d,", arguments):
+        return "slack"
+    if "[1]" in arguments:
+        return "completed"
+    return ""
 
 
 def kind_of(c):
@@ -353,7 +406,7 @@ class Guide:
 <p class="crumbs"><a href="{root}index.html">Guide</a> › <a href="{root}index.html#ingredients">Ingredients</a></p>
 <p class="kicker">{kicker} · §{s["number"]}</p><h1>{html.escape(s["title"])}</h1>
 <p class="where">Manuscript: §{s["number"]}, from {self.where("section", slug)}.</p>
-{big}{intro}
+{big}{self.physical_note(root, slug)}{intro}
 <section class="panel" aria-labelledby="ops"><h2 id="ops">Operations in manuscript order</h2>
 <p class="where">Open an operation to see its logical reference and physical queries.</p>
 <div class="toolbar-inline"><button type="button" data-expand="#content details.outline" data-open="1">Expand all</button>
@@ -394,7 +447,9 @@ class Guide:
         for cid, mode, caption in WALKTHROUGH:
             c, o = self.comps[cid], self.ops[self.comps[cid]["operation"]]
             label = f"{cid} ({mode})" if mode else cid
-            steps.append(f'<li><a class="id" href="components/{cid}.html">{label}</a> <span class="t">{html.escape(c["title"])}</span>'
+            show = (f' <button type="button" class="x-show" data-focus="{cid}">Show in the overview</button>'
+                    if c["kind"] != "logical" else "")
+            steps.append(f'<li><a class="id" href="components/{cid}.html">{label}</a> <span class="t">{html.escape(c["title"])}</span>{show}'
                          f'<span class="why">{html.escape(caption)} §{o["number"]}.</span></li>')
         nxt = " → ".join(f'<a href="{self.url("operation", s)}">§{self.ops[s]["number"]} {html.escape(self.ops[s]["title"])}</a>' for s in WALKTHROUGH_NEXT)
         outline = []
@@ -412,6 +467,7 @@ class Guide:
                                   f'<p><a href="{self.url("section", s["slug"])}">Open the {"ingredient" if item else "section"} page →</a></p><ul>{ops}</ul></details>'))
         ingredients = "".join(h for k, h in outline if k == "ingredient")
         shared = "".join(h for k, h in outline if k == "shared")
+        toy_problem = conv(TOY_PROBLEM)
         body = f"""<main class="page" id="content">
 <p class="kicker">Component guide</p><h1>A component guide to branching-program acceptance</h1>
 <p class="where">Logical algorithms and their low-space implementations. A navigation layer for the manuscript; section and page numbers refer to it.</p>
@@ -421,11 +477,16 @@ class Guide:
 <li><strong>Full space</strong>: the logarithmic-space proposal, using fingerprints at tight space budgets. Conditional.</li></ul>
 <p class="where">Use the switch at the top to choose a comparison mode. Throughout the guide, an <em>explicit interface</em> is a component’s stated behavior, and <em>What to prove</em> marks an open proof obligation.</p></section>
 <section class="panel"><h2>Start with the big picture</h2><p>The <a href="map.html">map</a> shows how tasks use the ten ingredients and which obstacles each one improves or worsens. The <a href="toy_apis.html">toy APIs</a> state what each ingredient accomplishes. Each ingredient page below joins that picture to its operations and routines.</p></section>
-<section class="panel" id="walkthrough" aria-labelledby="walk-h"><h2 id="walk-h">Follow one product</h2>
+<section class="panel" aria-labelledby="overview-h"><h2 id="overview-h">How the physical algorithm fits together</h2>
+<p>The physical algorithm, top-down from the root. The layers and their descriptions are this guide’s summary; the routines and calls come from the manuscript.</p>
+{self.explorer(root)}</section>
+<section class="panel" id="walkthrough" aria-labelledby="walk-h"><h2 id="walk-h">Worked example: one correction product</h2>
+<details class="outline" id="worked-example"><summary>The toy problem from §1, step by step</summary>
+<div class="toy-problem"><p class="kicker">The toy problem</p>{toy_problem}</div>
 <h3 id="op-{product["slug"]}">§{product["number"]} {html.escape(product["title"])}</h3>
 <ol class="steps">{"".join(steps)}</ol><p><strong>Then:</strong> {nxt}.</p>
 <details class="outline"><summary>Read §{product["number"]} in full</summary>{"".join(conv(b["tex"]) for b in product["blocks"] if b["type"] == "prose")}</details>
-<h3 id="op-{order["slug"]}">§{order["number"]} {html.escape(order["title"])}</h3>{"".join(conv(b["tex"]) for b in order["blocks"] if b["type"] == "prose")}</section>
+<h3 id="op-{order["slug"]}">§{order["number"]} {html.escape(order["title"])}</h3>{"".join(conv(b["tex"]) for b in order["blocks"] if b["type"] == "prose")}</details></section>
 <section class="panel" id="ingredients" aria-labelledby="ing-h"><h2 id="ing-h">Browse ingredients</h2>
 <p class="where">In manuscript order. Open an ingredient to see its operations and their routines.</p>
 <div class="toolbar-inline"><button type="button" data-expand="#ingredients details.outline" data-open="1">Expand all</button>
@@ -434,8 +495,92 @@ class Guide:
 <p>The finite definitions are in the <a href="reference.html">reference area</a>.</p></section>
 </main>"""
         script = """<script>if(/(^#|&)(on|api)=/.test(location.hash))location.replace('map.html'+location.search+location.hash);</script>"""
-        return page("BPL proof ingredients", "guide", script + body, root=root, math=True,
+        return page("BPL proof ingredients", "guide", script + body, root=root, math=True, extra_scripts=["explorer.js"],
                     description="A component guide to the BPL construction")
+
+    def layer_of(self):
+        out = {}
+        for key, title, _, groups in LAYERS:
+            for gkey, gtitle, ids in groups:
+                for i in ids:
+                    if i in out or i not in self.comps or self.comps[i]["kind"] == "logical":
+                        raise SystemExit(f"build.py: layer table lists {i} twice or as a non-physical routine")
+                    out[i] = (key, title, gtitle)
+        missing = sorted(i for i, c in self.comps.items() if c["kind"] != "logical" and i not in out)
+        if missing:
+            raise SystemExit(f"build.py: physical routines missing from the layer table: {missing}")
+        return out
+
+    def example_ids(self):
+        """Physical routines named in §1.1, the worked example."""
+        o = self.ops[self.sections["walkthrough"]["operations"][0]]
+        tex = " ".join(b["tex"] for b in o["blocks"] if b["type"] == "prose")
+        return [i for i in dict.fromkeys(re.findall(r"\\Aref\{([^}]+)\}", tex)) if self.comps[i]["kind"] != "logical"]
+
+    def explorer(self, root):
+        """Data, panel templates and markup for the interactive overview of the physical algorithm."""
+        conv = self.converter(root)
+        layers = self.layer_of()
+        example = set(self.example_ids())
+        nodes, templates = [], []
+        for c in self.data["components"]:
+            if c["kind"] == "logical":
+                continue
+            o = self.ops[c["operation"]]
+            nodes.append(dict(id=c["id"], title=c["title"], layer=layers[c["id"]][0], full=c["full_only"],
+                              example=c["id"] in example, url=self.url("component", c["id"])))
+            interface = conv(c["interface"])
+            first = interface.split("</p>", 1)[0] + "</p>" if interface.startswith("<p>") else ""
+            where = f'{KIND[kind_of(c)]} · §{o["number"]} {html.escape(o["title"])}'
+            templates.append(
+                f'<template id="x-tpl-{c["id"]}"><p class="kicker">{where}{" · <span class=mode-tag>Full space only</span>" if c["full_only"] else ""}</p>'
+                f'<h3><a href="{root}{self.url("component", c["id"])}">{c["id"]}</a> {html.escape(c["title"])}</h3>'
+                f'{manuscript.signature_html(conv, c["id"], c["signature"]["arguments"], c["signature"]["returns"])}{first}</template>')
+        edges = {}
+        for c in self.data["components"]:
+            if c["kind"] == "logical":
+                continue
+            for mode in ("exact", "full"):
+                for callee in c["callees"][mode]:
+                    e = edges.setdefault((c["id"], callee), dict(s=c["id"], t=callee, modes=[], steps=[], kind=""))
+                    if mode not in e["modes"]:
+                        e["modes"].append(mode)
+            for inv in c["invokes"]:
+                e = edges[(c["id"], inv["callee"])]
+                if inv["step"] and inv["step"] not in e["steps"]:
+                    e["steps"].append(inv["step"])
+                k = edge_kind(inv["callee"], inv["arguments"])
+                if k and not e["kind"]:
+                    e["kind"] = k
+        layer_data = [dict(key=k, title=t, desc=d, groups=[dict(key=gk or k, title=gt, ids=ids) for gk, gt, ids in g])
+                      for k, t, d, g in LAYERS]
+        payload = json.dumps(dict(nodes=nodes, edges=list(edges.values()), layers=layer_data, kinds=EDGE_KINDS),
+                             ensure_ascii=False).replace("<", "\\u003c")
+        return f"""<div class="explorer" id="explorer">
+<div class="x-bar"><nav class="x-crumbs" id="x-crumbs" aria-label="Path through the call tree"></nav>
+<label class="x-example"><input type="checkbox" id="x-example"> Mark the worked example</label></div>
+<div class="x-body"><div class="x-stage" id="x-stage" aria-hidden="true"><svg class="x-lines" aria-hidden="true"></svg></div>
+<aside class="x-panel" id="x-panel" aria-live="polite"></aside></div>
+<p class="where">Click a routine to centre it: callers on the left, the routines it calls on the right, in step order. Labels mark calls to a
+<strong>smaller budget</strong> (the recursion), to the <strong>previous slack level</strong> of the same task, and to its <strong>completed raw row</strong>.
+Infrastructure calls are grouped; click a group to expand it. The panel lists the same links for keyboard use.</p>
+<script type="application/json" id="explorer-data">{payload}</script>{"".join(templates)}</div>"""
+
+    def physical_note(self, root, slug):
+        """Where an ingredient's routines sit in the physical algorithm."""
+        layers = self.layer_of()
+        ids = [c["id"] for c in self.data["components"] if c["section"] == slug and c["kind"] != "logical"]
+        if not ids:
+            conv = self.converter(root)
+            note = conv(re.sub(r"\b(D-ROWFAMILIES|D-CHILD)\b", r"\\Dref{\1}", re.sub(r"\b(P-CHILD|P-INTRINSICVALUE)\b", r"\\Aref{\1}", NO_PHYSICAL)))
+            return f'<section class="panel"><h2>In the physical algorithm</h2>{note}</section>'
+        items = "".join(
+            f'<li class="{"full-only-entry" if self.comps[i]["full_only"] else ""}">{self.a(root, "component", i)} '
+            f'<span class="t">{html.escape(self.comps[i]["title"])}</span><span class="why">{html.escape(layers[i][1])}'
+            f'{" · " + html.escape(layers[i][2]) if layers[i][2] else ""} · <a href="{root}index.html#focus={i}">show in the overview</a></span></li>'
+            for i in ids)
+        return (f'<section class="panel"><h2>In the physical algorithm</h2><p class="where">Where this section’s physical routines sit '
+                f'in the top-down overview on the home page.</p><ul class="comp-list">{items}</ul></section>')
 
     def search_index(self):
         entries = [dict(k="Page", i="Map", t="Map", u="map.html"), dict(k="Page", i="Toy APIs", t="Toy APIs", u="toy_apis.html")]
