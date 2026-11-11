@@ -88,7 +88,7 @@ NAACL Student Research Workshop, 2021<br/>
 <br/>
 # Manuscripts
 
-**Doubly-Efficient Private Information Retrieval from Modular Forms** [[arXiv]](https://arxiv.org/abs/2611.11859)<br/>
+**Doubly-Efficient Private Information Retrieval from Modular Forms** [[arXiv]](https://arxiv.org/abs/2611.11859) [[ePrint]](https://eprint.iacr.org/2026/2836)<br/>
 [Alexandra Henzinger](https://people.csail.mit.edu/ahenz/) and **SR**<br/>
 
 **Quantum Algorithms for OPI Variants Beyond Locality and Classical Decodability** [[arXiv]](https://arxiv.org/abs/2610.00502)<br/>
